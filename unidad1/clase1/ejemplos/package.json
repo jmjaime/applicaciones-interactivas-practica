@@ -1,0 +1,58 @@
+{
+  "name": "ejemplos-mappeo-sql",
+  "version": "1.0.0",
+  "description": "Ejemplos de mapeo de datos: embebido, herencia y relaciones usando SQL puro",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "dev:watch": "nodemon --exec ts-node src/index.ts",
+    "clean": "rm -rf dist *.sqlite",
+
+    
+    "mapeo-basico-sql": "ts-node src/01-mapeo-basico/example.ts",
+    "mappeo-embebido": "echo '=== MAPPEO EMBEBIDO (SQL) ===' && npm run multiple-columns-sql && npm run comma-separated-sql && npm run json-mapping-sql",
+    "multiple-columns-sql": "ts-node src/02-mappeo-embebido/multiple-columns/example.ts",
+    "comma-separated-sql": "ts-node src/02-mappeo-embebido/comma-separated/example.ts",
+    "json-mapping-sql": "ts-node src/02-mappeo-embebido/json-mapping/example.ts",
+    
+    "mappeo-herencia": "echo '=== MAPPEO HERENCIA (SQL) ===' && npm run table-per-hierarchy-sql && npm run table-per-class-sql && npm run joined-table-sql",
+    "table-per-hierarchy-sql": "ts-node src/03-mappeo-herencia/table-per-hierarchy/example.ts",
+    "table-per-class-sql": "ts-node src/03-mappeo-herencia/table-per-class/example.ts",
+    "joined-table-sql": "ts-node src/03-mappeo-herencia/joined-table/example.ts",
+    
+    "mappeo-relaciones": "echo '=== MAPPEO RELACIONES (SQL) ===' && npm run one-to-one-sql && npm run one-to-many-sql && npm run many-to-one-sql && npm run many-to-many-sql",
+    "one-to-one-sql": "ts-node src/04-mappeo-relaciones/one-to-one/example.ts",
+    "one-to-many-sql": "ts-node src/04-mappeo-relaciones/one-to-many/example.ts",
+    "many-to-one-sql": "ts-node src/04-mappeo-relaciones/many-to-one/example.ts",
+    "many-to-many-sql": "ts-node src/04-mappeo-relaciones/many-to-many/example.ts",
+    
+    
+    "all-sql": "npm run mapeo-basico-sql && npm run multiple-columns-sql && npm run comma-separated-sql && npm run json-mapping-sql && npm run table-per-hierarchy-sql && npm run table-per-class-sql && npm run joined-table-sql && npm run one-to-one-sql && npm run one-to-many-sql && npm run many-to-one-sql && npm run many-to-many-sql"
+  },
+  "keywords": [
+    "sqlite", 
+    "sql", 
+    "nodejs", 
+    "typescript", 
+    "mapping", 
+    "embedded-mapping",
+    "inheritance-mapping",
+    "relational-mapping",
+    "database-design",
+    "educational"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.0.7",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+} 

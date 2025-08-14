@@ -1,0 +1,61 @@
+{
+  "name": "ejercicios-clase1-sql",
+  "version": "1.0.0",
+  "description": "Ejercicios prácticos de mapeo con SQL plano: herencia y relaciones",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "dev:watch": "nodemon --exec ts-node src/index.ts",
+    "clean": "rm -rf dist *.sqlite *.db",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    
+    "herencia": "echo '=== EJERCICIO HERENCIA (SQL) ===' && npm run tph-sql && npm run tpt-sql && npm run tpc-sql",
+    "tph-sql": "ts-node src/01-herencia/table-per-hierarchy/exercise.ts",
+    "tpt-sql": "ts-node src/01-herencia/table-per-type/exercise.ts",
+    "tpc-sql": "ts-node src/01-herencia/table-per-class/exercise.ts",
+    
+    "relaciones": "echo '=== EJERCICIO RELACIONES (SQL) ===' && npm run one-to-one-sql && npm run one-to-many-sql && npm run many-to-many-sql",
+    "one-to-one-sql": "ts-node src/02-relaciones/one-to-one/exercise.ts",
+    "one-to-many-sql": "ts-node src/02-relaciones/one-to-many/exercise.ts",
+    "many-to-many-sql": "ts-node src/02-relaciones/many-to-many/exercise.ts",
+    
+    "all-sql": "npm run herencia && npm run relaciones"
+  },
+  "keywords": [
+    "sqlite", 
+    "sql", 
+    "nodejs", 
+    "typescript", 
+    "mapping", 
+    "inheritance",
+    "relations",
+    "database-design",
+    "educational"
+  ],
+  "author": "UADE - Aplicaciones Interactivas",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20.10.0",
+    "@types/readline-sync": "^1.4.8",
+    "typescript": "^5.3.0",
+    "ts-node": "^10.9.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "@types/jest": "^29.5.12",
+    "nodemon": "^3.1.10",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+} 
