@@ -57,6 +57,10 @@ npm run table-per-class
 
 # Optimización
 npm run optimization
+
+# Migraciones
+npm run migrations
+npm run migrations:fk
 ```
 
 3. Limpiar archivos generados
@@ -126,6 +130,13 @@ npm run table-per-class
 
 ```bash
 npm run optimization     # ⚡ N+1, índices, SELECT específicos, batch, métricas
+```
+
+### **10. Migraciones**
+
+```bash
+npm run migrations       # 🧱 Crear y ejecutar migraciones
+npm run migrations:fk    # 🔗 Ejemplo con claves foráneas
 ```
 
 ---

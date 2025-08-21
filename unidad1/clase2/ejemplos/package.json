@@ -20,6 +20,8 @@
     "table-per-hierarchy": "ts-node src/08-inheritance/table-per-hierarchy/example.ts",
     "table-per-class": "ts-node src/08-inheritance/table-per-class/example.ts",
     "optimization": "ts-node src/09-optimization/example.ts",
+    "migrations": "ts-node src/10-migrations/example.ts",
+    "migrations:fk": "ts-node src/10-migrations/foreign-key-example.ts",
     "setup": "ts-node src/setup-database.ts",
     "seed": "ts-node src/seed-data.ts"
   },

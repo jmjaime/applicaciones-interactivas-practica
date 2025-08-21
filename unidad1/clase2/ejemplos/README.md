@@ -130,6 +130,17 @@ Técnicas avanzadas para optimizar aplicaciones TypeORM:
 npm run optimization
 ```
 
+### 10. **Migraciones** (`10-migrations/`)
+
+- Creación y ejecución de migraciones
+- Estrategias para cambios de esquema en producción
+- Ejemplo de migración con claves foráneas
+
+```bash
+npm run migrations         # Ejecuta ejemplo principal de migraciones
+npm run migrations:fk      # Ejemplo de migraciones con claves foráneas
+```
+
 **Resultados del ejemplo:**
 
 - 🔴 Problema N+1: 6 queries → 1 query (mejora 83%)
@@ -212,7 +223,7 @@ import "reflect-metadata";
 
 ## 🎉 ¡Proyecto Completado!
 
-Con estos 9 ejemplos tienes una base sólida para:
+Con estos 10 ejemplos tienes una base sólida para:
 
 - **Entender TypeORM** desde conceptos básicos hasta avanzados
 - **Optimizar performance** de aplicaciones reales
