@@ -1,0 +1,48 @@
+{
+  "name": "typeorm-examples",
+  "version": "1.0.0",
+  "description": "Ejemplos prácticos de TypeORM para la Clase 2",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "clean": "rm -rf dist *.sqlite",
+    "clean:win": "rimraf dist \"*.sqlite\"",
+    "entities": "ts-node src/01-entities/example.ts",
+    "restrictions": "ts-node src/02-restrictions/example.ts",
+    "relations": "ts-node src/03-relations/example.ts",
+    "lazy-eager": "ts-node src/04-lazy-eager/example.ts",
+    "transactions": "ts-node src/05-transactions/example.ts",
+    "embedded": "ts-node src/06-embedded/example.ts",
+    "query-builder": "ts-node src/07-query-builder/example.ts",
+    "inheritance": "ts-node src/08-inheritance/example.ts",
+    "table-per-hierarchy": "ts-node src/08-inheritance/table-per-hierarchy/example.ts",
+    "table-per-class": "ts-node src/08-inheritance/table-per-class/example.ts",
+    "optimization": "ts-node src/09-optimization/example.ts",
+    "setup": "ts-node src/setup-database.ts",
+    "seed": "ts-node src/seed-data.ts"
+  },
+  "keywords": [
+    "typeorm",
+    "orm",
+    "typescript",
+    "database",
+    "examples"
+  ],
+  "author": "UADE - Aplicaciones Interactivas",
+  "license": "MIT",
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.1.6",
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "rimraf": "^5.0.10",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
