@@ -17,13 +17,22 @@ export async function clearAll(): Promise<void> {
 export async function createLibraries(
   libraries: Array<Partial<Library>>
 ): Promise<Library[]> {
-  // TODO: crear entidades con create() y persistir con save()
-  throw new Error("TODO: Implement createLibraries");
+  const libraryRepo = AppDataSource.getRepository(Library);
+  const librariesCreated: Library[] = [];
+
+  libraries.forEach(async (li) => {
+    const library = libraryRepo.create(li);
+    librariesCreated.push(library);
+  });
+
+  const librarySaved = await libraryRepo.save(librariesCreated);
+
+  return librariesCreated;
 }
 
 export async function listLibraries(): Promise<Library[]> {
-  // TODO: devolver todas las bibliotecas ordenadas por name ASC
-  throw new Error("TODO: Implement listLibraries");
+  const libraryRepo = AppDataSource.getRepository(Library);
+  return await libraryRepo.find();
 }
 
 export async function updateLibraryBudget(
