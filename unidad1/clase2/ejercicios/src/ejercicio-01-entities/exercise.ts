@@ -25,9 +25,7 @@ export async function createLibraries(
     librariesCreated.push(library);
   });
 
-  const librarySaved = await libraryRepo.save(librariesCreated);
-
-  return librariesCreated;
+  return await libraryRepo.save(librariesCreated);
 }
 
 export async function listLibraries(): Promise<Library[]> {

@@ -14,7 +14,7 @@ import { MedicalSpecialty, DoctorStatus } from "./entities/Doctor";
 
 describe("Ejercicio 02 - Restricciones y validaciones", () => {
   beforeAll(async () => {
-    await initializeDatabase();
+    await initializeDatabase("ej02");
   });
 
   afterAll(async () => {

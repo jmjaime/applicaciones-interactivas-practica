@@ -54,7 +54,6 @@ export enum PatientStatus {
 @Check(`"age" <= 150`)
 @Check(`"weight" > 0`)
 @Check(`"height" > 0`)
-@Index(["bloodType"]) // Índice simple para búsquedas de compatibilidad sanguínea
 @Index(["insuranceType", "insuranceNumber"]) // Índice compuesto para verificación de seguro
 @Index(["status", "isActive"]) // Índice compuesto para filtros de estado
 export class Patient {
@@ -164,7 +163,6 @@ export class Patient {
   status: PatientStatus;
 
   @Column({ type: "boolean", default: true })
-  @Index() // Índice simple para filtrar pacientes activos
   isActive: boolean;
 
   @Column({ length: 100, nullable: true })

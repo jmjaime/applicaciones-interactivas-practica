@@ -12,7 +12,7 @@ import {
 
 describe("Ejercicio 01 - Entidades básicas", () => {
   beforeAll(async () => {
-    await initializeDatabase();
+    await initializeDatabase("ej01");
   });
 
   afterAll(async () => {
