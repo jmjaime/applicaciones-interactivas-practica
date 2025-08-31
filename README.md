@@ -35,6 +35,7 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
           - [Many-to-many](unidad1/clase1/ejercicios/src/02-relaciones/many-to-many/)
 
   - **Clase 2**
+
     - **Ejemplos**
       - [README](unidad1/clase2/ejemplos/README.md)
       - [Quickstart](unidad1/clase2/ejemplos/QUICKSTART.md)
@@ -63,12 +64,18 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
         - [08 — Herencia](unidad1/clase2/ejercicios/src/ejercicio-08-inheritance/)
         - [09 — Optimización](unidad1/clase2/ejercicios/src/ejercicio-09-optimization/)
 
+  - **Clase 3**
+    - **Ejercicios**
+      - [README](unidad1/clase3/ejercicios/README.md)
+
 ## Cómo ejecutar
 
 - Para los ejemplos de `unidad1/clase1/`: ver [Quickstart de ejemplos](unidad1/clase1/ejemplos/QUICKSTART.md).
 - Para los ejercicios de `unidad1/clase1/`: ver [Quickstart de ejercicios](unidad1/clase1/ejercicios/QUICKSTART.md).
 - Para los ejemplos de `unidad1/clase2/`: ver [Quickstart de ejemplos](unidad1/clase2/ejemplos/QUICKSTART.md).
 - Para los ejercicios de `unidad1/clase2/`: ver [Quickstart de ejercicios](unidad1/clase2/ejercicios/QUICKSTART.md).
+
+- Para los ejercicios de `unidad1/clase3/`: ver [README de ejercicios](unidad1/clase3/ejercicios/README.md).
 
 ## Estructura del repositorio (resumen)
 
@@ -80,7 +87,9 @@ unidad1/
   ├─ clase1/
   │  ├─ ejemplos/            # Material de referencia y demos
   │  └─ ejercicios/          # Enunciados y tests para practicar
-  └─ clase2/
+  ├─ clase2/
      ├─ ejemplos/            # Material de referencia y demos (TypeORM avanzado)
      └─ ejercicios/          # Enunciados y tests para practicar (Clase 2)
+  └─ clase3/
+     └─ ejercicios/          # API Express + Jest (Clase 3)
 ```
