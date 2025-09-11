@@ -1,0 +1,74 @@
+### Listar productos
+GET http://localhost:3000/api/products
+Accept: application/json
+
+### Crear producto
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Teclado",
+  "price": 19999,
+  "currency": "ARS"
+}
+
+### Obtener un producto
+GET http://localhost:3000/api/products/prod_6d4640d7
+Accept: application/json
+
+### Actualizar parcialmente
+PATCH http://localhost:3000/api/products/prod_6d4640d7
+Content-Type: application/json
+
+{ "price": 21999 }
+
+### Eliminar
+DELETE http://localhost:3000/api/products/prod_demo
+
+### Productos por categoría
+GET http://localhost:3000/api/categories/cat_peripherals/products?page=1&limit=10
+Accept: application/json
+
+### Categorías
+GET http://localhost:3000/api/categories
+Accept: application/json
+
+GET http://localhost:3000/api/categories/cat_peripherals
+Accept: application/json
+
+### Tags
+GET http://localhost:3000/api/tags
+Accept: application/json
+
+GET http://localhost:3000/api/tags/tag_gaming
+Accept: application/json
+
+### Tags de un producto
+GET http://localhost:3000/api/products/prod_demo/tags
+Accept: application/json
+
+POST http://localhost:3000/api/products/prod_demo/tags
+Content-Type: application/json
+
+{ "tagId": "tag_gaming" }
+
+DELETE http://localhost:3000/api/products/prod_demo/tags/tag_gaming
+
+### Paginación offset
+GET http://localhost:3000/api/products?page=2&limit=10&sort=price,-createdAt
+Accept: application/json
+
+### Filtrado básico
+GET http://localhost:3000/api/products?status=active&categoryId=cat_peripherals
+Accept: application/json
+
+### Idempotencia con Idempotency-Key
+POST http://localhost:3000/api/payments
+Idempotency-Key: 8d2f2a9e-1b4f-4b8b-9c8b-2f1c7d3e5a90
+Content-Type: application/json
+
+{ "amount": 19999, "currency": "ARS", "orderId": "ord_01HZ..." }
+
+### Estado
+GET http://localhost:3000/api/status
+Accept: application/json

@@ -1,0 +1,353 @@
+openapi: 3.1.0
+info:
+  title: Courses API (Exercises)
+  version: 1.0.0
+  description: Contratos mínimos para los ejercicios de la clase (tema Courses).
+servers:
+  - url: http://localhost:3001
+paths:
+  /api/status:
+    get:
+      summary: Health/status
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+
+  /api/courses:
+    get:
+      summary: Listar cursos (con paginación y filtros)
+      parameters:
+        - in: query
+          name: page
+          schema: { type: integer, minimum: 1, default: 1 }
+        - in: query
+          name: limit
+          schema: { type: integer, minimum: 1, maximum: 100, default: 20 }
+        - in: query
+          name: sort
+          description: Campos separados por coma (prefijo - para descendente)
+          schema: { type: string, example: "title,-createdAt" }
+        - in: query
+          name: level
+          schema:
+            type: string
+            enum: [beginner, intermediate, advanced]
+        - in: query
+          name: instructorId
+          schema: { type: string }
+        - in: query
+          name: topics
+          description: Lista CSV de topics
+          style: form
+          explode: false
+          schema:
+            type: array
+            items: { type: string }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseListResponse'
+    post:
+      summary: Crear curso
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseCreate'
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema: { type: string }
+              description: URL del recurso creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+
+  /api/courses/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      summary: Obtener curso
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Course' }
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+    put:
+      summary: Reemplazar curso (upsert controlado)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CourseCreate' }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Course' }
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema: { type: string }
+        "400":
+          description: Bad Request
+    patch:
+      summary: Actualizar parcialmente curso
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CourseUpdate' }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Course' }
+        "404":
+          description: Not Found
+    delete:
+      summary: Eliminar curso
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+
+  /api/instructors/{id}/courses:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      summary: Listar cursos de un instructor
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CourseListResponse' }
+
+  /api/courses/{id}/topics:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      summary: Listar topics de un curso
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items: { $ref: '#/components/schemas/Topic' }
+    post:
+      summary: Vincular topic al curso
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                topicId: { type: string }
+              required: [topicId]
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema: { type: string }
+
+  /api/courses/{id}/topics/{topicId}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+      - in: path
+        name: topicId
+        required: true
+        schema: { type: string }
+    delete:
+      summary: Desvincular topic del curso
+      responses:
+        "204":
+          description: No Content
+
+  /api/enrollments:
+    post:
+      summary: Crear inscripción (idempotencia por header)
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          required: true
+          schema: { type: string, format: uuid }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/EnrollmentCreate' }
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema: { type: string }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Enrollment' }
+        "400":
+          description: Bad Request
+
+components:
+  schemas:
+    Course:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        description: { type: string }
+        level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        topicIds:
+          type: array
+          items: { type: string }
+        instructorId: { type: string }
+        createdAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [active, archived]
+      required: [id, title, createdAt]
+
+    CourseCreate:
+      type: object
+      properties:
+        title: { type: string }
+        description: { type: string }
+        level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        topicIds:
+          type: array
+          items: { type: string }
+        instructorId: { type: string }
+        status:
+          type: string
+          enum: [active, archived]
+      required: [title]
+
+    CourseUpdate:
+      type: object
+      description: Campos parciales para actualización
+      properties:
+        title: { type: string }
+        description: { type: string }
+        level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        topicIds:
+          type: array
+          items: { type: string }
+        instructorId: { type: string }
+        status:
+          type: string
+          enum: [active, archived]
+
+    CourseListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/Course' }
+        page: { type: integer, minimum: 1 }
+        limit: { type: integer, minimum: 1 }
+        total: { type: integer, minimum: 0 }
+      required: [items, page, limit, total]
+
+    Topic:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+      required: [id, name]
+
+    Instructor:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+      required: [id, name]
+
+    Enrollment:
+      type: object
+      properties:
+        id: { type: string }
+        courseId: { type: string }
+        studentId: { type: string }
+        createdAt: { type: string, format: date-time }
+      required: [id, courseId, studentId, createdAt]
+
+    EnrollmentCreate:
+      type: object
+      properties:
+        courseId: { type: string }
+        studentId: { type: string }
+      required: [courseId, studentId]
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code: { type: string }
+            message: { type: string }
+            details:
+              type: array
+              items:
+                type: object
+                properties:
+                  field: { type: string }
+                  issue: { type: string }
+

@@ -1,0 +1,64 @@
+### Status
+GET http://localhost:3001/api/status
+Accept: application/json
+
+### Courses CRUD (debes implementar)
+GET http://localhost:3001/api/courses
+
+POST http://localhost:3001/api/courses
+Content-Type: application/json
+
+{
+  "title": "Intro a APIs",
+  "level": "beginner"
+}
+
+GET http://localhost:3001/api/courses/course_demo
+
+PUT http://localhost:3001/api/courses/course_demo
+Content-Type: application/json
+
+{
+  "title": "APIs Intermedio",
+  "level": "intermediate"
+}
+
+PATCH http://localhost:3001/api/courses/course_demo
+Content-Type: application/json
+
+{
+  "level": "advanced"
+}
+
+DELETE http://localhost:3001/api/courses/course_demo
+
+### Paginación y filtros
+GET http://localhost:3001/api/courses?page=2&limit=10&sort=title,-createdAt
+
+GET http://localhost:3001/api/courses?level=beginner&instructorId=inst_demo&topics=api,http
+
+### Relaciones
+GET http://localhost:3001/api/instructors/inst_demo/courses
+
+GET http://localhost:3001/api/courses/course_demo/topics
+
+POST http://localhost:3001/api/courses/course_demo/topics
+Content-Type: application/json
+
+{
+  "topicId": "topic_http"
+}
+
+DELETE http://localhost:3001/api/courses/course_demo/topics/topic_http
+
+### Idempotencia
+POST http://localhost:3001/api/enrollments
+Idempotency-Key: 00000000-0000-0000-0000-000000000000
+Content-Type: application/json
+
+{
+  "courseId": "course_demo",
+  "studentId": "student_demo"
+}
+
+
