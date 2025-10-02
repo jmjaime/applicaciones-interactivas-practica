@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5: Galería con CSS Grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        min-height: 100vh;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+
+      .exercise-info {
+        background: #ffeaa7;
+        border-left: 5px solid #fdcb6e;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .exercise-info h2 {
+        color: #d63031;
+        margin-bottom: 1rem;
+      }
+
+      .objectives {
+        background: #f1f8e9;
+        border-left: 5px solid #4caf50;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .objectives h3 {
+        color: #388e3c;
+        margin-bottom: 1rem;
+      }
+
+      .objectives ul {
+        padding-left: 1.5rem;
+      }
+
+      .objectives li {
+        margin-bottom: 0.5rem;
+      }
+
+      .code-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .code-header {
+        background: #343a40;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+        font-weight: bold;
+      }
+
+      .code-content {
+        padding: 1.5rem;
+      }
+
+      .code-content pre {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .task {
+        background: #fff3e0;
+        border-left: 5px solid #ff9800;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 5px;
+      }
+
+      .task h4 {
+        color: #f57c00;
+        margin-bottom: 0.5rem;
+      }
+
+      .hint {
+        background: #f3e5f5;
+        border-left: 5px solid #9c27b0;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .hint strong {
+        color: #7b1fa2;
+      }
+
+      .example-box {
+        background: #e8f5e8;
+        border: 1px solid #4caf50;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .example-box h4 {
+        color: #2e7d32;
+        margin-bottom: 1rem;
+      }
+
+      .grid-diagram {
+        background: #f8f9fa;
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        padding: 2rem;
+        margin: 1.5rem 0;
+        font-family: monospace;
+        text-align: center;
+      }
+
+      .grid-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+      }
+
+      .grid-table th,
+      .grid-table td {
+        border: 1px solid #ddd;
+        padding: 0.8rem;
+        text-align: left;
+      }
+
+      .grid-table th {
+        background: #f8f9fa;
+        font-weight: 600;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .nav-button {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .nav-button:hover {
+        background: #0056b3;
+      }
+
+      .nav-button.secondary {
+        background: #6c757d;
+      }
+
+      .nav-button.secondary:hover {
+        background: #545b62;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+
+        .navigation {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🖼️ Ejercicio 5: Galería con CSS Grid</h1>
+        <p>Layouts Bidimensionales + Responsive + Animaciones</p>
+      </div>
+
+      <div class="content">
+        <div class="exercise-info">
+          <h2>📋 Descripción del Ejercicio</h2>
+          <p>
+            Diseña una galería de imágenes moderna y responsive usando CSS Grid.
+            Implementarás layouts complejos, efectos hover avanzados y
+            animaciones suaves para crear una experiencia visual impactante.
+          </p>
+        </div>
+
+        <div class="objectives">
+          <h3>🎯 Objetivos de Aprendizaje</h3>
+          <ul>
+            <li>Dominar CSS Grid para layouts bidimensionales complejos</li>
+            <li>Implementar responsive design sin media queries</li>
+            <li>Crear efectos hover y animaciones CSS avanzadas</li>
+            <li>Aplicar técnicas de overlay y transformaciones</li>
+            <li>Combinar Grid con Flexbox para componentes híbridos</li>
+          </ul>
+        </div>
+
+        <div class="grid-diagram">
+          <h4>🎨 Layout de la Galería</h4>
+          <pre>
+┌─────────────────────────────────────────────┐
+│                HEADER                       │
+│         (título + filtros)                  │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐   │
+│  │  1  │ │  2  │ │  3  │ │  4  │ │  5  │   │
+│  └─────┘ └─────┘ └─────┘ └─────┘ └─────┘   │
+│  ┌─────┐ ┌───────────────┐ ┌─────┐ ┌─────┐ │
+│  │  6  │ │       7       │ │  8  │ │  9  │ │
+│  └─────┘ │   (featured)  │ └─────┘ └─────┘ │
+│  ┌─────┐ └───────────────┘ ┌─────┐ ┌─────┐ │
+│  │ 10  │ ┌─────┐ ┌─────┐   │ 11  │ │ 12  │ │
+│  └─────┘ │ 13  │ │ 14  │   └─────┘ └─────┘ │
+│          └─────┘ └─────┘                   │
+└─────────────────────────────────────────────┘
+          </pre>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">📁 Archivo Base: galeria-grid.html</div>
+          <div class="code-content">
+            <p><strong>Crea un archivo llamado "galeria-grid.html":</strong></p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Galería de Fotos&lt;/title&gt;
+    &lt;style&gt;
+      :root {
+        --grid-gap: 1rem;
+        --border-radius: 8px;
+        --transition: all 0.3s ease;
+        --overlay-bg: rgba(0, 0, 0, 0.7);
+      }
+      /* Aquí irán tus estilos CSS */
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Contenido de la galería --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="task">
+          <h4>🏗️ Tarea 1: Estructura HTML de la Galería</h4>
+          <p>Crea la estructura para una galería completa:</p>
+          <ul>
+            <li><strong>Header:</strong> Título de la galería y filtros/categorías</li>
+            <li><strong>Grid container:</strong> Contenedor principal de las imágenes</li>
+            <li><strong>Grid items:</strong> 12-15 elementos de imagen con:
+              <ul>
+                <li>Imagen (usa https://picsum.photos/ para placeholders)</li>
+                <li>Overlay con información</li>
+                <li>Título y descripción</li>
+                <li>Categoría/tag</li>
+              </ul>
+            </li>
+            <li><strong>Modal:</strong> Para vista ampliada (opcional)</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa <code>https://picsum.photos/400/300?random=1</code> para imágenes placeholder. Cambia el número final para diferentes imágenes.
+        </div>
+
+        <div class="task">
+          <h4>🎨 Tarea 2: Grid Layout Principal</h4>
+          <p>Implementa el layout principal con CSS Grid:</p>
+          <ul>
+            <li><strong>Grid container:</strong> display: grid</li>
+            <li><strong>Columnas responsive:</strong> grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))</li>
+            <li><strong>Filas automáticas:</strong> grid-auto-rows: 200px</li>
+            <li><strong>Gap:</strong> Espaciado entre elementos</li>
+            <li><strong>Elementos destacados:</strong> Algunos items ocupan más espacio</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Grid Responsive:</h4>
+          <pre><code>.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 200px;
+  gap: var(--grid-gap);
+  padding: 2rem;
+}
+
+/* Elementos destacados */
+.gallery-item.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>🖼️ Tarea 3: Elementos de la Galería</h4>
+          <p>Estiliza cada elemento de la galería:</p>
+          <ul>
+            <li><strong>Contenedor:</strong> position: relative, overflow: hidden</li>
+            <li><strong>Imagen:</strong> width: 100%, height: 100%, object-fit: cover</li>
+            <li><strong>Border-radius:</strong> Esquinas redondeadas</li>
+            <li><strong>Box-shadow:</strong> Sombra sutil</li>
+            <li><strong>Transition:</strong> Para efectos hover suaves</li>
+          </ul>
+        </div>
+
+        <div class="task">
+          <h4>✨ Tarea 4: Efectos Hover y Overlays</h4>
+          <p>Implementa efectos interactivos avanzados:</p>
+          <ul>
+            <li><strong>Overlay:</strong> position: absolute, fondo semi-transparente</li>
+            <li><strong>Información:</strong> Título, descripción, categoría</li>
+            <li><strong>Estados:</strong>
+              <ul>
+                <li>Normal: overlay oculto</li>
+                <li>Hover: overlay visible con animación</li>
+                <li>Focus: accesible por teclado</li>
+              </ul>
+            </li>
+            <li><strong>Transformaciones:</strong> scale, translate para efectos dinámicos</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Overlay Animado:</h4>
+          <pre><code>.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--overlay-bg);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>🎭 Tarea 5: Animaciones CSS Avanzadas</h4>
+          <p>Añade animaciones sofisticadas:</p>
+          <ul>
+            <li><strong>Entrada escalonada:</strong> animation-delay diferente para cada item</li>
+            <li><strong>Efectos de imagen:</strong> scale, rotate, filter en hover</li>
+            <li><strong>Texto animado:</strong> slide-in, fade-in para información</li>
+            <li><strong>Botones:</strong> Efectos hover con transformaciones</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa <code>@keyframes</code> para animaciones personalizadas y <code>:nth-child()</code> para delays escalonados.
+        </div>
+
+        <div class="task">
+          <h4>🏷️ Tarea 6: Sistema de Filtros</h4>
+          <p>Implementa filtros de categorías (solo CSS):</p>
+          <ul>
+            <li><strong>Botones de filtro:</strong> All, Nature, Architecture, People</li>
+            <li><strong>Data attributes:</strong> data-category en cada item</li>
+            <li><strong>CSS targeting:</strong> [data-category="nature"] para mostrar/ocultar</li>
+            <li><strong>Transiciones:</strong> Suaves al filtrar</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">🎨 Propiedades CSS Grid Clave</div>
+          <div class="code-content">
+            <table class="grid-table">
+              <thead>
+                <tr>
+                  <th>Propiedad</th>
+                  <th>Aplicar a</th>
+                  <th>Valores</th>
+                  <th>Uso en Galería</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>display: grid</td>
+                  <td>Container</td>
+                  <td>grid</td>
+                  <td>Contenedor principal</td>
+                </tr>
+                <tr>
+                  <td>grid-template-columns</td>
+                  <td>Container</td>
+                  <td>repeat(auto-fit, minmax())</td>
+                  <td>Columnas responsive</td>
+                </tr>
+                <tr>
+                  <td>grid-auto-rows</td>
+                  <td>Container</td>
+                  <td>200px, auto</td>
+                  <td>Altura de filas</td>
+                </tr>
+                <tr>
+                  <td>grid-column</td>
+                  <td>Items</td>
+                  <td>span 2, 1 / 3</td>
+                  <td>Elementos anchos</td>
+                </tr>
+                <tr>
+                  <td>grid-row</td>
+                  <td>Items</td>
+                  <td>span 2, 1 / 4</td>
+                  <td>Elementos altos</td>
+                </tr>
+                <tr>
+                  <td>gap</td>
+                  <td>Container</td>
+                  <td>1rem, 20px</td>
+                  <td>Espaciado entre items</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="task">
+          <h4>📱 Tarea 7: Responsive Avanzado</h4>
+          <p>Optimiza para diferentes dispositivos:</p>
+          <ul>
+            <li><strong>Desktop:</strong> 4-5 columnas, elementos destacados grandes</li>
+            <li><strong>Tablet:</strong> 2-3 columnas, elementos destacados medianos</li>
+            <li><strong>Mobile:</strong> 1-2 columnas, sin elementos destacados</li>
+            <li><strong>Auto-fit:</strong> Usa minmax() para adaptación automática</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">🖼️ Categorías Sugeridas</div>
+          <div class="code-content">
+            <ul>
+              <li><strong>Nature:</strong> Paisajes, animales, plantas</li>
+              <li><strong>Architecture:</strong> Edificios, estructuras, diseño</li>
+              <li><strong>People:</strong> Retratos, grupos, actividades</li>
+              <li><strong>Abstract:</strong> Arte, patrones, conceptual</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="hint">
+          <strong>🚀 Desafío Extra:</strong> Añade un lightbox modal, implementa lazy loading con CSS, crea un modo masonry, o añade efectos de parallax.
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="04-dashboard-flexbox.html" class="nav-button secondary">← Ejercicio Anterior</a>
+        <a href="06-landing-page.html" class="nav-button">Siguiente Ejercicio →</a>
+      </div>
+    </div>
+  </body>
+</html>

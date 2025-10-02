@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3: Formulario Interactivo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        min-height: 100vh;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+
+      .exercise-info {
+        background: #d1ecf1;
+        border-left: 5px solid #17a2b8;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .exercise-info h2 {
+        color: #0c5460;
+        margin-bottom: 1rem;
+      }
+
+      .objectives {
+        background: #f1f8e9;
+        border-left: 5px solid #4caf50;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .objectives h3 {
+        color: #388e3c;
+        margin-bottom: 1rem;
+      }
+
+      .objectives ul {
+        padding-left: 1.5rem;
+      }
+
+      .objectives li {
+        margin-bottom: 0.5rem;
+      }
+
+      .code-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .code-header {
+        background: #343a40;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+        font-weight: bold;
+      }
+
+      .code-content {
+        padding: 1.5rem;
+      }
+
+      .code-content pre {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .task {
+        background: #fff3e0;
+        border-left: 5px solid #ff9800;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 5px;
+      }
+
+      .task h4 {
+        color: #f57c00;
+        margin-bottom: 0.5rem;
+      }
+
+      .hint {
+        background: #f3e5f5;
+        border-left: 5px solid #9c27b0;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .hint strong {
+        color: #7b1fa2;
+      }
+
+      .example-box {
+        background: #e8f5e8;
+        border: 1px solid #4caf50;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .example-box h4 {
+        color: #2e7d32;
+        margin-bottom: 1rem;
+      }
+
+      .validation-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+      }
+
+      .validation-table th,
+      .validation-table td {
+        border: 1px solid #ddd;
+        padding: 0.8rem;
+        text-align: left;
+      }
+
+      .validation-table th {
+        background: #f8f9fa;
+        font-weight: 600;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .nav-button {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .nav-button:hover {
+        background: #0056b3;
+      }
+
+      .nav-button.secondary {
+        background: #6c757d;
+      }
+
+      .nav-button.secondary:hover {
+        background: #545b62;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+
+        .navigation {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📋 Ejercicio 3: Formulario Interactivo</h1>
+        <p>Formularios HTML5 + Validación + Pseudo-clases CSS</p>
+      </div>
+
+      <div class="content">
+        <div class="exercise-info">
+          <h2>📋 Descripción del Ejercicio</h2>
+          <p>
+            Construye un formulario de contacto completo con validación HTML5 y
+            estilos CSS avanzados. Implementarás pseudo-clases para estados
+            interactivos y crearás una experiencia de usuario profesional.
+          </p>
+        </div>
+
+        <div class="objectives">
+          <h3>🎯 Objetivos de Aprendizaje</h3>
+          <ul>
+            <li>Crear formularios semánticamente correctos con HTML5</li>
+            <li>Implementar validación nativa del navegador</li>
+            <li>Aplicar pseudo-clases para estados interactivos</li>
+            <li>Diseñar feedback visual para validación</li>
+            <li>Crear layouts de formulario responsive</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">📁 Archivo Base: formulario-contacto.html</div>
+          <div class="code-content">
+            <p><strong>Crea un archivo llamado "formulario-contacto.html":</strong></p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Formulario de Contacto&lt;/title&gt;
+    &lt;style&gt;
+      /* Aquí irán tus estilos CSS */
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Contenido del formulario --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="task">
+          <h4>📝 Tarea 1: Estructura HTML del Formulario</h4>
+          <p>Crea un formulario completo con estos elementos:</p>
+          <ul>
+            <li><strong>Contenedor principal:</strong> Section con clase "contact-form"</li>
+            <li><strong>Encabezado:</strong> Título y descripción del formulario</li>
+            <li><strong>Formulario con fieldsets:</strong>
+              <ul>
+                <li><strong>Información Personal:</strong> Nombre, email, teléfono</li>
+                <li><strong>Consulta:</strong> Tipo de consulta (select), mensaje</li>
+                <li><strong>Preferencias:</strong> Checkboxes para newsletter, llamada</li>
+              </ul>
+            </li>
+            <li><strong>Botones:</strong> Enviar y Limpiar</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa <code>&lt;fieldset&gt;</code> y <code>&lt;legend&gt;</code> para agrupar campos relacionados. Asocia todos los <code>&lt;label&gt;</code> con sus respectivos inputs usando <code>for</code> e <code>id</code>.
+        </div>
+
+        <div class="task">
+          <h4>✅ Tarea 2: Validación HTML5</h4>
+          <p>Implementa validación nativa con estos atributos:</p>
+          
+          <table class="validation-table">
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Tipo</th>
+                <th>Validación</th>
+                <th>Atributos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nombre</td>
+                <td>text</td>
+                <td>Obligatorio, 2-50 caracteres</td>
+                <td>required, minlength="2", maxlength="50"</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>email</td>
+                <td>Obligatorio, formato válido</td>
+                <td>required</td>
+              </tr>
+              <tr>
+                <td>Teléfono</td>
+                <td>tel</td>
+                <td>Opcional, patrón específico</td>
+                <td>pattern="[0-9]{8,15}"</td>
+              </tr>
+              <tr>
+                <td>Mensaje</td>
+                <td>textarea</td>
+                <td>Obligatorio, 10-500 caracteres</td>
+                <td>required, minlength="10", maxlength="500"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Input con Validación:</h4>
+          <pre><code>&lt;div class="form-group"&gt;
+  &lt;label for="nombre"&gt;Nombre Completo *&lt;/label&gt;
+  &lt;input 
+    type="text" 
+    id="nombre" 
+    name="nombre" 
+    required 
+    minlength="2" 
+    maxlength="50"
+    placeholder="Ingresa tu nombre completo"
+  /&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>🎨 Tarea 3: Estilos Base del Formulario</h4>
+          <p>Aplica estilos profesionales al formulario:</p>
+          <ul>
+            <li><strong>Contenedor:</strong> max-width: 600px, centrado, padding, background blanco</li>
+            <li><strong>Fieldsets:</strong> border sutil, border-radius, margin-bottom</li>
+            <li><strong>Labels:</strong> font-weight: 600, margin-bottom, color oscuro</li>
+            <li><strong>Inputs/Textarea:</strong> width: 100%, padding, border, border-radius</li>
+            <li><strong>Botones:</strong> padding, background, color, border-radius, cursor pointer</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Estilos Base:</h4>
+          <pre><code>.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>🎭 Tarea 4: Pseudo-clases y Estados Interactivos</h4>
+          <p>Implementa feedback visual con pseudo-clases:</p>
+          <ul>
+            <li><strong>:focus:</strong> Border azul, box-shadow sutil</li>
+            <li><strong>:valid:</strong> Border verde para campos válidos</li>
+            <li><strong>:invalid:</strong> Border rojo para campos inválidos</li>
+            <li><strong>:required:</strong> Asterisco o indicador visual</li>
+            <li><strong>:hover:</strong> Efectos en botones y campos</li>
+            <li><strong>:disabled:</strong> Estilo para campos deshabilitados</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Pseudo-clases:</h4>
+          <pre><code>/* Estados de validación */
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+input:valid {
+  border-color: #28a745;
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: #dc3545;
+}
+
+/* Botones */
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>💬 Tarea 5: Mensajes de Validación Personalizados</h4>
+          <p>Añade mensajes de error personalizados:</p>
+          <ul>
+            <li><strong>Contenedores de error:</strong> Divs con clase "error-message"</li>
+            <li><strong>Estilos de error:</strong> Color rojo, font-size pequeño</li>
+            <li><strong>Mostrar/ocultar:</strong> Con CSS usando pseudo-clases</li>
+            <li><strong>Iconos:</strong> Símbolos Unicode para éxito/error</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa <code>input:invalid + .error-message { display: block; }</code> para mostrar errores solo cuando el campo es inválido.
+        </div>
+
+        <div class="task">
+          <h4>📱 Tarea 6: Responsive y Accesibilidad</h4>
+          <p>Optimiza para diferentes dispositivos:</p>
+          <ul>
+            <li><strong>Media queries:</strong> Ajustes para móviles</li>
+            <li><strong>Touch targets:</strong> Botones de al menos 44px</li>
+            <li><strong>Contraste:</strong> Colores accesibles</li>
+            <li><strong>Keyboard navigation:</strong> Tab order lógico</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">🎨 Opciones de Select Sugeridas</div>
+          <div class="code-content">
+            <ul>
+              <li>Consulta General</li>
+              <li>Soporte Técnico</li>
+              <li>Ventas</li>
+              <li>Colaboración</li>
+              <li>Otro</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hint">
+          <strong>🚀 Desafío Extra:</strong> Añade un indicador de fortaleza de contraseña, implementa autocompletado inteligente, o crea animaciones de transición entre estados.
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="02-blog-post.html" class="nav-button secondary">← Ejercicio Anterior</a>
+        <a href="04-dashboard-flexbox.html" class="nav-button">Siguiente Ejercicio →</a>
+      </div>
+    </div>
+  </body>
+</html>

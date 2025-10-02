@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios HTML y CSS - UADE</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .content {
+        padding: 3rem 2rem;
+      }
+
+      .intro {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .intro h2 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+      }
+
+      .intro p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .exercises-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .exercise-card {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 2rem;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .exercise-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #2ecc71);
+      }
+
+      .exercise-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-color: #3498db;
+      }
+
+      .exercise-number {
+        display: inline-block;
+        background: linear-gradient(135deg, #3498db, #2ecc71);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .exercise-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .exercise-card p {
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-tag {
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+
+      .exercise-link {
+        display: inline-block;
+        background: linear-gradient(135deg, #3498db, #2ecc71);
+        color: white;
+        text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .exercise-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+      }
+
+      .instructions {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 2rem;
+        margin-top: 3rem;
+        border-left: 5px solid #3498db;
+      }
+
+      .instructions h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .instructions ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .instructions li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .instructions li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #2ecc71;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        .header {
+          padding: 2rem 1rem;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 2rem 1rem;
+        }
+
+        .exercises-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎯 Ejercicios Prácticos</h1>
+        <p>HTML y CSS - Aplicaciones Interactivas UADE</p>
+      </div>
+
+      <div class="content">
+        <div class="intro">
+          <h2>Practica lo Aprendido</h2>
+          <p>
+            Estos ejercicios están diseñados para reforzar los conceptos vistos
+            en las presentaciones de HTML y CSS. Cada ejercicio incluye
+            instrucciones claras, archivos base y objetivos específicos de
+            aprendizaje.
+          </p>
+        </div>
+
+        <div class="exercises-grid">
+          <!-- Ejercicio 1: Página Personal -->
+          <div class="exercise-card">
+            <div class="exercise-number">01</div>
+            <h3>Mi Primera Página Web</h3>
+            <p>
+              Crea una página personal básica aplicando estructura HTML
+              semántica y estilos CSS fundamentales.
+            </p>
+            <div class="skills">
+              <span class="skill-tag">HTML Semántico</span>
+              <span class="skill-tag">CSS Básico</span>
+              <span class="skill-tag">Selectores</span>
+            </div>
+            <a href="01-pagina-personal.html" class="exercise-link"
+              >Comenzar Ejercicio</a
+            >
+          </div>
+
+          <!-- Ejercicio 2: Blog Post -->
+          <div class="exercise-card">
+            <div class="exercise-number">02</div>
+            <h3>Artículo de Blog</h3>
+            <p>
+              Diseña un artículo de blog con tipografía, colores y layout
+              atractivo usando técnicas de CSS modernas.
+            </p>
+            <div class="skills">
+              <span class="skill-tag">Tipografía</span>
+              <span class="skill-tag">Colores</span>
+              <span class="skill-tag">Box Model</span>
+            </div>
+            <a href="02-blog-post.html" class="exercise-link"
+              >Comenzar Ejercicio</a
+            >
+          </div>
+
+          <!-- Ejercicio 3: Formulario de Contacto -->
+          <div class="exercise-card">
+            <div class="exercise-number">03</div>
+            <h3>Formulario Interactivo</h3>
+            <p>
+              Construye un formulario de contacto completo con validación HTML5
+              y estilos CSS avanzados.
+            </p>
+            <div class="skills">
+              <span class="skill-tag">Formularios</span>
+              <span class="skill-tag">Validación</span>
+              <span class="skill-tag">Pseudo-clases</span>
+            </div>
+            <a href="03-formulario-contacto.html" class="exercise-link"
+              >Comenzar Ejercicio</a
+            >
+          </div>
+
+          <!-- Ejercicio 4: Dashboard con Flexbox -->
+          <div class="exercise-card">
+            <div class="exercise-number">04</div>
+            <h3>Dashboard con Flexbox</h3>
+            <p>
+              Crea un dashboard moderno utilizando Flexbox para el layout y
+              componentes interactivos.
+            </p>
+            <div class="skills">
+              <span class="skill-tag">Flexbox</span>
+              <span class="skill-tag">Layout</span>
+              <span class="skill-tag">Componentes</span>
+            </div>
+            <a href="04-dashboard-flexbox.html" class="exercise-link"
+              >Comenzar Ejercicio</a
+            >
+          </div>
+
+          <!-- Ejercicio 5: Galería con Grid -->
+          <div class="exercise-card">
+            <div class="exercise-number">05</div>
+            <h3>Galería con CSS Grid</h3>
+            <p>
+              Diseña una galería de imágenes responsive usando CSS Grid y
+              efectos hover avanzados.
+            </p>
+            <div class="skills">
+              <span class="skill-tag">CSS Grid</span>
+              <span class="skill-tag">Responsive</span>
+              <span class="skill-tag">Animaciones</span>
+            </div>
+            <a href="05-galeria-grid.html" class="exercise-link"
+              >Comenzar Ejercicio</a
+            >
+          </div>
+
+          <!-- Ejercicio 6: Landing Page -->
+          <div class="exercise-card">
+            <div class="exercise-number">06</div>
+            <h3>Landing Page Completa</h3>
+            <p>
+              Proyecto final: crea una landing page completa integrando todos
+              los conceptos aprendidos.
+            </p>
+            <div class="skills">
+              <span class="skill-tag">Proyecto Completo</span>
+              <span class="skill-tag">Responsive</span>
+              <span class="skill-tag">Animaciones</span>
+              <span class="skill-tag">Optimización</span>
+            </div>
+            <a href="06-landing-page.html" class="exercise-link"
+              >Comenzar Ejercicio</a
+            >
+          </div>
+        </div>
+
+        <div class="instructions">
+          <h3>📋 Instrucciones Generales</h3>
+          <ul>
+            <li>
+              Cada ejercicio incluye archivos base y objetivos específicos
+            </li>
+            <li>
+              Usa las DevTools (F12) para experimentar y debuggear tu código
+            </li>
+            <li>
+              Consulta los ejemplos cuando necesites recordar algún concepto
+            </li>
+            <li>
+              Los ejercicios están ordenados por dificultad progresiva
+            </li>
+            <li>
+              Puedes personalizar los diseños con tu creatividad
+            </li>
+            <li>
+              Valida tu HTML en
+              <a href="https://validator.w3.org/" target="_blank"
+                >W3C Validator</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

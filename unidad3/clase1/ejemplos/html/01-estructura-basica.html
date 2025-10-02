@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01 - Estructura Básica HTML</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .highlight {
+        background-color: #f0f8ff;
+        padding: 10px;
+        border-left: 4px solid #007acc;
+        margin: 10px 0;
+      }
+      code {
+        background-color: #f4f4f4;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Estructura Básica de un Documento HTML</h1>
+      <p>
+        <strong>Ejemplo 1:</strong> Anatomía de un documento HTML5 completo
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Elementos Fundamentales</h2>
+
+        <div class="highlight">
+          <h3>1. DOCTYPE</h3>
+          <p>
+            <code>&lt;!DOCTYPE html&gt;</code> - Declara que este es un
+            documento HTML5
+          </p>
+        </div>
+
+        <div class="highlight">
+          <h3>2. Elemento html</h3>
+          <p>
+            <code>&lt;html lang="es"&gt;</code> - Contenedor raíz con idioma
+            especificado
+          </p>
+        </div>
+
+        <div class="highlight">
+          <h3>3. Head - Metadatos</h3>
+          <ul>
+            <li><code>meta charset="UTF-8"</code> - Codificación de caracteres</li>
+            <li>
+              <code>meta name="viewport"</code> - Configuración para dispositivos
+              móviles
+            </li>
+            <li><code>title</code> - Título que aparece en la pestaña</li>
+          </ul>
+        </div>
+
+        <div class="highlight">
+          <h3>4. Body - Contenido Visible</h3>
+          <p>Todo el contenido que ves en esta página está dentro del body</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Lo que Ignoran los Navegadores</h2>
+        <p>Los navegadores ignoran:</p>
+        <ul>
+          <li>Espacios múltiples (se convierten en uno solo)</li>
+          <li>Saltos de línea en el código fuente</li>
+          <li>Tabulaciones</li>
+          <li>Comentarios HTML</li>
+        </ul>
+
+        <!-- Este es un comentario HTML - no se muestra en el navegador -->
+        <p>
+          Este texto tiene muchos espacios entre palabras, pero el navegador
+          solo muestra uno.
+        </p>
+      </section>
+
+      <section>
+        <h2>Elementos Vacíos</h2>
+        <p>Algunos elementos no tienen contenido ni etiqueta de cierre:</p>
+        <ul>
+          <li><code>&lt;br /&gt;</code> - Salto de línea</li>
+          <li><code>&lt;hr /&gt;</code> - Línea horizontal</li>
+          <li><code>&lt;img /&gt;</code> - Imagen</li>
+          <li><code>&lt;meta /&gt;</code> - Metadatos</li>
+        </ul>
+
+        <p>Ejemplo de salto de línea:<br />Segunda línea</p>
+        <hr />
+        <p>Línea horizontal arriba ↑</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Nota:</strong> Inspecciona el código fuente de esta página
+        (F12 o clic derecho → "Ver código fuente") para ver cómo está
+        estructurada.
+      </p>
+      <p><a href="index.html">← Volver al índice de ejemplos</a></p>
+    </footer>
+  </body>
+</html>

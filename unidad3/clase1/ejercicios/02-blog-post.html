@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2: Artículo de Blog</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        min-height: 100vh;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+
+      .exercise-info {
+        background: #fff3cd;
+        border-left: 5px solid #ffc107;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .exercise-info h2 {
+        color: #856404;
+        margin-bottom: 1rem;
+      }
+
+      .objectives {
+        background: #f1f8e9;
+        border-left: 5px solid #4caf50;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .objectives h3 {
+        color: #388e3c;
+        margin-bottom: 1rem;
+      }
+
+      .objectives ul {
+        padding-left: 1.5rem;
+      }
+
+      .objectives li {
+        margin-bottom: 0.5rem;
+      }
+
+      .code-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .code-header {
+        background: #343a40;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+        font-weight: bold;
+      }
+
+      .code-content {
+        padding: 1.5rem;
+      }
+
+      .code-content pre {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .task {
+        background: #fff3e0;
+        border-left: 5px solid #ff9800;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 5px;
+      }
+
+      .task h4 {
+        color: #f57c00;
+        margin-bottom: 0.5rem;
+      }
+
+      .hint {
+        background: #f3e5f5;
+        border-left: 5px solid #9c27b0;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .hint strong {
+        color: #7b1fa2;
+      }
+
+      .example-box {
+        background: #e8f5e8;
+        border: 1px solid #4caf50;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .example-box h4 {
+        color: #2e7d32;
+        margin-bottom: 1rem;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .nav-button {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .nav-button:hover {
+        background: #0056b3;
+      }
+
+      .nav-button.secondary {
+        background: #6c757d;
+      }
+
+      .nav-button.secondary:hover {
+        background: #545b62;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+
+        .navigation {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📝 Ejercicio 2: Artículo de Blog</h1>
+        <p>Tipografía, Colores y Box Model</p>
+      </div>
+
+      <div class="content">
+        <div class="exercise-info">
+          <h2>📋 Descripción del Ejercicio</h2>
+          <p>
+            Diseña un artículo de blog atractivo aplicando técnicas avanzadas de
+            tipografía, sistemas de color y el modelo de caja CSS. Crearás un
+            layout profesional con jerarquía visual clara.
+          </p>
+        </div>
+
+        <div class="objectives">
+          <h3>🎯 Objetivos de Aprendizaje</h3>
+          <ul>
+            <li>Aplicar jerarquía tipográfica con diferentes tamaños y pesos</li>
+            <li>Utilizar sistemas de color armoniosos (HSL, RGB, nombres)</li>
+            <li>Dominar el modelo de caja (padding, border, margin)</li>
+            <li>Implementar espaciado consistente y ritmo vertical</li>
+            <li>Crear elementos visuales con pseudo-elementos</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">📁 Archivo Base: blog-post.html</div>
+          <div class="code-content">
+            <p><strong>Crea un archivo llamado "blog-post.html" con esta estructura:</strong></p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Mi Blog Post&lt;/title&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"&gt;
+    &lt;style&gt;
+      /* Aquí irán tus estilos CSS */
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Contenido del artículo --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="task">
+          <h4>📝 Tarea 1: Estructura del Artículo</h4>
+          <p>Crea la estructura HTML para un artículo de blog:</p>
+          <ul>
+            <li><strong>Article:</strong> Contenedor principal del artículo</li>
+            <li><strong>Header del artículo:</strong> Título, subtítulo, fecha y autor</li>
+            <li><strong>Imagen destacada:</strong> Con caption</li>
+            <li><strong>Contenido:</strong> 3-4 párrafos con diferentes elementos:
+              <ul>
+                <li>Párrafo introductorio</li>
+                <li>Párrafo con texto destacado (strong, em)</li>
+                <li>Lista ordenada o no ordenada</li>
+                <li>Cita (blockquote)</li>
+              </ul>
+            </li>
+            <li><strong>Footer del artículo:</strong> Tags y botones de compartir</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>&lt;blockquote&gt;</code> para semántica correcta.
+        </div>
+
+        <div class="task">
+          <h4>🎨 Tarea 2: Tipografía y Jerarquía</h4>
+          <p>Aplica una jerarquía tipográfica profesional:</p>
+          <ul>
+            <li><strong>Fuente base:</strong> Inter (ya incluida) para todo el texto</li>
+            <li><strong>Título principal:</strong> 2.5rem, peso 700, color oscuro</li>
+            <li><strong>Subtítulo:</strong> 1.2rem, peso 400, color gris</li>
+            <li><strong>Párrafos:</strong> 1rem, line-height 1.6, color #333</li>
+            <li><strong>Metadatos:</strong> 0.9rem, peso 300, color gris claro</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de CSS Tipográfico:</h4>
+          <pre><code>h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>🌈 Tarea 3: Sistema de Colores</h4>
+          <p>Implementa un sistema de colores coherente:</p>
+          <ul>
+            <li><strong>Color primario:</strong> #3498db (azul)</li>
+            <li><strong>Color secundario:</strong> #e74c3c (rojo)</li>
+            <li><strong>Color de acento:</strong> #f39c12 (naranja)</li>
+            <li><strong>Grises:</strong> #333, #666, #999, #f8f9fa</li>
+            <li><strong>Aplica colores a:</strong> Enlaces, botones, bordes, fondos</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa variables CSS para mantener consistencia: <code>:root { --primary: #3498db; }</code> y luego <code>color: var(--primary);</code>
+        </div>
+
+        <div class="task">
+          <h4>📦 Tarea 4: Modelo de Caja y Espaciado</h4>
+          <p>Aplica espaciado consistente usando el modelo de caja:</p>
+          <ul>
+            <li><strong>Contenedor:</strong> max-width: 800px, margin: 0 auto, padding: 2rem</li>
+            <li><strong>Elementos:</strong> margin-bottom consistente (1rem, 1.5rem, 2rem)</li>
+            <li><strong>Imagen:</strong> width: 100%, border-radius, box-shadow</li>
+            <li><strong>Blockquote:</strong> padding-left, border-left, background sutil</li>
+            <li><strong>Tags:</strong> padding, border-radius, background de color</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Box Model:</h4>
+          <pre><code>blockquote {
+  padding: 1.5rem;
+  padding-left: 2rem;
+  border-left: 4px solid var(--primary);
+  background: #f8f9fa;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>✨ Tarea 5: Elementos Decorativos</h4>
+          <p>Añade elementos visuales con pseudo-elementos:</p>
+          <ul>
+            <li><strong>Primera letra:</strong> Drop cap con ::first-letter</li>
+            <li><strong>Separadores:</strong> Líneas decorativas con ::before/::after</li>
+            <li><strong>Iconos:</strong> Símbolos Unicode en metadatos</li>
+            <li><strong>Efectos hover:</strong> En enlaces y botones</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> <code>p:first-of-type::first-letter { font-size: 3em; float: left; }</code> para drop cap.
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">🎨 Contenido Sugerido</div>
+          <div class="code-content">
+            <p><strong>Puedes usar este contenido de ejemplo o crear el tuyo:</strong></p>
+            <ul>
+              <li><strong>Título:</strong> "El Futuro del Desarrollo Web"</li>
+              <li><strong>Subtítulo:</strong> "Explorando las tendencias que definirán la próxima década"</li>
+              <li><strong>Autor:</strong> Tu nombre</li>
+              <li><strong>Fecha:</strong> Fecha actual</li>
+              <li><strong>Tags:</strong> "Web Development", "CSS", "HTML", "Frontend"</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="hint">
+          <strong>🚀 Desafío Extra:</strong> Añade un modo oscuro con CSS variables, crea animaciones suaves en los hover, o implementa un sistema de lectura estimada.
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="01-pagina-personal.html" class="nav-button secondary">← Ejercicio Anterior</a>
+        <a href="03-formulario-contacto.html" class="nav-button">Siguiente Ejercicio →</a>
+      </div>
+    </div>
+  </body>
+</html>

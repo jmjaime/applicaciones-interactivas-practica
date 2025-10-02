@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04 - Elementos Semánticos HTML5</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      /* Estilos para mostrar la estructura semántica */
+      header {
+        background-color: #e3f2fd;
+        padding: 20px;
+        border-radius: 5px;
+        border-left: 4px solid #2196f3;
+        margin-bottom: 20px;
+      }
+
+      nav {
+        background-color: #f3e5f5;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #9c27b0;
+        margin-bottom: 20px;
+      }
+
+      main {
+        background-color: #e8f5e8;
+        padding: 20px;
+        border-radius: 5px;
+        border-left: 4px solid #4caf50;
+        margin-bottom: 20px;
+      }
+
+      article {
+        background-color: #fff3e0;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #ff9800;
+        margin: 15px 0;
+      }
+
+      section {
+        background-color: #fce4ec;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #e91e63;
+        margin: 15px 0;
+      }
+
+      aside {
+        background-color: #f1f8e9;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #8bc34a;
+        margin: 15px 0;
+        float: right;
+        width: 250px;
+        margin-left: 20px;
+      }
+
+      footer {
+        background-color: #efebe9;
+        padding: 20px;
+        border-radius: 5px;
+        border-left: 4px solid #795548;
+        margin-top: 20px;
+        clear: both;
+      }
+
+      .semantic-label {
+        font-size: 12px;
+        font-weight: bold;
+        color: #666;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .code-structure {
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: 'Courier New', monospace;
+        margin: 15px 0;
+        white-space: pre-line;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        color: #9c27b0;
+      }
+
+      @media (max-width: 768px) {
+        aside {
+          float: none;
+          width: auto;
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="semantic-label">&lt;header&gt;</span>
+      <h1>Elementos Semánticos HTML5</h1>
+      <p>
+        <strong>Ejemplo 4:</strong> Estructura semántica moderna para páginas web
+      </p>
+    </header>
+
+    <nav>
+      <span class="semantic-label">&lt;nav&gt;</span>
+      <h2>Navegación Principal</h2>
+      <ul>
+        <li><a href="#estructura">Estructura</a></li>
+        <li><a href="#articulos">Artículos</a></li>
+        <li><a href="#secciones">Secciones</a></li>
+        <li><a href="index.html">Índice</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <span class="semantic-label">&lt;main&gt;</span>
+      <h2>Contenido Principal</h2>
+
+      <aside>
+        <span class="semantic-label">&lt;aside&gt;</span>
+        <h3>Información Relacionada</h3>
+        <p>
+          Este aside contiene información complementaria al contenido principal.
+        </p>
+        <h4>Enlaces Útiles</h4>
+        <ul>
+          <li><a href="https://developer.mozilla.org/es/docs/Web/HTML/Element">Elementos HTML</a></li>
+          <li><a href="https://www.w3.org/TR/html52/">Especificación HTML5</a></li>
+        </ul>
+      </aside>
+
+      <section id="estructura">
+        <span class="semantic-label">&lt;section&gt;</span>
+        <h3>¿Por qué Usar Elementos Semánticos?</h3>
+        <p>Los elementos semánticos HTML5 proporcionan:</p>
+        <ul>
+          <li><strong>Significado:</strong> Describen el propósito del contenido</li>
+          <li><strong>Accesibilidad:</strong> Mejor navegación para lectores de pantalla</li>
+          <li><strong>SEO:</strong> Motores de búsqueda comprenden mejor la estructura</li>
+          <li><strong>Mantenimiento:</strong> Código más claro y organizado</li>
+        </ul>
+      </section>
+
+      <section>
+        <span class="semantic-label">&lt;section&gt;</span>
+        <h3>Estructura del Documento</h3>
+        <div class="code-structure">
+&lt;header&gt; - Encabezado de página o sección
+  &lt;nav&gt; - Navegación principal
+&lt;/header&gt;
+
+&lt;main&gt; - Contenido principal único
+  &lt;article&gt; - Contenido independiente
+    &lt;header&gt; - Encabezado del artículo
+    &lt;section&gt; - Secciones del artículo
+    &lt;footer&gt; - Pie del artículo
+  &lt;/article&gt;
+  
+  &lt;aside&gt; - Contenido relacionado
+&lt;/main&gt;
+
+&lt;footer&gt; - Pie de página
+        </div>
+      </section>
+
+      <article id="articulos">
+        <span class="semantic-label">&lt;article&gt;</span>
+        <header>
+          <span class="semantic-label">&lt;header&gt; (del artículo)</span>
+          <h3>Artículo: Beneficios de HTML Semántico</h3>
+          <p>
+            <time datetime="2025-01-15">15 de enero, 2025</time> |
+            Por: <strong>Profesor UADE</strong>
+          </p>
+        </header>
+
+        <section>
+          <span class="semantic-label">&lt;section&gt; (del artículo)</span>
+          <h4>Introducción</h4>
+          <p>
+            El HTML semántico revolucionó la forma en que estructuramos el
+            contenido web. En lugar de usar solo divs genéricos, ahora podemos
+            expresar el significado y propósito de cada parte de nuestro documento.
+          </p>
+        </section>
+
+        <section>
+          <span class="semantic-label">&lt;section&gt; (del artículo)</span>
+          <h4>Impacto en la Accesibilidad</h4>
+          <p>
+            Los lectores de pantalla pueden navegar más eficientemente cuando
+            el contenido está marcado semánticamente. Los usuarios pueden saltar
+            entre secciones, artículos y elementos de navegación fácilmente.
+          </p>
+        </section>
+
+        <footer>
+          <span class="semantic-label">&lt;footer&gt; (del artículo)</span>
+          <p>
+            <strong>Etiquetas:</strong> HTML5, Semántica, Accesibilidad, Frontend
+          </p>
+        </footer>
+      </article>
+
+      <article>
+        <span class="semantic-label">&lt;article&gt;</span>
+        <header>
+          <span class="semantic-label">&lt;header&gt; (del artículo)</span>
+          <h3>Artículo: Elementos Específicos</h3>
+          <p>
+            <time datetime="2025-01-15">15 de enero, 2025</time>
+          </p>
+        </header>
+
+        <section id="secciones">
+          <span class="semantic-label">&lt;section&gt; (del artículo)</span>
+          <h4>Elementos de Contenido</h4>
+          
+          <h5>&lt;figure&gt; y &lt;figcaption&gt;</h5>
+          <figure style="text-align: center; margin: 20px 0;">
+            <div style="
+              width: 200px; 
+              height: 150px; 
+              background-color: #ddd; 
+              border: 2px dashed #999; 
+              display: inline-flex; 
+              align-items: center; 
+              justify-content: center;
+              color: #666;
+            ">
+              Diagrama HTML5
+            </div>
+            <figcaption>
+              <strong>Figura 1:</strong> Estructura de elementos semánticos HTML5
+            </figcaption>
+          </figure>
+
+          <h5>&lt;details&gt; y &lt;summary&gt;</h5>
+          <details>
+            <summary>Más información sobre elementos semánticos</summary>
+            <p>
+              Los elementos semánticos fueron introducidos en HTML5 para
+              reemplazar el uso excesivo de divs genéricos. Cada elemento
+              tiene un propósito específico y comunica significado tanto
+              a desarrolladores como a tecnologías asistivas.
+            </p>
+          </details>
+
+          <h5>&lt;mark&gt; - Texto Resaltado</h5>
+          <p>
+            En este párrafo, <mark>esta parte está resaltada</mark> para
+            llamar la atención sobre información importante.
+          </p>
+
+          <h5>&lt;time&gt; - Fechas y Horas</h5>
+          <p>
+            El evento será el <time datetime="2025-02-14">14 de febrero de 2025</time>
+            a las <time datetime="14:30">14:30 horas</time>.
+          </p>
+        </section>
+
+        <footer>
+          <span class="semantic-label">&lt;footer&gt; (del artículo)</span>
+          <p>
+            <strong>Recursos:</strong>
+            <a href="https://html.spec.whatwg.org/">Especificación HTML Living Standard</a>
+          </p>
+        </footer>
+      </article>
+    </main>
+
+    <footer>
+      <span class="semantic-label">&lt;footer&gt;</span>
+      <h3>Pie de Página</h3>
+      <p>
+        <strong>Nota:</strong> Los colores de fondo en este ejemplo son solo
+        para visualizar la estructura semántica. En un sitio real, los estilos
+        serían más sutiles.
+      </p>
+      
+      <nav>
+        <span class="semantic-label">&lt;nav&gt; (secundaria)</span>
+        <h4>Navegación Secundaria</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="display: inline; margin-right: 15px;">
+            <a href="03-enlaces-imagenes.html">← Anterior</a>
+          </li>
+          <li style="display: inline; margin-right: 15px;">
+            <a href="05-tablas.html">Siguiente →</a>
+          </li>
+          <li style="display: inline;">
+            <a href="index.html">Índice</a>
+          </li>
+        </ul>
+      </nav>
+
+      <p>
+        <small>
+          © 2025 Ejemplos HTML - UADE Aplicaciones Interactivas
+        </small>
+      </p>
+    </footer>
+  </body>
+</html>

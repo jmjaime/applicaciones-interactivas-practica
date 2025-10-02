@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 6: Landing Page Completa</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        min-height: 100vh;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+
+      .exercise-info {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        border-left: 5px solid #ff6b6b;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .exercise-info h2 {
+        color: #c0392b;
+        margin-bottom: 1rem;
+      }
+
+      .objectives {
+        background: #f1f8e9;
+        border-left: 5px solid #4caf50;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .objectives h3 {
+        color: #388e3c;
+        margin-bottom: 1rem;
+      }
+
+      .objectives ul {
+        padding-left: 1.5rem;
+      }
+
+      .objectives li {
+        margin-bottom: 0.5rem;
+      }
+
+      .code-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .code-header {
+        background: #343a40;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+        font-weight: bold;
+      }
+
+      .code-content {
+        padding: 1.5rem;
+      }
+
+      .code-content pre {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .task {
+        background: #fff3e0;
+        border-left: 5px solid #ff9800;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 5px;
+      }
+
+      .task h4 {
+        color: #f57c00;
+        margin-bottom: 0.5rem;
+      }
+
+      .hint {
+        background: #f3e5f5;
+        border-left: 5px solid #9c27b0;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .hint strong {
+        color: #7b1fa2;
+      }
+
+      .example-box {
+        background: #e8f5e8;
+        border: 1px solid #4caf50;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .example-box h4 {
+        color: #2e7d32;
+        margin-bottom: 1rem;
+      }
+
+      .sections-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .section-card {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+      }
+
+      .section-card h4 {
+        color: #495057;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .section-card ul {
+        padding-left: 1rem;
+      }
+
+      .section-card li {
+        margin-bottom: 0.5rem;
+        color: #6c757d;
+      }
+
+      .final-checklist {
+        background: #e7f3ff;
+        border: 1px solid #2196f3;
+        border-radius: 8px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .final-checklist h4 {
+        color: #1976d2;
+        margin-bottom: 1rem;
+      }
+
+      .checklist-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .checklist-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background: white;
+        border-radius: 5px;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .nav-button {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .nav-button:hover {
+        background: #0056b3;
+      }
+
+      .nav-button.secondary {
+        background: #6c757d;
+      }
+
+      .nav-button.secondary:hover {
+        background: #545b62;
+      }
+
+      .nav-button.success {
+        background: #28a745;
+      }
+
+      .nav-button.success:hover {
+        background: #1e7e34;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+
+        .navigation {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .sections-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🚀 Ejercicio 6: Landing Page Completa</h1>
+        <p>Proyecto Final - Integración de Todos los Conceptos</p>
+      </div>
+
+      <div class="content">
+        <div class="exercise-info">
+          <h2>🎯 Proyecto Final</h2>
+          <p>
+            Este es tu proyecto final donde integrarás todos los conceptos
+            aprendidos en HTML y CSS. Crearás una landing page profesional y
+            completamente responsive que demuestre tu dominio de las tecnologías
+            frontend modernas.
+          </p>
+        </div>
+
+        <div class="objectives">
+          <h3>🏆 Objetivos de Aprendizaje</h3>
+          <ul>
+            <li>Integrar HTML semántico con CSS avanzado</li>
+            <li>Aplicar Flexbox y Grid en un proyecto real</li>
+            <li>Implementar responsive design completo</li>
+            <li>Crear animaciones y efectos interactivos</li>
+            <li>Optimizar para performance y accesibilidad</li>
+            <li>Demostrar mejores prácticas de desarrollo frontend</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">📁 Estructura del Proyecto</div>
+          <div class="code-content">
+            <p><strong>Crea estos archivos para tu landing page:</strong></p>
+            <pre><code>landing-page/
+├── index.html          (archivo principal)
+├── styles.css          (estilos principales)
+├── images/            (carpeta de imágenes)
+│   ├── hero-bg.jpg
+│   ├── feature-1.jpg
+│   └── team-member.jpg
+└── README.md          (documentación)</code></pre>
+          </div>
+        </div>
+
+        <div class="sections-grid">
+          <div class="section-card">
+            <h4>🎨 Header + Hero Section</h4>
+            <ul>
+              <li>Navegación responsive con hamburger menu</li>
+              <li>Hero con background image/video</li>
+              <li>Call-to-action prominente</li>
+              <li>Animación de entrada</li>
+            </ul>
+          </div>
+
+          <div class="section-card">
+            <h4>⭐ Features/Servicios</h4>
+            <ul>
+              <li>Grid de características (3-4 items)</li>
+              <li>Iconos y descripciones</li>
+              <li>Efectos hover interactivos</li>
+              <li>Layout responsive</li>
+            </ul>
+          </div>
+
+          <div class="section-card">
+            <h4>📊 Estadísticas/Números</h4>
+            <ul>
+              <li>Contadores animados (CSS)</li>
+              <li>Flexbox para alineación</li>
+              <li>Efectos de aparición</li>
+              <li>Diseño impactante</li>
+            </ul>
+          </div>
+
+          <div class="section-card">
+            <h4>💬 Testimonios</h4>
+            <ul>
+              <li>Carrusel de testimonios</li>
+              <li>Cards con fotos y quotes</li>
+              <li>Navegación por dots</li>
+              <li>Transiciones suaves</li>
+            </ul>
+          </div>
+
+          <div class="section-card">
+            <h4>👥 Equipo/About</h4>
+            <ul>
+              <li>Grid de miembros del equipo</li>
+              <li>Hover effects en fotos</li>
+              <li>Información overlay</li>
+              <li>Social media links</li>
+            </ul>
+          </div>
+
+          <div class="section-card">
+            <h4>📞 Contacto/CTA</h4>
+            <ul>
+              <li>Formulario de contacto completo</li>
+              <li>Validación HTML5</li>
+              <li>Información de contacto</li>
+              <li>Mapa integrado (opcional)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="task">
+          <h4>🏗️ Tarea 1: Planificación y Wireframe</h4>
+          <p>Antes de codificar, planifica tu landing page:</p>
+          <ul>
+            <li><strong>Tema:</strong> Elige un negocio/servicio (ej: agencia digital, app, producto)</li>
+            <li><strong>Wireframe:</strong> Dibuja la estructura en papel o herramienta digital</li>
+            <li><strong>Paleta de colores:</strong> Define 3-5 colores principales</li>
+            <li><strong>Tipografía:</strong> Selecciona 1-2 fuentes de Google Fonts</li>
+            <li><strong>Contenido:</strong> Prepara textos, imágenes y copy</li>
+          </ul>
+        </div>
+
+        <div class="task">
+          <h4>📱 Tarea 2: HTML Semántico Completo</h4>
+          <p>Estructura tu HTML con semántica perfecta:</p>
+          <ul>
+            <li><strong>DOCTYPE y meta tags:</strong> HTML5 válido</li>
+            <li><strong>Elementos semánticos:</strong> header, nav, main, section, article, aside, footer</li>
+            <li><strong>Accesibilidad:</strong> alt texts, labels, ARIA cuando sea necesario</li>
+            <li><strong>SEO básico:</strong> title, meta description, headings jerárquicos</li>
+          </ul>
+        </div>
+
+        <div class="task">
+          <h4>🎨 Tarea 3: CSS Arquitectura y Variables</h4>
+          <p>Organiza tu CSS de forma profesional:</p>
+          <ul>
+            <li><strong>Variables CSS:</strong> Colores, fuentes, espaciados, breakpoints</li>
+            <li><strong>Reset/Normalize:</strong> Base consistente</li>
+            <li><strong>Metodología:</strong> BEM o similar para naming</li>
+            <li><strong>Organización:</strong> Secciones comentadas y ordenadas</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Variables CSS:</h4>
+          <pre><code>:root {
+  /* Colores */
+  --primary: #3498db;
+  --secondary: #2ecc71;
+  --accent: #e74c3c;
+  --dark: #2c3e50;
+  --light: #ecf0f1;
+  
+  /* Tipografía */
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+  
+  /* Espaciado */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  
+  /* Breakpoints */
+  --mobile: 768px;
+  --tablet: 1024px;
+  --desktop: 1200px;
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>📐 Tarea 4: Layouts con Flexbox y Grid</h4>
+          <p>Implementa layouts modernos:</p>
+          <ul>
+            <li><strong>Header:</strong> Flexbox para navegación</li>
+            <li><strong>Hero:</strong> Flexbox para centrado</li>
+            <li><strong>Features:</strong> CSS Grid responsive</li>
+            <li><strong>Testimonios:</strong> Flexbox para carrusel</li>
+            <li><strong>Footer:</strong> Grid para columnas</li>
+          </ul>
+        </div>
+
+        <div class="task">
+          <h4>✨ Tarea 5: Animaciones e Interactividad</h4>
+          <p>Añade vida a tu landing page:</p>
+          <ul>
+            <li><strong>Scroll animations:</strong> Elementos que aparecen al hacer scroll</li>
+            <li><strong>Hover effects:</strong> Botones, cards, imágenes</li>
+            <li><strong>Loading animations:</strong> Skeleton screens o spinners</li>
+            <li><strong>Micro-interactions:</strong> Feedback visual en forms</li>
+          </ul>
+        </div>
+
+        <div class="task">
+          <h4>📱 Tarea 6: Responsive Design Completo</h4>
+          <p>Optimiza para todos los dispositivos:</p>
+          <ul>
+            <li><strong>Mobile-first:</strong> Diseña primero para móvil</li>
+            <li><strong>Breakpoints:</strong> 3-4 puntos de quiebre estratégicos</li>
+            <li><strong>Navigation:</strong> Hamburger menu en móvil</li>
+            <li><strong>Touch targets:</strong> Botones de al menos 44px</li>
+            <li><strong>Performance:</strong> Imágenes optimizadas</li>
+          </ul>
+        </div>
+
+        <div class="final-checklist">
+          <h4>✅ Checklist Final de Calidad</h4>
+          <div class="checklist-grid">
+            <div class="checklist-item">
+              <span>☐</span> HTML válido (W3C Validator)
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> CSS organizado y comentado
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> Responsive en 3+ dispositivos
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> Accesibilidad básica (alt, labels)
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> Performance optimizada
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> Cross-browser compatible
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> SEO básico implementado
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> Formularios funcionando
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> Animaciones suaves
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> Código limpio y mantenible
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> README documentado
+            </div>
+            <div class="checklist-item">
+              <span>☐</span> Deploy funcional
+            </div>
+          </div>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">🎨 Inspiración y Recursos</div>
+          <div class="code-content">
+            <ul>
+              <li><strong>Imágenes:</strong> Unsplash, Pexels, Pixabay</li>
+              <li><strong>Iconos:</strong> Feather Icons, Heroicons, Font Awesome</li>
+              <li><strong>Fuentes:</strong> Google Fonts (Inter, Roboto, Poppins)</li>
+              <li><strong>Colores:</strong> Coolors.co, Adobe Color</li>
+              <li><strong>Inspiración:</strong> Dribbble, Behance, Awwwards</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="hint">
+          <strong>🚀 Consejos Finales:</strong> Enfócate en la calidad sobre la cantidad. Es mejor una landing page simple pero perfectamente ejecutada que una compleja con errores. ¡Demuestra todo lo que has aprendido!
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="05-galeria-grid.html" class="nav-button secondary">← Ejercicio Anterior</a>
+        <a href="index.html" class="nav-button success">🏁 Completar Ejercicios</a>
+      </div>
+    </div>
+  </body>
+</html>

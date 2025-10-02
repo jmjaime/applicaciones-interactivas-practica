@@ -68,6 +68,25 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
     - **Ejercicios**
       - [README](unidad1/clase3/ejercicios/README.md)
 
+- **Unidad 3**
+
+- **Clase 1**
+
+  - **Slides**
+
+    - [HTML](unidad3/clase1/html-slides.html)
+    - [CSS](unidad3/clase1/css-slides.html)
+    - [Combinadas](unidad3/clase1/slides.html)
+
+  - **Ejemplos**
+
+    - [HTML](unidad3/clase1/ejemplos/html/)
+    - [CSS](unidad3/clase1/ejemplos/css/)
+
+  - **Ejercicios**
+    - [README](unidad3/clase1/ejercicios/README.md)
+    - [Índice](unidad3/clase1/ejercicios/index.html)
+
 ## Cómo ejecutar
 
 - Para los ejemplos de `unidad1/clase1/`: ver [Quickstart de ejemplos](unidad1/clase1/ejemplos/QUICKSTART.md).
@@ -76,6 +95,8 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
 - Para los ejercicios de `unidad1/clase2/`: ver [Quickstart de ejercicios](unidad1/clase2/ejercicios/QUICKSTART.md).
 
 - Para los ejercicios de `unidad1/clase3/`: ver [README de ejercicios](unidad1/clase3/ejercicios/README.md).
+
+- Para los ejercicios de `unidad3/clase1/`: abrir `unidad3/clase1/ejercicios/index.html` en el navegador.
 
 ## Estructura del repositorio (resumen)
 
@@ -92,4 +113,9 @@ unidad1/
      └─ ejercicios/          # Enunciados y tests para practicar (Clase 2)
   └─ clase3/
      └─ ejercicios/          # API Express + Jest (Clase 3)
+unidad3/
+  └─ clase1/
+     ├─ ejemplos/            # HTML y CSS de referencia
+     ├─ ejercicios/          # Prácticas HTML estáticas
+     └─ *-slides.html        # Diapositivas (HTML/CSS)
 ```

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06 - Formularios HTML</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .example-section {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 5px;
+        border-left: 4px solid #28a745;
+      }
+
+      /* Estilos para formularios */
+      form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        margin: 15px 0;
+      }
+
+      fieldset {
+        border: 2px solid #007acc;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 15px 0;
+      }
+
+      legend {
+        font-weight: bold;
+        color: #007acc;
+        padding: 0 10px;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px 0;
+        font-weight: bold;
+        color: #333;
+      }
+
+      input, textarea, select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+
+      input[type="radio"], 
+      input[type="checkbox"] {
+        width: auto;
+        margin-right: 8px;
+      }
+
+      input[type="submit"], 
+      input[type="reset"], 
+      button {
+        background-color: #007acc;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 5px 5px 5px 0;
+        width: auto;
+      }
+
+      input[type="reset"] {
+        background-color: #6c757d;
+      }
+
+      button[type="button"] {
+        background-color: #ffc107;
+        color: #333;
+      }
+
+      input[type="submit"]:hover, 
+      button:hover {
+        opacity: 0.9;
+      }
+
+      .form-group {
+        margin: 15px 0;
+      }
+
+      .inline-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .inline-group > div {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .radio-group, .checkbox-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .radio-item, .checkbox-item {
+        display: flex;
+        align-items: center;
+      }
+
+      .radio-item label, .checkbox-item label {
+        margin: 0;
+        margin-left: 8px;
+        font-weight: normal;
+      }
+
+      .code-example {
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: 'Courier New', monospace;
+        margin: 10px 0;
+        font-size: 13px;
+        overflow-x: auto;
+      }
+
+      .validation-demo input:invalid {
+        border-color: #dc3545;
+        background-color: #fff5f5;
+      }
+
+      .validation-demo input:valid {
+        border-color: #28a745;
+        background-color: #f8fff8;
+      }
+
+      .required {
+        color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Formularios HTML</h1>
+      <p><strong>Ejemplo 6:</strong> Interacción y recolección de datos</p>
+    </header>
+
+    <main>
+      <section class="example-section">
+        <h2>Formulario Básico</h2>
+        
+        <form action="#" method="post">
+          <h3>Información de Contacto</h3>
+          
+          <div class="form-group">
+            <label for="nombre">Nombre <span class="required">*</span>:</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span>:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" 
+                      placeholder="Escribe tu mensaje aquí..."></textarea>
+          </div>
+
+          <input type="submit" value="Enviar">
+          <input type="reset" value="Limpiar">
+        </form>
+
+        <div class="code-example">
+&lt;form action="/procesar" method="post"&gt;
+  &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre" required&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  
+  &lt;input type="submit" value="Enviar"&gt;
+&lt;/form&gt;
+        </div>
+      </section>
+
+      <section class="example-section">
+        <h2>Tipos de Input HTML5</h2>
+        
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Inputs Especializados</legend>
+            
+            <div class="inline-group">
+              <div>
+                <label for="email2">Email:</label>
+                <input type="email" id="email2" name="email2" 
+                       placeholder="usuario@ejemplo.com">
+              </div>
+              
+              <div>
+                <label for="url">Sitio Web:</label>
+                <input type="url" id="url" name="url" 
+                       placeholder="https://ejemplo.com">
+              </div>
+            </div>
+
+            <div class="inline-group">
+              <div>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" 
+                       placeholder="+54 11 1234-5678">
+              </div>
+              
+              <div>
+                <label for="numero">Edad:</label>
+                <input type="number" id="numero" name="numero" 
+                       min="18" max="100" placeholder="25">
+              </div>
+            </div>
+
+            <div class="inline-group">
+              <div>
+                <label for="fecha">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha" name="fecha">
+              </div>
+              
+              <div>
+                <label for="hora">Hora de Cita:</label>
+                <input type="time" id="hora" name="hora">
+              </div>
+            </div>
+
+            <div class="inline-group">
+              <div>
+                <label for="color">Color Favorito:</label>
+                <input type="color" id="color" name="color" value="#007acc">
+              </div>
+              
+              <div>
+                <label for="rango">Volumen (0-100):</label>
+                <input type="range" id="rango" name="rango" 
+                       min="0" max="100" value="50">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Contraseña:</label>
+              <input type="password" id="password" name="password" 
+                     minlength="8" placeholder="Mínimo 8 caracteres">
+            </div>
+
+            <div class="form-group">
+              <label for="busqueda">Búsqueda:</label>
+              <input type="search" id="busqueda" name="busqueda" 
+                     placeholder="Buscar productos...">
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <section class="example-section">
+        <h2>Controles de Selección</h2>
+        
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Radio Buttons (Una Opción)</legend>
+            <div class="radio-group">
+              <div class="radio-item">
+                <input type="radio" id="pequena" name="tamano" value="pequena">
+                <label for="pequena">Pizza Pequeña ($15)</label>
+              </div>
+              <div class="radio-item">
+                <input type="radio" id="mediana" name="tamano" value="mediana" checked>
+                <label for="mediana">Pizza Mediana ($20)</label>
+              </div>
+              <div class="radio-item">
+                <input type="radio" id="grande" name="tamano" value="grande">
+                <label for="grande">Pizza Grande ($25)</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Checkboxes (Múltiples Opciones)</legend>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="queso" name="extras" value="queso">
+                <label for="queso">Queso Extra (+$3)</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="pepperoni" name="extras" value="pepperoni">
+                <label for="pepperoni">Pepperoni (+$4)</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="champinones" name="extras" value="champinones" checked>
+                <label for="champinones">Champiñones (+$2)</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="aceitunas" name="extras" value="aceitunas">
+                <label for="aceitunas">Aceitunas (+$2)</label>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="code-example">
+&lt;!-- Radio buttons (una opción) --&gt;
+&lt;input type="radio" id="pequena" name="tamano" value="pequena"&gt;
+&lt;label for="pequena"&gt;Pizza Pequeña&lt;/label&gt;
+
+&lt;!-- Checkboxes (múltiples opciones) --&gt;
+&lt;input type="checkbox" id="queso" name="extras" value="queso"&gt;
+&lt;label for="queso"&gt;Queso Extra&lt;/label&gt;
+        </div>
+      </section>
+
+      <section class="example-section">
+        <h2>Listas Desplegables</h2>
+        
+        <form action="#" method="post">
+          <div class="inline-group">
+            <div>
+              <label for="pais">País:</label>
+              <select id="pais" name="pais">
+                <option value="">Selecciona un país</option>
+                <option value="ar">Argentina</option>
+                <option value="br">Brasil</option>
+                <option value="cl">Chile</option>
+                <option value="co">Colombia</option>
+                <option value="mx">México</option>
+                <option value="pe">Perú</option>
+                <option value="uy">Uruguay</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="idiomas">Idiomas (múltiple):</label>
+              <select id="idiomas" name="idiomas" multiple size="4">
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+                <option value="fr">Francés</option>
+                <option value="pt">Portugués</option>
+                <option value="it">Italiano</option>
+                <option value="de">Alemán</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ubicacion">Ubicación (con grupos):</label>
+            <select id="ubicacion" name="ubicacion">
+              <option value="">Selecciona una ubicación</option>
+              <optgroup label="América del Sur">
+                <option value="ar">Argentina</option>
+                <option value="br">Brasil</option>
+                <option value="cl">Chile</option>
+              </optgroup>
+              <optgroup label="América del Norte">
+                <option value="us">Estados Unidos</option>
+                <option value="ca">Canadá</option>
+                <option value="mx">México</option>
+              </optgroup>
+              <optgroup label="Europa">
+                <option value="es">España</option>
+                <option value="fr">Francia</option>
+                <option value="it">Italia</option>
+              </optgroup>
+            </select>
+          </div>
+        </form>
+
+        <div class="code-example">
+&lt;select name="pais"&gt;
+  &lt;option value=""&gt;Selecciona un país&lt;/option&gt;
+  &lt;option value="ar"&gt;Argentina&lt;/option&gt;
+  &lt;option value="br"&gt;Brasil&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Select múltiple --&gt;
+&lt;select name="idiomas" multiple&gt;
+  &lt;option value="es"&gt;Español&lt;/option&gt;
+  &lt;option value="en"&gt;Inglés&lt;/option&gt;
+&lt;/select&gt;
+        </div>
+      </section>
+
+      <section class="example-section">
+        <h2>Validación HTML5</h2>
+        
+        <form action="#" method="post" class="validation-demo">
+          <fieldset>
+            <legend>Formulario con Validación</legend>
+            
+            <div class="form-group">
+              <label for="email-val">Email <span class="required">*</span>:</label>
+              <input type="email" id="email-val" name="email-val" required
+                     title="Ingresa un email válido">
+            </div>
+
+            <div class="form-group">
+              <label for="password-val">Contraseña <span class="required">*</span>:</label>
+              <input type="password" id="password-val" name="password-val" 
+                     required minlength="8" maxlength="20"
+                     title="Entre 8 y 20 caracteres">
+            </div>
+
+            <div class="form-group">
+              <label for="codigo">Código (formato ABC123):</label>
+              <input type="text" id="codigo" name="codigo" 
+                     pattern="[A-Z]{3}[0-9]{3}"
+                     title="Formato: 3 letras mayúsculas seguidas de 3 números"
+                     placeholder="ABC123">
+            </div>
+
+            <div class="form-group">
+              <label for="edad-val">Edad (18-99) <span class="required">*</span>:</label>
+              <input type="number" id="edad-val" name="edad-val" 
+                     required min="18" max="99">
+            </div>
+
+            <div class="form-group">
+              <label for="url-val">Sitio Web:</label>
+              <input type="url" id="url-val" name="url-val"
+                     placeholder="https://ejemplo.com">
+            </div>
+
+            <input type="submit" value="Validar y Enviar">
+          </fieldset>
+        </form>
+
+        <div class="code-example">
+&lt;!-- Validación automática --&gt;
+&lt;input type="email" required&gt;
+&lt;input type="password" minlength="8" maxlength="20"&gt;
+&lt;input type="number" min="18" max="99"&gt;
+&lt;input type="text" pattern="[A-Z]{3}[0-9]{3}"&gt;
+        </div>
+
+        <p><strong>Nota:</strong> Los campos cambian de color según su validez (rojo = inválido, verde = válido)</p>
+      </section>
+
+      <section class="example-section">
+        <h2>Formulario Completo - Registro de Usuario</h2>
+        
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Información Personal</legend>
+            
+            <div class="inline-group">
+              <div>
+                <label for="nombre-reg">Nombre <span class="required">*</span>:</label>
+                <input type="text" id="nombre-reg" name="nombre-reg" required>
+              </div>
+              
+              <div>
+                <label for="apellido-reg">Apellido <span class="required">*</span>:</label>
+                <input type="text" id="apellido-reg" name="apellido-reg" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email-reg">Email <span class="required">*</span>:</label>
+              <input type="email" id="email-reg" name="email-reg" required>
+            </div>
+
+            <div class="inline-group">
+              <div>
+                <label for="telefono-reg">Teléfono:</label>
+                <input type="tel" id="telefono-reg" name="telefono-reg">
+              </div>
+              
+              <div>
+                <label for="fecha-nac">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha-nac" name="fecha-nac">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Cuenta</legend>
+            
+            <div class="form-group">
+              <label for="usuario">Nombre de Usuario <span class="required">*</span>:</label>
+              <input type="text" id="usuario" name="usuario" required
+                     minlength="3" maxlength="20">
+            </div>
+
+            <div class="form-group">
+              <label for="password-reg">Contraseña <span class="required">*</span>:</label>
+              <input type="password" id="password-reg" name="password-reg" 
+                     required minlength="8">
+            </div>
+
+            <div class="form-group">
+              <label for="password-confirm">Confirmar Contraseña <span class="required">*</span>:</label>
+              <input type="password" id="password-confirm" name="password-confirm" 
+                     required minlength="8">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Preferencias</legend>
+            
+            <div class="form-group">
+              <label for="genero">Género:</label>
+              <select id="genero" name="genero">
+                <option value="">Prefiero no decir</option>
+                <option value="m">Masculino</option>
+                <option value="f">Femenino</option>
+                <option value="o">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Intereses:</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="tecnologia" name="intereses" value="tecnologia">
+                  <label for="tecnologia">Tecnología</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="deportes" name="intereses" value="deportes">
+                  <label for="deportes">Deportes</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="musica" name="intereses" value="musica">
+                  <label for="musica">Música</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="viajes" name="intereses" value="viajes">
+                  <label for="viajes">Viajes</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="comentarios">Comentarios adicionales:</label>
+              <textarea id="comentarios" name="comentarios" rows="3"
+                        placeholder="Cuéntanos algo más sobre ti..."></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Términos y Condiciones</legend>
+            
+            <div class="checkbox-item">
+              <input type="checkbox" id="terminos" name="terminos" required>
+              <label for="terminos">
+                Acepto los <a href="#" target="_blank">términos y condiciones</a> 
+                <span class="required">*</span>
+              </label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="newsletter" name="newsletter">
+              <label for="newsletter">
+                Deseo recibir el newsletter semanal
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-group">
+            <button type="submit">Crear Cuenta</button>
+            <button type="reset">Limpiar Formulario</button>
+            <button type="button" onclick="history.back()">Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="example-section">
+        <h2>Tipos de Botones</h2>
+        
+        <form action="#" method="post">
+          <h3>Diferentes Tipos de Botones</h3>
+          
+          <!-- Botones con input -->
+          <input type="submit" value="Enviar (input)">
+          <input type="reset" value="Limpiar (input)">
+          <input type="button" value="Botón Genérico (input)" onclick="alert('¡Hola!')">
+          
+          <br><br>
+          
+          <!-- Botones con elemento button -->
+          <button type="submit">
+            📤 Enviar con Icono
+          </button>
+          
+          <button type="reset">
+            🔄 Reiniciar
+          </button>
+          
+          <button type="button" onclick="alert('Botón personalizado')">
+            ⚡ Acción Personalizada
+          </button>
+        </form>
+
+        <div class="code-example">
+&lt;!-- Input buttons --&gt;
+&lt;input type="submit" value="Enviar"&gt;
+&lt;input type="reset" value="Limpiar"&gt;
+&lt;input type="button" value="Genérico"&gt;
+
+&lt;!-- Button element (puede contener HTML) --&gt;
+&lt;button type="submit"&gt;
+  &lt;img src="icon.png"&gt; Enviar con Icono
+&lt;/button&gt;
+        </div>
+      </section>
+
+      <section class="example-section">
+        <h2>Mejores Prácticas</h2>
+        
+        <h3>Accesibilidad</h3>
+        <ul>
+          <li><strong>Labels asociados:</strong> Usar <code>for</code> e <code>id</code></li>
+          <li><strong>Fieldset y legend:</strong> Agrupar campos relacionados</li>
+          <li><strong>Mensajes claros:</strong> Usar <code>title</code> y <code>placeholder</code></li>
+          <li><strong>Orden lógico:</strong> Navegación con Tab coherente</li>
+        </ul>
+
+        <h3>UX y Usabilidad</h3>
+        <ul>
+          <li><strong>Campos requeridos:</strong> Marcar con asterisco (*)</li>
+          <li><strong>Validación en tiempo real:</strong> Feedback inmediato</li>
+          <li><strong>Placeholder útil:</strong> Ejemplos, no instrucciones</li>
+          <li><strong>Agrupación lógica:</strong> Usar fieldset para organizar</li>
+        </ul>
+
+        <h3>Seguridad</h3>
+        <ul>
+          <li><strong>HTTPS:</strong> Siempre para datos sensibles</li>
+          <li><strong>Validación servidor:</strong> No confiar solo en HTML5</li>
+          <li><strong>Sanitización:</strong> Limpiar datos de entrada</li>
+          <li><strong>Tokens CSRF:</strong> Proteger contra ataques</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Nota:</strong> Los formularios son la principal forma de interacción
+        en aplicaciones web. Siempre prioriza la accesibilidad y usabilidad.
+      </p>
+      <p>
+        <a href="05-tablas.html">← Anterior</a> |
+        <a href="index.html">Índice</a>
+      </p>
+    </footer>
+
+    <script>
+      // Script simple para demostrar interactividad
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mostrar valor del range en tiempo real
+        const rangeInput = document.getElementById('rango');
+        if (rangeInput) {
+          const updateRange = () => {
+            const label = document.querySelector('label[for="rango"]');
+            label.textContent = `Volumen (0-100): ${rangeInput.value}`;
+          };
+          rangeInput.addEventListener('input', updateRange);
+          updateRange(); // Inicializar
+        }
+      });
+    </script>
+  </body>
+</html>

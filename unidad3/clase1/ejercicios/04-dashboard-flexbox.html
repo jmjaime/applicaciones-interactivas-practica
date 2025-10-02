@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4: Dashboard con Flexbox</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        min-height: 100vh;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+
+      .exercise-info {
+        background: #e8f4fd;
+        border-left: 5px solid #2196f3;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .exercise-info h2 {
+        color: #1565c0;
+        margin-bottom: 1rem;
+      }
+
+      .objectives {
+        background: #f1f8e9;
+        border-left: 5px solid #4caf50;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .objectives h3 {
+        color: #388e3c;
+        margin-bottom: 1rem;
+      }
+
+      .objectives ul {
+        padding-left: 1.5rem;
+      }
+
+      .objectives li {
+        margin-bottom: 0.5rem;
+      }
+
+      .code-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .code-header {
+        background: #343a40;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+        font-weight: bold;
+      }
+
+      .code-content {
+        padding: 1.5rem;
+      }
+
+      .code-content pre {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .task {
+        background: #fff3e0;
+        border-left: 5px solid #ff9800;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 5px;
+      }
+
+      .task h4 {
+        color: #f57c00;
+        margin-bottom: 0.5rem;
+      }
+
+      .hint {
+        background: #f3e5f5;
+        border-left: 5px solid #9c27b0;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .hint strong {
+        color: #7b1fa2;
+      }
+
+      .example-box {
+        background: #e8f5e8;
+        border: 1px solid #4caf50;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .example-box h4 {
+        color: #2e7d32;
+        margin-bottom: 1rem;
+      }
+
+      .layout-diagram {
+        background: #f8f9fa;
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        padding: 2rem;
+        margin: 1.5rem 0;
+        font-family: monospace;
+        text-align: center;
+      }
+
+      .flexbox-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+      }
+
+      .flexbox-table th,
+      .flexbox-table td {
+        border: 1px solid #ddd;
+        padding: 0.8rem;
+        text-align: left;
+      }
+
+      .flexbox-table th {
+        background: #f8f9fa;
+        font-weight: 600;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .nav-button {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .nav-button:hover {
+        background: #0056b3;
+      }
+
+      .nav-button.secondary {
+        background: #6c757d;
+      }
+
+      .nav-button.secondary:hover {
+        background: #545b62;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+
+        .navigation {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📊 Ejercicio 4: Dashboard con Flexbox</h1>
+        <p>Layouts Modernos + Componentes Flexibles</p>
+      </div>
+
+      <div class="content">
+        <div class="exercise-info">
+          <h2>📋 Descripción del Ejercicio</h2>
+          <p>
+            Crea un dashboard moderno y responsive utilizando Flexbox para el
+            layout principal y componentes. Implementarás navegación, tarjetas
+            de estadísticas, gráficos simulados y una sidebar funcional.
+          </p>
+        </div>
+
+        <div class="objectives">
+          <h3>🎯 Objetivos de Aprendizaje</h3>
+          <ul>
+            <li>Dominar las propiedades de Flexbox para layouts complejos</li>
+            <li>Crear componentes flexibles y reutilizables</li>
+            <li>Implementar navegación responsive con Flexbox</li>
+            <li>Aplicar alineación y distribución de espacio</li>
+            <li>Combinar Flexbox con otras técnicas de CSS</li>
+          </ul>
+        </div>
+
+        <div class="layout-diagram">
+          <h4>📐 Layout del Dashboard</h4>
+          <pre>
+┌─────────────────────────────────────────────┐
+│                HEADER                       │
+│            (flex: row)                      │
+├─────────────────────────────────────────────┤
+│ SIDEBAR │           MAIN CONTENT            │
+│ (flex:  │         (flex: column)            │
+│  none)  │  ┌─────────────────────────────┐  │
+│         │  │     STATS CARDS             │  │
+│         │  │    (flex: row wrap)         │  │
+│         │  ├─────────────────────────────┤  │
+│         │  │     CHARTS SECTION          │  │
+│         │  │    (flex: row)              │  │
+│         │  ├─────────────────────────────┤  │
+│         │  │     RECENT ACTIVITY         │  │
+│         │  │    (flex: column)           │  │
+│         │  └─────────────────────────────┘  │
+└─────────────────────────────────────────────┘
+          </pre>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">📁 Archivo Base: dashboard.html</div>
+          <div class="code-content">
+            <p><strong>Crea un archivo llamado "dashboard.html":</strong></p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Dashboard Admin&lt;/title&gt;
+    &lt;style&gt;
+      /* Reset y variables CSS */
+      :root {
+        --primary: #3498db;
+        --secondary: #2ecc71;
+        --danger: #e74c3c;
+        --warning: #f39c12;
+        --dark: #2c3e50;
+        --light: #ecf0f1;
+      }
+      /* Aquí irán tus estilos CSS */
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Contenido del dashboard --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="task">
+          <h4>🏗️ Tarea 1: Estructura HTML del Dashboard</h4>
+          <p>Crea la estructura principal del dashboard:</p>
+          <ul>
+            <li><strong>Header:</strong> Logo, título, navegación principal, perfil de usuario</li>
+            <li><strong>Container principal:</strong> Flexbox para sidebar + main</li>
+            <li><strong>Sidebar:</strong> Menú de navegación vertical</li>
+            <li><strong>Main content:</strong> Área principal con:
+              <ul>
+                <li>Sección de estadísticas (4 tarjetas)</li>
+                <li>Sección de gráficos (2 columnas)</li>
+                <li>Sección de actividad reciente</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa clases semánticas como <code>.dashboard-header</code>, <code>.dashboard-container</code>, <code>.sidebar</code>, <code>.main-content</code>.
+        </div>
+
+        <div class="task">
+          <h4>📊 Tarea 2: Header con Flexbox</h4>
+          <p>Implementa un header responsive usando Flexbox:</p>
+          <ul>
+            <li><strong>Display flex:</strong> Para alinear elementos horizontalmente</li>
+            <li><strong>Justify-content:</strong> space-between para distribuir elementos</li>
+            <li><strong>Align-items:</strong> center para alineación vertical</li>
+            <li><strong>Logo + título:</strong> Agrupados a la izquierda</li>
+            <li><strong>Navegación:</strong> Lista horizontal en el centro</li>
+            <li><strong>Perfil:</strong> Avatar + nombre a la derecha</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Header Flexbox:</h4>
+          <pre><code>.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--dark);
+  color: white;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>🏠 Tarea 3: Layout Principal (Sidebar + Main)</h4>
+          <p>Crea el layout principal con Flexbox:</p>
+          <ul>
+            <li><strong>Container:</strong> display: flex (horizontal)</li>
+            <li><strong>Sidebar:</strong> flex: 0 0 250px (ancho fijo)</li>
+            <li><strong>Main:</strong> flex: 1 (ocupa espacio restante)</li>
+            <li><strong>Altura:</strong> min-height: calc(100vh - header-height)</li>
+          </ul>
+        </div>
+
+        <div class="task">
+          <h4>📈 Tarea 4: Tarjetas de Estadísticas</h4>
+          <p>Implementa una sección de estadísticas con Flexbox:</p>
+          <ul>
+            <li><strong>Container:</strong> display: flex, flex-wrap: wrap</li>
+            <li><strong>Tarjetas:</strong> flex: 1 1 250px (responsive)</li>
+            <li><strong>Gap:</strong> Espaciado entre tarjetas</li>
+            <li><strong>Contenido de cada tarjeta:</strong>
+              <ul>
+                <li>Icono (emoji o símbolo)</li>
+                <li>Número grande (estadística)</li>
+                <li>Descripción</li>
+                <li>Cambio porcentual</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Ejemplo de Tarjetas Estadísticas:</h4>
+          <pre><code>.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  flex: 1 1 250px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}</code></pre>
+        </div>
+
+        <div class="task">
+          <h4>📊 Tarea 5: Sección de Gráficos</h4>
+          <p>Crea una sección de gráficos simulados:</p>
+          <ul>
+            <li><strong>Container:</strong> display: flex, gap entre elementos</li>
+            <li><strong>Gráfico principal:</strong> flex: 2 (más ancho)</li>
+            <li><strong>Gráfico secundario:</strong> flex: 1 (más estrecho)</li>
+            <li><strong>Contenido simulado:</strong> Rectángulos de colores, barras, etc.</li>
+            <li><strong>Responsive:</strong> flex-direction: column en móviles</li>
+          </ul>
+        </div>
+
+        <div class="task">
+          <h4>📋 Tarea 6: Lista de Actividad Reciente</h4>
+          <p>Implementa una lista de actividades con Flexbox:</p>
+          <ul>
+            <li><strong>Cada item:</strong> display: flex</li>
+            <li><strong>Avatar:</strong> flex: none (tamaño fijo)</li>
+            <li><strong>Contenido:</strong> flex: 1 (ocupa resto)</li>
+            <li><strong>Timestamp:</strong> flex: none, align-self: flex-start</li>
+            <li><strong>Separadores:</strong> Líneas entre items</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">🎨 Propiedades Flexbox Clave</div>
+          <div class="code-content">
+            <table class="flexbox-table">
+              <thead>
+                <tr>
+                  <th>Propiedad</th>
+                  <th>Aplicar a</th>
+                  <th>Valores Comunes</th>
+                  <th>Uso en Dashboard</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>display: flex</td>
+                  <td>Container</td>
+                  <td>flex</td>
+                  <td>Header, sidebar, tarjetas</td>
+                </tr>
+                <tr>
+                  <td>flex-direction</td>
+                  <td>Container</td>
+                  <td>row, column</td>
+                  <td>Layout principal, navegación</td>
+                </tr>
+                <tr>
+                  <td>justify-content</td>
+                  <td>Container</td>
+                  <td>space-between, center</td>
+                  <td>Distribución horizontal</td>
+                </tr>
+                <tr>
+                  <td>align-items</td>
+                  <td>Container</td>
+                  <td>center, stretch</td>
+                  <td>Alineación vertical</td>
+                </tr>
+                <tr>
+                  <td>flex</td>
+                  <td>Items</td>
+                  <td>1, 0 0 250px</td>
+                  <td>Tamaños de sidebar/main</td>
+                </tr>
+                <tr>
+                  <td>flex-wrap</td>
+                  <td>Container</td>
+                  <td>wrap, nowrap</td>
+                  <td>Tarjetas responsive</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="task">
+          <h4>📱 Tarea 7: Responsive Design</h4>
+          <p>Adapta el dashboard para móviles:</p>
+          <ul>
+            <li><strong>Header:</strong> Hamburger menu, elementos apilados</li>
+            <li><strong>Sidebar:</strong> Oculta por defecto, overlay en móvil</li>
+            <li><strong>Tarjetas:</strong> Una columna en pantallas pequeñas</li>
+            <li><strong>Gráficos:</strong> Apilados verticalmente</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa <code>@media (max-width: 768px)</code> para cambiar <code>flex-direction</code> y ocultar/mostrar elementos.
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">📊 Datos Sugeridos para el Dashboard</div>
+          <div class="code-content">
+            <ul>
+              <li><strong>Estadísticas:</strong> Usuarios (1,234), Ventas ($45,678), Pedidos (89), Conversión (12.5%)</li>
+              <li><strong>Navegación:</strong> Dashboard, Usuarios, Productos, Pedidos, Reportes, Configuración</li>
+              <li><strong>Actividades:</strong> "Usuario Juan se registró", "Nueva venta de $299", "Producto actualizado"</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="hint">
+          <strong>🚀 Desafío Extra:</strong> Añade animaciones CSS, implementa un sidebar colapsable, crea gráficos más realistas con CSS puro, o añade un modo oscuro.
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="03-formulario-contacto.html" class="nav-button secondary">← Ejercicio Anterior</a>
+        <a href="05-galeria-grid.html" class="nav-button">Siguiente Ejercicio →</a>
+      </div>
+    </div>
+  </body>
+</html>

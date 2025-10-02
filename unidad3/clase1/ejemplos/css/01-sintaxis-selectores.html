@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01 - Sintaxis y Selectores CSS</title>
+    <style>
+      /* Reset básico */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+
+      /* Ejemplo de selector de elemento */
+      h1 {
+        color: #007acc;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2.5em;
+      }
+
+      h2 {
+        color: #333;
+        border-bottom: 2px solid #007acc;
+        padding-bottom: 0.5rem;
+        margin: 2rem 0 1rem 0;
+      }
+
+      h3 {
+        color: #555;
+        margin: 1.5rem 0 0.5rem 0;
+      }
+
+      /* Selector de clase */
+      .ejemplo-seccion {
+        background-color: white;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .destacado {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      .codigo-ejemplo {
+        background-color: #f4f4f4;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 1rem;
+        font-family: "Courier New", monospace;
+        font-size: 0.9em;
+        overflow-x: auto;
+        margin: 1rem 0;
+      }
+
+      /* Selector de ID */
+      #encabezado-principal {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      /* Selectores descendientes */
+      .navegacion ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        background-color: #343a40;
+        padding: 1rem;
+        border-radius: 5px;
+      }
+
+      .navegacion ul li {
+        background-color: #495057;
+        border-radius: 3px;
+      }
+
+      .navegacion ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: block;
+        transition: background-color 0.3s ease;
+      }
+
+      .navegacion ul li a:hover {
+        background-color: #007acc;
+        border-radius: 3px;
+      }
+
+      /* Selector de hijo directo */
+      .lista-directa > li {
+        background-color: #e9ecef;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        border-left: 4px solid #007acc;
+      }
+
+      .lista-directa > li > ul > li {
+        background-color: #f8f9fa;
+        border-left: 4px solid #6c757d;
+        margin-left: 1rem;
+      }
+
+      /* Selectores de hermanos */
+      .hermano-titulo + .hermano-parrafo {
+        background-color: #d1ecf1;
+        border: 1px solid #bee5eb;
+        padding: 1rem;
+        border-radius: 5px;
+      }
+
+      .hermano-titulo ~ .hermano-relacionado {
+        color: #6c757d;
+        font-style: italic;
+        margin-left: 2rem;
+      }
+
+      /* Pseudo-clases */
+      .boton {
+        background-color: #007acc;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .boton:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .boton:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .boton:focus {
+        outline: 2px solid #ffc107;
+        outline-offset: 2px;
+      }
+
+      /* Pseudo-clases estructurales */
+      .lista-colores li:first-child {
+        background-color: #ff6b6b;
+        color: white;
+      }
+
+      .lista-colores li:last-child {
+        background-color: #4ecdc4;
+        color: white;
+      }
+
+      .lista-colores li:nth-child(even) {
+        background-color: #f1f3f4;
+      }
+
+      .lista-colores li:nth-child(odd) {
+        background-color: white;
+      }
+
+      .lista-colores li {
+        padding: 0.5rem;
+        margin: 0.25rem 0;
+        border-radius: 3px;
+      }
+
+      /* Pseudo-elementos */
+      .cita::before {
+        content: '"';
+        font-size: 3em;
+        color: #007acc;
+        line-height: 0;
+        margin-right: 0.25rem;
+        vertical-align: -0.4em;
+      }
+
+      .cita::after {
+        content: '"';
+        font-size: 3em;
+        color: #007acc;
+        line-height: 0;
+        margin-left: 0.25rem;
+        vertical-align: -0.4em;
+      }
+
+      .parrafo-especial::first-letter {
+        font-size: 3em;
+        float: left;
+        line-height: 1;
+        margin-right: 0.1em;
+        color: #007acc;
+        font-weight: bold;
+      }
+
+      .parrafo-especial::first-line {
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* Selectores de atributo */
+      input[type="text"] {
+        border: 2px solid #ddd;
+        padding: 0.5rem;
+        border-radius: 4px;
+        margin: 0.5rem;
+      }
+
+      input[type="email"] {
+        border: 2px solid #007acc;
+        padding: 0.5rem;
+        border-radius: 4px;
+        margin: 0.5rem;
+      }
+
+      a[href^="https://"] {
+        color: #28a745;
+      }
+
+      a[href$=".pdf"] {
+        color: #dc3545;
+      }
+
+      a[href*="github"] {
+        color: #6f42c1;
+      }
+
+      /* Agrupación de selectores */
+      h1,
+      h2,
+      h3,
+      .titulo-especial {
+        font-family: Georgia, serif;
+      }
+
+      /* Especificidad visual */
+      .especificidad-demo {
+        color: blue; /* Especificidad: 0,0,1,0 */
+      }
+
+      #especificidad-id {
+        color: red; /* Especificidad: 0,1,0,0 - GANA */
+      }
+
+      .especificidad-demo.clase-extra {
+        color: green; /* Especificidad: 0,0,2,0 */
+      }
+
+      /* Utilidades */
+      .text-center {
+        text-align: center;
+      }
+
+      .mb-2 {
+        margin-bottom: 1rem;
+      }
+
+      .p-1 {
+        padding: 0.5rem;
+      }
+
+      .border-radius {
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="encabezado-principal">
+      <h1>Sintaxis y Selectores CSS</h1>
+      <p><strong>Ejemplo 1:</strong> Fundamentos de CSS y tipos de selectores</p>
+    </div>
+
+    <main>
+      <section class="ejemplo-seccion">
+        <h2>Anatomía de una Regla CSS</h2>
+        <div class="destacado">
+          <h3>Estructura Básica</h3>
+          <div class="codigo-ejemplo">
+selector {<br />
+&nbsp;&nbsp;property: value;<br />
+&nbsp;&nbsp;property: value;<br />
+}
+          </div>
+        </div>
+
+        <h3>Ejemplo en Acción</h3>
+        <p>
+          Este encabezado principal usa el selector <code>h1</code> con las
+          propiedades <code>color</code>, <code>text-align</code> y
+          <code>margin-bottom</code>.
+        </p>
+      </section>
+
+      <section class="ejemplo-seccion">
+        <h2>Selectores Básicos</h2>
+
+        <h3>1. Selector de Elemento</h3>
+        <p>
+          Todos los párrafos (<code>p</code>) tienen el estilo base definido en
+          CSS.
+        </p>
+
+        <h3>2. Selector de Clase</h3>
+        <div class="destacado">
+          <p>
+            Este div tiene la clase <code>.destacado</code> que le da el fondo
+            amarillo y el borde.
+          </p>
+        </div>
+
+        <h3>3. Selector de ID</h3>
+        <p>
+          El encabezado principal arriba usa el ID
+          <code>#encabezado-principal</code> para su estilo único.
+        </p>
+      </section>
+
+      <section class="ejemplo-seccion">
+        <h2>Selectores Avanzados</h2>
+
+        <h3>Selectores Descendientes</h3>
+        <div class="navegacion">
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre">Sobre Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <p>
+          <em
+            >Los enlaces dentro de <code>.navegacion ul li a</code> tienen
+            estilos específicos.</em
+          >
+        </p>
+
+        <h3>Selector de Hijo Directo (>)</h3>
+        <ul class="lista-directa">
+          <li>
+            Elemento hijo directo (con estilo especial)
+            <ul>
+              <li>Elemento nieto (estilo diferente)</li>
+              <li>Otro elemento nieto</li>
+            </ul>
+          </li>
+          <li>Otro elemento hijo directo</li>
+        </ul>
+
+        <h3>Selectores de Hermanos</h3>
+        <h4 class="hermano-titulo">Título con Hermanos</h4>
+        <p class="hermano-parrafo">
+          Este párrafo es hermano adyacente (+) del título anterior.
+        </p>
+        <p class="hermano-relacionado">
+          Este párrafo es hermano general (~) del título.
+        </p>
+        <p class="hermano-relacionado">
+          Este también es hermano general (~) del título.
+        </p>
+      </section>
+
+      <section class="ejemplo-seccion">
+        <h2>Pseudo-clases</h2>
+
+        <h3>Estados de Interacción</h3>
+        <div class="text-center">
+          <a href="#" class="boton">Hover sobre mí</a>
+          <button class="boton">Botón con Focus</button>
+          <a href="#" class="boton">Prueba Active</a>
+        </div>
+
+        <h3>Pseudo-clases Estructurales</h3>
+        <ul class="lista-colores">
+          <li>Primer elemento (:first-child)</li>
+          <li>Elemento par (:nth-child(even))</li>
+          <li>Elemento impar (:nth-child(odd))</li>
+          <li>Elemento par (:nth-child(even))</li>
+          <li>Último elemento (:last-child)</li>
+        </ul>
+      </section>
+
+      <section class="ejemplo-seccion">
+        <h2>Pseudo-elementos</h2>
+
+        <h3>Contenido Generado</h3>
+        <blockquote class="cita">
+          Los pseudo-elementos nos permiten estilizar partes específicas de un
+          elemento o generar contenido adicional.
+        </blockquote>
+
+        <h3>Primera Letra y Primera Línea</h3>
+        <p class="parrafo-especial">
+          Este párrafo demuestra el uso de ::first-letter y ::first-line. La
+          primera letra es más grande y la primera línea está en negrita. Los
+          pseudo-elementos son muy útiles para efectos tipográficos elegantes
+          sin necesidad de markup adicional.
+        </p>
+      </section>
+
+      <section class="ejemplo-seccion">
+        <h2>Selectores de Atributo</h2>
+
+        <h3>Formulario de Ejemplo</h3>
+        <form>
+          <div>
+            <label>Texto normal:</label>
+            <input type="text" placeholder="input[type='text']" />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input type="email" placeholder="input[type='email']" />
+          </div>
+        </form>
+
+        <h3>Enlaces por Atributo</h3>
+        <ul>
+          <li>
+            <a href="https://www.google.com">Enlace HTTPS (verde)</a> -
+            <code>a[href^="https://"]</code>
+          </li>
+          <li>
+            <a href="documento.pdf">Archivo PDF (rojo)</a> -
+            <code>a[href$=".pdf"]</code>
+          </li>
+          <li>
+            <a href="https://github.com/usuario">GitHub (morado)</a> -
+            <code>a[href*="github"]</code>
+          </li>
+        </ul>
+      </section>
+
+      <section class="ejemplo-seccion">
+        <h2>Especificidad CSS</h2>
+
+        <h3>Demostración de Especificidad</h3>
+        <div class="especificidad-demo clase-extra" id="especificidad-id">
+          <p>
+            Este texto debería ser <strong>rojo</strong> porque el selector de
+            ID tiene mayor especificidad que las clases.
+          </p>
+        </div>
+
+        <div class="codigo-ejemplo">
+          .especificidad-demo { color: blue; } /* 0,0,1,0 */<br />
+          #especificidad-id { color: red; } /* 0,1,0,0 - GANA */<br />
+          .especificidad-demo.clase-extra { color: green; } /* 0,0,2,0 */
+        </div>
+
+        <h3>Orden de Especificidad</h3>
+        <ol>
+          <li><strong>Inline styles</strong> (1,0,0,0)</li>
+          <li><strong>IDs</strong> (0,1,0,0)</li>
+          <li><strong>Classes, attributes, pseudo-classes</strong> (0,0,1,0)</li>
+          <li><strong>Elements y pseudo-elements</strong> (0,0,0,1)</li>
+        </ol>
+      </section>
+
+      <section class="ejemplo-seccion">
+        <h2>Agrupación de Selectores</h2>
+
+        <h3 class="titulo-especial">Títulos con Fuente Serif</h3>
+        <p>
+          Los selectores <code>h1, h2, h3, .titulo-especial</code> comparten la
+          misma familia de fuente (Georgia, serif).
+        </p>
+
+        <div class="codigo-ejemplo">
+          h1, h2, h3, .titulo-especial {<br />
+          &nbsp;&nbsp;font-family: Georgia, serif;<br />
+          }
+        </div>
+      </section>
+    </main>
+
+    <footer class="ejemplo-seccion text-center">
+      <p>
+        <strong>Ejercicio:</strong> Inspecciona el código fuente (F12) para ver
+        cómo cada selector afecta a los elementos.
+      </p>
+      <p><a href="index.html">← Volver al índice de ejemplos CSS</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1: Mi Primera Página Web</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        min-height: 100vh;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+
+      .exercise-info {
+        background: #e3f2fd;
+        border-left: 5px solid #2196f3;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .exercise-info h2 {
+        color: #1976d2;
+        margin-bottom: 1rem;
+      }
+
+      .objectives {
+        background: #f1f8e9;
+        border-left: 5px solid #4caf50;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+
+      .objectives h3 {
+        color: #388e3c;
+        margin-bottom: 1rem;
+      }
+
+      .objectives ul {
+        padding-left: 1.5rem;
+      }
+
+      .objectives li {
+        margin-bottom: 0.5rem;
+      }
+
+      .code-section {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .code-header {
+        background: #343a40;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+        font-weight: bold;
+      }
+
+      .code-content {
+        padding: 1.5rem;
+      }
+
+      .code-content pre {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .task {
+        background: #fff3e0;
+        border-left: 5px solid #ff9800;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 5px;
+      }
+
+      .task h4 {
+        color: #f57c00;
+        margin-bottom: 0.5rem;
+      }
+
+      .hint {
+        background: #f3e5f5;
+        border-left: 5px solid #9c27b0;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .hint strong {
+        color: #7b1fa2;
+      }
+
+      .result-preview {
+        border: 2px dashed #ddd;
+        padding: 2rem;
+        margin: 2rem 0;
+        border-radius: 8px;
+        text-align: center;
+        color: #666;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .nav-button {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .nav-button:hover {
+        background: #0056b3;
+      }
+
+      .nav-button.secondary {
+        background: #6c757d;
+      }
+
+      .nav-button.secondary:hover {
+        background: #545b62;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+
+        .navigation {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎯 Ejercicio 1: Mi Primera Página Web</h1>
+        <p>Estructura HTML Semántica + CSS Básico</p>
+      </div>
+
+      <div class="content">
+        <div class="exercise-info">
+          <h2>📋 Descripción del Ejercicio</h2>
+          <p>
+            En este ejercicio crearás tu primera página web personal utilizando
+            HTML semántico y CSS básico. Aplicarás los conceptos fundamentales
+            de estructura, selectores y propiedades de estilo.
+          </p>
+        </div>
+
+        <div class="objectives">
+          <h3>🎯 Objetivos de Aprendizaje</h3>
+          <ul>
+            <li>Aplicar la estructura básica de un documento HTML5</li>
+            <li>Utilizar elementos semánticos correctamente</li>
+            <li>Implementar selectores CSS básicos (elemento, clase, ID)</li>
+            <li>Aplicar propiedades de texto, color y espaciado</li>
+            <li>Crear un layout simple con CSS</li>
+          </ul>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">📁 Archivo Base: mi-pagina.html</div>
+          <div class="code-content">
+            <p><strong>Crea un archivo llamado "mi-pagina.html" y comienza con esta estructura:</strong></p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Mi Página Personal&lt;/title&gt;
+    &lt;style&gt;
+      /* Aquí irán tus estilos CSS */
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Aquí irá tu contenido HTML --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="task">
+          <h4>📝 Tarea 1: Estructura HTML Semántica</h4>
+          <p>Dentro del <code>&lt;body&gt;</code>, crea la siguiente estructura:</p>
+          <ul>
+            <li><strong>Header:</strong> Con tu nombre y una breve descripción</li>
+            <li><strong>Nav:</strong> Menú de navegación con 3-4 enlaces internos</li>
+            <li><strong>Main:</strong> Contenido principal con las siguientes secciones:
+              <ul>
+                <li><strong>Section "sobre-mi":</strong> Párrafo sobre ti</li>
+                <li><strong>Section "habilidades":</strong> Lista de tus habilidades</li>
+                <li><strong>Section "contacto":</strong> Información de contacto</li>
+              </ul>
+            </li>
+            <li><strong>Footer:</strong> Copyright y año actual</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa elementos semánticos como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>. Recuerda asignar IDs a las secciones para la navegación interna.
+        </div>
+
+        <div class="task">
+          <h4>🎨 Tarea 2: Estilos CSS Básicos</h4>
+          <p>En la sección <code>&lt;style&gt;</code>, aplica los siguientes estilos:</p>
+          <ul>
+            <li><strong>Reset básico:</strong> <code>* { margin: 0; padding: 0; box-sizing: border-box; }</code></li>
+            <li><strong>Body:</strong> Fuente, color de texto y color de fondo</li>
+            <li><strong>Header:</strong> Color de fondo, texto centrado, padding</li>
+            <li><strong>Navegación:</strong> Lista horizontal, sin viñetas</li>
+            <li><strong>Secciones:</strong> Padding, margen, y diferentes colores de fondo</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa selectores de elemento para estilos generales, clases para componentes reutilizables, e IDs para elementos únicos. Ejemplo: <code>header { background-color: #3498db; }</code>
+        </div>
+
+        <div class="task">
+          <h4>🔗 Tarea 3: Enlaces y Navegación</h4>
+          <p>Implementa navegación interna:</p>
+          <ul>
+            <li>Los enlaces del menú deben apuntar a las secciones correspondientes</li>
+            <li>Aplica estilos hover a los enlaces</li>
+            <li>Usa pseudo-clases para diferentes estados de los enlaces</li>
+          </ul>
+        </div>
+
+        <div class="hint">
+          <strong>💡 Pista:</strong> Usa <code>href="#sobre-mi"</code> para enlaces internos y <code>a:hover { color: #e74c3c; }</code> para efectos hover.
+        </div>
+
+        <div class="task">
+          <h4>📱 Tarea 4: Responsive Básico</h4>
+          <p>Añade responsive design básico:</p>
+          <ul>
+            <li>Usa <code>max-width</code> para el contenedor principal</li>
+            <li>Aplica padding responsive</li>
+            <li>Asegúrate de que el texto sea legible en móviles</li>
+          </ul>
+        </div>
+
+        <div class="result-preview">
+          <h3>🖼️ Vista Previa del Resultado</h3>
+          <p>Tu página debería tener:</p>
+          <ul style="text-align: left; display: inline-block;">
+            <li>Header con tu nombre y descripción</li>
+            <li>Navegación horizontal funcional</li>
+            <li>Secciones bien diferenciadas visualmente</li>
+            <li>Colores armoniosos y tipografía legible</li>
+            <li>Layout responsive básico</li>
+          </ul>
+        </div>
+
+
+        <div class="hint">
+          <strong>🚀 Desafío Extra:</strong> Añade una imagen personal, experimenta con Google Fonts, o crea un efecto hover creativo en las secciones.
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="index.html" class="nav-button secondary">← Volver al Índice</a>
+        <a href="02-blog-post.html" class="nav-button">Siguiente Ejercicio →</a>
+      </div>
+    </div>
+  </body>
+</html>

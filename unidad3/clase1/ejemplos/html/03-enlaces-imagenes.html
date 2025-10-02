@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03 - Enlaces e Imágenes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .example-section {
+        background-color: #f9f9f9;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        border-left: 4px solid #28a745;
+      }
+      .image-example {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .placeholder-img {
+        width: 200px;
+        height: 150px;
+        background-color: #ddd;
+        border: 2px dashed #999;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Enlaces e Imágenes en HTML</h1>
+      <p><strong>Ejemplo 3:</strong> Navegación y contenido multimedia</p>
+    </header>
+
+    <main>
+      <section class="example-section">
+        <h2>Enlaces Básicos</h2>
+
+        <h3>Enlace Externo</h3>
+        <p>
+          <a href="https://www.google.com" target="_blank">
+            Ir a Google (se abre en nueva pestaña)
+          </a>
+        </p>
+
+        <h3>Enlace Interno (Misma Página)</h3>
+        <p>
+          <a href="#seccion-imagenes">Saltar a la sección de imágenes</a>
+        </p>
+
+        <h3>Enlace a Otra Página del Sitio</h3>
+        <p>
+          <a href="01-estructura-basica.html">Ver ejemplo de estructura básica</a>
+        </p>
+
+        <h3>Enlaces de Contacto</h3>
+        <ul>
+          <li>
+            <a href="mailto:contacto@ejemplo.com">Enviar email</a>
+          </li>
+          <li>
+            <a href="tel:+5491123456789">Llamar por teléfono</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="example-section">
+        <h2>Atributos de Enlaces</h2>
+
+        <h3>Target - Dónde Abrir</h3>
+        <ul>
+          <li>
+            <a href="https://www.wikipedia.org" target="_blank">
+              Nueva pestaña (_blank)
+            </a>
+          </li>
+          <li>
+            <a href="02-elementos-texto.html" target="_self">
+              Misma pestaña (_self)
+            </a>
+          </li>
+        </ul>
+
+        <h3>Title - Información Adicional</h3>
+        <p>
+          <a
+            href="https://developer.mozilla.org"
+            title="Documentación web para desarrolladores"
+          >
+            MDN Web Docs (pasa el mouse para ver el tooltip)
+          </a>
+        </p>
+
+        <h3>Enlaces con Estilos</h3>
+        <p>
+          <a href="#" style="color: red; text-decoration: none;">
+            Enlace rojo sin subrayado
+          </a>
+        </p>
+      </section>
+
+      <section class="example-section" id="seccion-imagenes">
+        <h2>Imágenes en HTML</h2>
+
+        <h3>Imagen Básica (Placeholder)</h3>
+        <div class="image-example">
+          <div class="placeholder-img">
+            Imagen de ejemplo<br />
+            200x150px
+          </div>
+          <p><em>Simulación de imagen con CSS</em></p>
+        </div>
+
+        <h3>Imagen con Atributos Completos</h3>
+        <div class="image-example">
+          <div
+            class="placeholder-img"
+            style="width: 300px; height: 200px;"
+            title="Logo de la empresa"
+          >
+            Logo Empresa<br />
+            300x200px<br />
+            (con title)
+          </div>
+          <p><em>Imagen con width, height, alt y title</em></p>
+        </div>
+
+        <h3>Imagen Responsive</h3>
+        <div class="image-example">
+          <div
+            class="placeholder-img"
+            style="width: 100%; max-width: 400px; height: 200px;"
+          >
+            Imagen Responsive<br />
+            100% width, max 400px
+          </div>
+          <p><em>Imagen que se adapta al contenedor</em></p>
+        </div>
+      </section>
+
+      <section class="example-section">
+        <h2>Formatos de Imagen Web</h2>
+
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background-color: #e9ecef;">
+              <th style="border: 1px solid #ddd; padding: 8px;">Formato</th>
+              <th style="border: 1px solid #ddd; padding: 8px;">Uso</th>
+              <th style="border: 1px solid #ddd; padding: 8px;">Características</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>JPEG</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Fotografías</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Compresión con pérdida</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>PNG</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Gráficos, logos</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Transparencia, sin pérdida</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>SVG</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Iconos, logos</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Vectorial, escalable</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>WebP</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Uso general</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Mejor compresión</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="example-section">
+        <h2>Anclas Internas</h2>
+
+        <h3 id="ancla-ejemplo">Este es un encabezado con ID</h3>
+        <p>
+          Puedes enlazar directamente a este encabezado usando:
+          <code>&lt;a href="#ancla-ejemplo"&gt;</code>
+        </p>
+
+        <p>
+          <a href="#ancla-ejemplo">Enlace a este mismo encabezado</a>
+        </p>
+
+        <h3>Navegación Interna</h3>
+        <ul>
+          <li><a href="#seccion-imagenes">Ir a sección de imágenes</a></li>
+          <li><a href="#ancla-ejemplo">Ir al encabezado con ID</a></li>
+          <li><a href="#top">Ir al inicio de la página</a></li>
+        </ul>
+      </section>
+
+      <section class="example-section">
+        <h2>Enlaces como Botones</h2>
+        <p>Los enlaces se pueden estilizar para parecer botones:</p>
+
+        <a
+          href="04-elementos-semanticos.html"
+          style="
+            display: inline-block;
+            background-color: #007acc;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+          "
+        >
+          Siguiente Ejemplo
+        </a>
+
+        <a
+          href="02-elementos-texto.html"
+          style="
+            display: inline-block;
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+          "
+        >
+          Ejemplo Anterior
+        </a>
+      </section>
+    </main>
+
+    <footer id="top">
+      <p>
+        <strong>Nota:</strong> Los atributos alt en imágenes son cruciales para
+        la accesibilidad. Siempre incluye descripciones significativas.
+      </p>
+      <p><a href="index.html">← Volver al índice de ejemplos</a></p>
+    </footer>
+  </body>
+</html>

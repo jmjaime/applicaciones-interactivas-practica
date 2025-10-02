@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06 - Responsive Design y Animaciones CSS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #e74c3c;
+        --accent-color: #f39c12;
+        --text-color: #2c3e50;
+        --bg-color: #ecf0f1;
+        --white: #ffffff;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border-radius: 10px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .section {
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        color: var(--text-color);
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+      }
+
+      h3 {
+        color: #34495e;
+        font-size: clamp(1.1rem, 3vw, 1.3rem);
+        margin: 1.5rem 0 1rem 0;
+      }
+
+      /* RESPONSIVE EXAMPLES */
+      .responsive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .responsive-card {
+        background: linear-gradient(135deg, var(--primary-color), #2980b9);
+        color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .responsive-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Fluid Typography */
+      .fluid-text {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        padding: 2rem;
+        background-color: var(--bg-color);
+        border-radius: 8px;
+        margin: 1rem 0;
+        text-align: center;
+      }
+
+      /* Container Queries Simulation */
+      .container-query-demo {
+        background-color: var(--bg-color);
+        padding: 1rem;
+        border-radius: 8px;
+        resize: horizontal;
+        overflow: auto;
+        min-width: 200px;
+        max-width: 100%;
+        border: 2px dashed var(--primary-color);
+      }
+
+      .container-content {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        border-radius: 4px;
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      /* ANIMATION EXAMPLES */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-20px);
+        }
+        60% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+        }
+        70% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+        }
+      }
+
+      .animation-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .animation-box {
+        height: 120px;
+        background: linear-gradient(45deg, var(--secondary-color), #c0392b);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .fade-in {
+        animation: fadeIn 2s ease-out;
+      }
+
+      .slide-in {
+        animation: slideIn 1s ease-out;
+      }
+
+      .bounce {
+        animation: bounce 2s infinite;
+      }
+
+      .rotate {
+        animation: rotate 3s linear infinite;
+      }
+
+      .pulse {
+        animation: pulse 2s infinite;
+      }
+
+      /* Hover Animations */
+      .hover-animations {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .hover-box {
+        height: 100px;
+        background: linear-gradient(45deg, var(--accent-color), #e67e22);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.1);
+      }
+
+      .hover-rotate:hover {
+        transform: rotate(5deg);
+      }
+
+      .hover-skew:hover {
+        transform: skew(-5deg, -2deg);
+      }
+
+      .hover-3d:hover {
+        transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
+      }
+
+      .hover-shadow:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
+      }
+
+      .hover-gradient:hover {
+        background: linear-gradient(45deg, #e74c3c, #8e44ad);
+      }
+
+      /* Loading Animations */
+      .loading-demos {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin: 2rem 0;
+        padding: 2rem;
+        background-color: var(--bg-color);
+        border-radius: 10px;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid var(--primary-color);
+        border-radius: 50%;
+        animation: rotate 1s linear infinite;
+      }
+
+      .dots {
+        display: flex;
+        gap: 5px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        animation: bounce 1.4s ease-in-out infinite both;
+      }
+
+      .dot:nth-child(1) { animation-delay: -0.32s; }
+      .dot:nth-child(2) { animation-delay: -0.16s; }
+
+      .progress-bar {
+        width: 200px;
+        height: 8px;
+        background-color: #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        border-radius: 4px;
+        animation: progress 3s ease-in-out infinite;
+      }
+
+      @keyframes progress {
+        0% { width: 0%; }
+        50% { width: 100%; }
+        100% { width: 0%; }
+      }
+
+      /* Interactive Elements */
+      .interactive-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .toggle-button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .toggle-button:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .toggle-button:active {
+        transform: translateY(0);
+      }
+
+      .toggle-button::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .toggle-button:active::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      /* Media Queries Examples */
+      .breakpoint-demo {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      .breakpoint-demo::before {
+        content: "Desktop (769px+)";
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* Code Examples */
+      .code-example {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 1.5rem;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+        border-left: 4px solid var(--primary-color);
+      }
+
+      .highlight {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      /* MEDIA QUERIES */
+      @media screen and (max-width: 768px) {
+        .breakpoint-demo::before {
+          content: "Tablet (481px - 768px)";
+        }
+        
+        .container {
+          padding: 1rem;
+        }
+        
+        .section {
+          padding: 1rem;
+        }
+        
+        .hover-animations {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        
+        .loading-demos {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .breakpoint-demo::before {
+          content: "Móvil (480px-)";
+        }
+        
+        body {
+          padding: 10px;
+        }
+        
+        .responsive-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .animation-demo {
+          grid-template-columns: 1fr;
+        }
+        
+        .interactive-demo {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        .section {
+          background-color: #34495e;
+          color: white;
+        }
+        
+        .code-example {
+          background-color: #1a1a1a;
+        }
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Responsive Design y Animaciones</h1>
+        <p><strong>Ejemplo 6:</strong> Diseño adaptativo y efectos dinámicos</p>
+      </div>
+
+      <div class="section">
+        <h2>Diseño Responsive</h2>
+
+        <h3>Breakpoints en Acción</h3>
+        <div class="breakpoint-demo">
+          Redimensiona la ventana para ver los diferentes breakpoints
+        </div>
+
+        <h3>Grid Responsive</h3>
+        <div class="responsive-grid">
+          <div class="responsive-card">
+            <h4>Tarjeta 1</h4>
+            <p>Se adapta automáticamente</p>
+          </div>
+          <div class="responsive-card">
+            <h4>Tarjeta 2</h4>
+            <p>Usando auto-fit y minmax</p>
+          </div>
+          <div class="responsive-card">
+            <h4>Tarjeta 3</h4>
+            <p>Responsive sin media queries</p>
+          </div>
+          <div class="responsive-card">
+            <h4>Tarjeta 4</h4>
+            <p>CSS Grid moderno</p>
+          </div>
+        </div>
+
+        <h3>Tipografía Fluida</h3>
+        <div class="fluid-text">
+          Este texto usa clamp() para escalar suavemente entre tamaños mínimos y máximos
+        </div>
+
+        <h3>Container Queries (Simulado)</h3>
+        <div class="container-query-demo">
+          <div class="container-content">
+            Redimensiona este contenedor arrastrando desde la esquina inferior derecha
+          </div>
+        </div>
+
+        <div class="code-example">
+          /* Media Queries */<br />
+          @media screen and (max-width: 768px) {<br />
+          &nbsp;&nbsp;.container { padding: 1rem; }<br />
+          }<br />
+          <br />
+          /* Tipografía Fluida */<br />
+          h1 { font-size: clamp(2rem, 5vw, 3rem); }<br />
+          <br />
+          /* Grid Responsive */<br />
+          .responsive-grid {<br />
+          &nbsp;&nbsp;display: grid;<br />
+          &nbsp;&nbsp;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));<br />
+          &nbsp;&nbsp;gap: 1rem;<br />
+          }
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Animaciones CSS</h2>
+
+        <h3>Animaciones Automáticas</h3>
+        <div class="animation-demo">
+          <div class="animation-box fade-in">Fade In</div>
+          <div class="animation-box slide-in">Slide In</div>
+          <div class="animation-box bounce">Bounce</div>
+          <div class="animation-box rotate">Rotate</div>
+          <div class="animation-box pulse">Pulse</div>
+        </div>
+
+        <h3>Animaciones de Hover</h3>
+        <div class="hover-animations">
+          <div class="hover-box hover-scale">Scale</div>
+          <div class="hover-box hover-rotate">Rotate</div>
+          <div class="hover-box hover-skew">Skew</div>
+          <div class="hover-box hover-3d">3D</div>
+          <div class="hover-box hover-shadow">Shadow</div>
+          <div class="hover-box hover-gradient">Gradient</div>
+        </div>
+
+        <h3>Indicadores de Carga</h3>
+        <div class="loading-demos">
+          <div class="spinner"></div>
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="code-example">
+          /* Keyframes */<br />
+          @keyframes fadeIn {<br />
+          &nbsp;&nbsp;from { opacity: 0; transform: translateY(20px); }<br />
+          &nbsp;&nbsp;to { opacity: 1; transform: translateY(0); }<br />
+          }<br />
+          <br />
+          /* Aplicar animación */<br />
+          .fade-in {<br />
+          &nbsp;&nbsp;animation: fadeIn 2s ease-out;<br />
+          }<br />
+          <br />
+          /* Transiciones */<br />
+          .hover-effect {<br />
+          &nbsp;&nbsp;transition: all 0.3s ease;<br />
+          }<br />
+          <br />
+          .hover-effect:hover {<br />
+          &nbsp;&nbsp;transform: scale(1.1);<br />
+          }
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Elementos Interactivos</h2>
+
+        <h3>Botones con Efectos</h3>
+        <div class="interactive-demo">
+          <button class="toggle-button">Hover y Click</button>
+          <button class="toggle-button">Efecto Ripple</button>
+          <button class="toggle-button">Animación Suave</button>
+        </div>
+
+        <div class="highlight">
+          <h3>Mejores Prácticas</h3>
+          <ul>
+            <li><strong>Performance:</strong> Usar transform y opacity para animaciones suaves</li>
+            <li><strong>Accesibilidad:</strong> Respetar prefers-reduced-motion</li>
+            <li><strong>UX:</strong> Animaciones sutiles y con propósito</li>
+            <li><strong>Duración:</strong> 200-500ms para micro-interacciones</li>
+          </ul>
+        </div>
+
+        <div class="code-example">
+          /* Variables CSS para consistencia */<br />
+          :root {<br />
+          &nbsp;&nbsp;--transition: all 0.3s ease;<br />
+          &nbsp;&nbsp;--shadow: 0 4px 6px rgba(0, 0, 0, 0.1);<br />
+          }<br />
+          <br />
+          /* Respeto por preferencias de accesibilidad */<br />
+          @media (prefers-reduced-motion: reduce) {<br />
+          &nbsp;&nbsp;* {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;animation-duration: 0.01ms !important;<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;transition-duration: 0.01ms !important;<br />
+          &nbsp;&nbsp;}<br />
+          }<br />
+          <br />
+          /* Soporte para modo oscuro */<br />
+          @media (prefers-color-scheme: dark) {<br />
+          &nbsp;&nbsp;.section { background-color: #34495e; }<br />
+          }
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>CSS Moderno</h2>
+
+        <div class="highlight">
+          <h3>Características Modernas</h3>
+          <ul>
+            <li><strong>CSS Variables:</strong> Theming dinámico y mantenimiento</li>
+            <li><strong>clamp():</strong> Tipografía y espaciado fluido</li>
+            <li><strong>Grid y Flexbox:</strong> Layouts sin media queries</li>
+            <li><strong>aspect-ratio:</strong> Proporciones consistentes</li>
+            <li><strong>Container Queries:</strong> Responsive basado en contenedor</li>
+          </ul>
+        </div>
+
+        <div class="code-example">
+          /* CSS Variables */<br />
+          :root {<br />
+          &nbsp;&nbsp;--primary: #3498db;<br />
+          &nbsp;&nbsp;--spacing: clamp(1rem, 4vw, 2rem);<br />
+          }<br />
+          <br />
+          /* Funciones modernas */<br />
+          .element {<br />
+          &nbsp;&nbsp;width: min(90vw, 1200px);<br />
+          &nbsp;&nbsp;padding: var(--spacing);<br />
+          &nbsp;&nbsp;aspect-ratio: 16 / 9;<br />
+          }<br />
+          <br />
+          /* Container Queries (futuro) */<br />
+          @container (min-width: 400px) {<br />
+          &nbsp;&nbsp;.card { display: flex; }<br />
+          }
+        </div>
+      </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 2rem; color: white;">
+      <p>
+        <strong>Ejercicio:</strong> Redimensiona la ventana y observa cómo se adaptan 
+        los elementos. Prueba las animaciones con hover y click.
+      </p>
+      <p>
+        <a href="index.html" style="color: #feca57; text-decoration: none;">
+          ← Volver al índice de ejemplos CSS
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
