@@ -70,22 +70,22 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
 
 - **Unidad 3**
 
-- **Clase 1**
+  - **Clase 1**
 
-  - **Slides**
+    - **Slides**
 
-    - [HTML](unidad3/clase1/html-slides.html)
-    - [CSS](unidad3/clase1/css-slides.html)
-    - [Combinadas](unidad3/clase1/slides.html)
+      - [HTML](unidad3/clase1/html-slides.html)
+      - [CSS](unidad3/clase1/css-slides.html)
+      - [Combinadas](unidad3/clase1/slides.html)
 
-  - **Ejemplos**
+    - **Ejemplos**
 
-    - [HTML](unidad3/clase1/ejemplos/html/)
-    - [CSS](unidad3/clase1/ejemplos/css/)
+      - [HTML](unidad3/clase1/ejemplos/html/)
+      - [CSS](unidad3/clase1/ejemplos/css/)
 
-  - **Ejercicios**
-    - [README](unidad3/clase1/ejercicios/README.md)
-    - [Índice](unidad3/clase1/ejercicios/index.html)
+    - **Ejercicios**
+      - [README](unidad3/clase1/ejercicios/README.md)
+      - [Índice](unidad3/clase1/ejercicios/index.html)
 
 ## Cómo ejecutar
 
