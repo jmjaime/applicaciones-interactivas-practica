@@ -1,0 +1,539 @@
+/* Estilos para la aplicación de ejemplos de React */
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.header {
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+}
+
+.header p {
+  margin: 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Estilos para Navigation */
+.navigation {
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  background: white;
+  color: #495057;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  min-width: 120px;
+}
+
+.nav-button:hover {
+  border-color: #007bff;
+  color: #007bff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.nav-button.active {
+  background: #007bff;
+  border-color: #007bff;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.main-content {
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  min-height: 500px;
+}
+
+/* Estilos para páginas */
+.page-content {
+  max-width: 100%;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f8f9fa;
+}
+
+.page-header h1 {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+}
+
+.page-description {
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Estilos para HomePage */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #495057;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.example-card {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.example-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.example-card h3 {
+  color: #495057;
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.example-card p {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.example-card ul {
+  color: #495057;
+  padding-left: 1.2rem;
+}
+
+.example-card li {
+  margin-bottom: 0.3rem;
+}
+
+.instructions-section {
+  background: #e7f3ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.instructions-section h2 {
+  color: #0066cc;
+  margin-top: 0;
+}
+
+.instructions-section ol {
+  color: #495057;
+}
+
+.instructions-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* Estilos para páginas de ejemplos */
+.demo-section {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.demo-section h2 {
+  color: #495057;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.demo-instruction {
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.props-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.explanation-section {
+  margin-bottom: 2rem;
+}
+
+.explanation-section h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.explanation-section h3 {
+  color: #495057;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.explanation-section ul {
+  color: #495057;
+  line-height: 1.6;
+}
+
+.explanation-section li {
+  margin-bottom: 0.5rem;
+}
+
+.code-block {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+.important-note {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-left: 4px solid #fdcb6e;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.important-note h4 {
+  color: #856404;
+  margin: 0 0 0.5rem 0;
+}
+
+.important-note p {
+  color: #856404;
+  margin: 0;
+}
+
+.next-steps {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-left: 4px solid #28a745;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.next-steps h2 {
+  color: #155724;
+  margin: 0 0 1rem 0;
+}
+
+.next-steps p {
+  color: #155724;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.final-tips {
+  margin-top: 1rem;
+}
+
+.final-tips h4 {
+  color: #155724;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.final-tips ul {
+  color: #155724;
+}
+
+/* Estilos para los componentes de ejemplo (mantener los existentes) */
+.componente-ejemplo {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.componente-ejemplo h3 {
+  color: #495057;
+  margin: 0 0 1rem 0;
+}
+
+/* Estilos para ComponenteConProps */
+.activo {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.inactivo {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Estilos para ComponenteConEstado */
+.mensaje {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contador {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.numero {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #007bff;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.botones {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.botones button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.botones button:nth-child(1) {
+  background: #dc3545;
+  color: white;
+}
+
+.botones button:nth-child(2) {
+  background: #6c757d;
+  color: white;
+}
+
+.botones button:nth-child(3) {
+  background: #28a745;
+  color: white;
+}
+
+.botones button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para ListaDeElementos */
+.lista-tareas {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.tarea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.tarea.completada {
+  background: #d4edda;
+  border-left: 4px solid #28a745;
+}
+
+.tarea.pendiente {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+.tarea:hover {
+  background-color: #e9ecef;
+}
+
+.icono {
+  font-size: 1.2rem;
+}
+
+.texto {
+  flex: 1;
+  font-weight: 500;
+}
+
+.estado {
+  font-size: 1.2rem;
+}
+
+.nota {
+  background: #e7f3ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Estilos para ComponenteConEventos */
+.controles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.control input,
+.control select {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.control input:focus,
+.control select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.controles button {
+  padding: 0.75rem 1.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.controles button:hover {
+  background: #0056b3;
+}
+
+.mensaje-personalizado {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.mensaje-personalizado:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .nav-container {
+    flex-direction: column;
+  }
+  
+  .nav-button {
+    min-width: auto;
+  }
+  
+  .examples-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .botones {
+    flex-direction: column;
+  }
+  
+  .numero {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    min-width: 80px;
+  }
+  
+  .props-examples {
+    gap: 0.5rem;
+  }
+}

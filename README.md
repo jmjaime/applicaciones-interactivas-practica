@@ -87,6 +87,23 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
       - [README](unidad3/clase1/ejercicios/README.md)
       - [Índice](unidad3/clase1/ejercicios/index.html)
 
+- **Unidad 4**
+
+- **Clase 1**
+
+  - **Slides**
+
+    - [React Intro](unidad4/calse1/react-intro-slides.html)
+
+  - **Ejemplos**
+
+    - [README](unidad4/calse1/ejemplos/README.md)
+    - [Índice](unidad4/calse1/ejemplos/index.html)
+
+  - **Ejercicios**
+    - [README](unidad4/calse1/ejercicios/README.md)
+    - [Índice](unidad4/calse1/ejercicios/index.html)
+
 ## Cómo ejecutar
 
 - Para los ejemplos de `unidad1/clase1/`: ver [Quickstart de ejemplos](unidad1/clase1/ejemplos/QUICKSTART.md).
@@ -97,6 +114,8 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
 - Para los ejercicios de `unidad1/clase3/`: ver [README de ejercicios](unidad1/clase3/ejercicios/README.md).
 
 - Para los ejercicios de `unidad3/clase1/`: abrir `unidad3/clase1/ejercicios/index.html` en el navegador.
+
+- Para los ejercicios de `unidad4/calse1/`: ejecutar `npm install` y `npm run dev` dentro de `unidad4/calse1/ejercicios/` y abrir `http://localhost:5173`.
 
 ## Estructura del repositorio (resumen)
 
@@ -118,4 +137,9 @@ unidad3/
      ├─ ejemplos/            # HTML y CSS de referencia
      ├─ ejercicios/          # Prácticas HTML estáticas
      └─ *-slides.html        # Diapositivas (HTML/CSS)
+unidad4/
+  └─ calse1/
+     ├─ ejemplos/            # Demos React (Vite)
+     ├─ ejercicios/          # Ejercicios React (Vite)
+     └─ react-intro-slides.html # Diapositivas (React)
 ```
