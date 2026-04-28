@@ -89,20 +89,66 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
 
 - **Unidad 4**
 
-- **Clase 1**
+  - **Clase 1**
 
-  - **Slides**
+    - **Slides**
 
-    - [React Intro](unidad4/calse1/react-intro-slides.html)
+      - [React Intro](unidad4/calse1/react-intro-slides.html)
 
-  - **Ejemplos**
+    - **Ejemplos**
 
-    - [README](unidad4/calse1/ejemplos/README.md)
-    - [Índice](unidad4/calse1/ejemplos/index.html)
+      - [README](unidad4/calse1/ejemplos/README.md)
+      - Temas:
+        - Componente Básico
+        - Componente con Props
+        - Componente con Estado (`useState`)
+        - Lista de Elementos (`map` y `key`)
+        - Manejo de Eventos
 
-  - **Ejercicios**
-    - [README](unidad4/calse1/ejercicios/README.md)
-    - [Índice](unidad4/calse1/ejercicios/index.html)
+    - **Ejercicios**
+      - [README](unidad4/calse1/ejercicios/README.md)
+      - Temática: GameStore (tienda de videojuegos)
+
+  - **Clase 2**
+
+    - **Slides**
+
+      - [Clase 2](unidad4/clase2/clase2.html)
+
+    - **Ejemplos**
+
+      - [README](unidad4/clase2/ejemplos/README.md)
+      - [Quickstart](unidad4/clase2/ejemplos/QUICKSTART.md)
+      - Temas:
+        - 01 — Styling (CSS global, inline styles, CSS Modules, clases condicionales)
+        - 02 — Refs y acceso al DOM (`useRef`, auto-focus, scroll, render counter)
+        - 03 — Side Effects con `useEffect` (fetch, dependencias, cleanup, async/await)
+        - 04 — Forms (controlled, uncontrolled, FormData, Form Actions, `useActionState`)
+
+    - **Ejercicios**
+      - [README](unidad4/clase2/ejercicios/README.md)
+      - [Quickstart](unidad4/clase2/ejercicios/QUICKSTART.md)
+      - Temática: MusicStream App (styling, refs, side effects, forms)
+
+  - **Clase 3**
+
+    - **Slides**
+
+      - [React Clase 3](unidad4/clase3/react-slides.html)
+
+    - **Ejemplos**
+
+      - [README](unidad4/clase3/ejemplos/README.md)
+      - [Quickstart](unidad4/clase3/ejemplos/QUICKSTART.md)
+      - Temas:
+        - 01 — Context API (temas light/dark, autenticación, carrito con `useReducer`)
+        - 02 — Custom Hooks (`useLocalStorage`, `useFetch`, `useDebounce`, `useToggle`)
+        - 03 — React Router (rutas básicas, dinámicas, anidadas, protected routes, loaders)
+
+    - **Ejercicios**
+      - [README](unidad4/clase3/ejercicios/README.md)
+      - [Quickstart](unidad4/clase3/ejercicios/QUICKSTART.md)
+      - Temática: GamerHub (red social de gamers)
 
 ## Cómo ejecutar
 
@@ -115,7 +161,14 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
 
 - Para los ejercicios de `unidad3/clase1/`: abrir `unidad3/clase1/ejercicios/index.html` en el navegador.
 
+- Para los ejemplos de `unidad4/calse1/`: ejecutar `npm install` y `npm run dev` dentro de `unidad4/calse1/ejemplos/` y abrir `http://localhost:5173`.
 - Para los ejercicios de `unidad4/calse1/`: ejecutar `npm install` y `npm run dev` dentro de `unidad4/calse1/ejercicios/` y abrir `http://localhost:5173`.
+
+- Para los ejemplos de `unidad4/clase2/`: ver [Quickstart de ejemplos](unidad4/clase2/ejemplos/QUICKSTART.md).
+- Para los ejercicios de `unidad4/clase2/`: ver [Quickstart de ejercicios](unidad4/clase2/ejercicios/QUICKSTART.md).
+
+- Para los ejemplos de `unidad4/clase3/`: ver [Quickstart de ejemplos](unidad4/clase3/ejemplos/QUICKSTART.md).
+- Para los ejercicios de `unidad4/clase3/`: ver [Quickstart de ejercicios](unidad4/clase3/ejercicios/QUICKSTART.md).
 
 ## Estructura del repositorio (resumen)
 
@@ -128,8 +181,8 @@ unidad1/
   │  ├─ ejemplos/            # Material de referencia y demos
   │  └─ ejercicios/          # Enunciados y tests para practicar
   ├─ clase2/
-     ├─ ejemplos/            # Material de referencia y demos (TypeORM avanzado)
-     └─ ejercicios/          # Enunciados y tests para practicar (Clase 2)
+  │  ├─ ejemplos/            # Material de referencia y demos (TypeORM avanzado)
+  │  └─ ejercicios/          # Enunciados y tests para practicar (Clase 2)
   └─ clase3/
      └─ ejercicios/          # API Express + Jest (Clase 3)
 unidad3/
@@ -138,8 +191,16 @@ unidad3/
      ├─ ejercicios/          # Prácticas HTML estáticas
      └─ *-slides.html        # Diapositivas (HTML/CSS)
 unidad4/
-  └─ calse1/
-     ├─ ejemplos/            # Demos React (Vite)
-     ├─ ejercicios/          # Ejercicios React (Vite)
-     └─ react-intro-slides.html # Diapositivas (React)
+  ├─ calse1/                 # Clase 1 — React fundamentos
+  │  ├─ ejemplos/            # Demos componentes, props, estado, listas, eventos (Vite)
+  │  ├─ ejercicios/          # Ejercicios GameStore (Vite)
+  │  └─ react-intro-slides.html
+  ├─ clase2/                 # Clase 2 — Styling, Refs, Effects, Forms
+  │  ├─ ejemplos/            # Demos por tema (Vite)
+  │  ├─ ejercicios/          # Ejercicios MusicStream (Vite)
+  │  └─ clase2.html          # Diapositivas
+  └─ clase3/                 # Clase 3 — Context API, Custom Hooks, React Router
+     ├─ ejemplos/            # Demos integrados con React Router (Vite)
+     ├─ ejercicios/          # Ejercicios GamerHub (Vite)
+     └─ react-slides.html    # Diapositivas
 ```
