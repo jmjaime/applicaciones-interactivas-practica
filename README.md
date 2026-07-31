@@ -9,6 +9,11 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
   - [Tarea: Fundamentos de HTML](presentacion/tarea-html-fundamentos.html)
   - [Tarea: Fundamentos de JavaScript](presentacion/tarea-javascript-fundamentos.html)
 
+- **Clase 1 — Presentación**
+
+  - [README](clases/01-presentacion/README.md)
+  - Ejemplo: [Inspeccionar una página real con DevTools](clases/01-presentacion/ejemplos/pagina-demo.html)
+
 - **Unidad 1**
 
   - **Clase 1**
@@ -152,6 +157,8 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
 
 ## Cómo ejecutar
 
+- Para `clases/01-presentacion/`: abrir `clases/01-presentacion/ejemplos/pagina-demo.html` en el navegador con las DevTools abiertas.
+
 - Para los ejemplos de `unidad1/clase1/`: ver [Quickstart de ejemplos](unidad1/clase1/ejemplos/QUICKSTART.md).
 - Para los ejercicios de `unidad1/clase1/`: ver [Quickstart de ejercicios](unidad1/clase1/ejercicios/QUICKSTART.md).
 - Para los ejemplos de `unidad1/clase2/`: ver [Quickstart de ejemplos](unidad1/clase2/ejemplos/QUICKSTART.md).
@@ -173,6 +180,9 @@ Repositorio para publicar prácticas y ejemplos de la materia **Aplicaciones Int
 ## Estructura del repositorio (resumen)
 
 ```text
+clases/
+  01-presentacion/
+    ejemplos/                 # Inspección de página real con DevTools
 presentacion/
   ├─ tarea-html-fundamentos.html
   └─ tarea-javascript-fundamentos.html

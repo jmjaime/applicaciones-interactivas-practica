@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Clase 1 — Inspeccionar la carga de una página</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+<body style="font-family: 'Poppins', sans-serif;">
+  <h1>Aplicaciones Interactivas — UADE</h1>
+  <p>
+    Esta página carga estilos, JavaScript e imágenes desde varios dominios
+    distintos. Abrila con las DevTools abiertas (F12) y mirá:
+  </p>
+  <ul>
+    <li><strong>Network</strong>: en qué orden salen los requests y cuáles van en paralelo</li>
+    <li><strong>Elements</strong>: cómo quedó el DOM (comparado con "Ver código fuente")</li>
+    <li><strong>Styles / Computed</strong>: qué reglas del CSSOM aplican a cada elemento</li>
+  </ul>
+
+  <img src="https://picsum.photos/seed/uade-2026/600/300" alt="Imagen aleatoria de demo">
+
+  <h2>Temas de la clase</h2>
+  <ul id="lista-temas"></ul>
+
+  <style>
+    .swatch {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 0.4em;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+  <details>
+    <summary>🎨 Colores del waterfall en Network (para entender los requests de arriba)</summary>
+    <table>
+      <thead>
+        <tr><th>Color</th><th>Fase</th><th>Qué significa</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="swatch" style="background:#e0e0e0;"></span>Gris claro</td><td>Queueing</td><td>El browser encola el request (ya hay 6 conexiones abiertas al mismo host, o hay requests de mayor prioridad)</td></tr>
+        <tr><td><span class="swatch" style="background:#9e9e9e;"></span>Gris oscuro</td><td>Stalled</td><td>Frenado ya con la conexión abierta, por las mismas razones que Queueing</td></tr>
+        <tr><td><span class="swatch" style="background:#00bcd4;"></span>Cyan</td><td>DNS Lookup</td><td>Resolviendo el dominio a una IP</td></tr>
+        <tr><td><span class="swatch" style="background:#ff9800;"></span>Naranja</td><td>Initial connection</td><td>Handshake TCP (y a veces la negociación SSL)</td></tr>
+        <tr><td><span class="swatch" style="background:#9c27b0;"></span>Violeta</td><td>SSL</td><td>Negociación TLS/SSL (HTTPS)</td></tr>
+        <tr><td><span class="swatch" style="background:#4caf50;"></span>Verde</td><td>Request sent</td><td>El browser mandó el request — franja fina</td></tr>
+        <tr><td><span class="swatch" style="background:#cddc39;"></span>Verde-amarillento</td><td>Waiting (TTFB)</td><td>Esperando el primer byte de respuesta del servidor</td></tr>
+        <tr><td><span class="swatch" style="background:#2196f3;"></span>Azul</td><td>Content Download</td><td>Descargando el body de la respuesta</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Dos líneas verticales cruzan todo el waterfall: <strong>azul</strong> =
+      evento <code>DOMContentLoaded</code>, <strong>roja</strong> = evento
+      <code>load</code>.
+    </p>
+  </details>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
