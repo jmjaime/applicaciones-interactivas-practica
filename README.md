@@ -6,11 +6,11 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 
 | Carpeta | Tema | Contenido publicado |
 |---|---|---|
-| `clases/01-presentacion/` | Presentación de la materia | Slides (materia, Apps Web, Intro JS/TS/Node) + inspección de página con DevTools + sintaxis JS/TS + setup práctico Node/TS/Jest |
+| `clases/01-presentacion/` | Presentación de la materia | Slides (materia, Apps Web, Intro JS/TS/Node) + inspección de página con DevTools + sintaxis JS/TS + setup práctico Node/TS/Jest + ejercicios de repaso con tests |
 
 ## Cómo ejecutar
 
-- `clases/01-presentacion/`: ver su [README](clases/01-presentacion/README.md) — slides en `slides/`, actividad de DevTools en `ejemplos/01-inspeccionar-pagina/`, ejemplos de sintaxis en `ejemplos/02-sintaxis-js-ts/` (`node <archivo>`), y el setup práctico en `ejemplos/03-setup-node-ts/` + `ejemplos/04-cli-ts-intro/` (`npm install`).
+- `clases/01-presentacion/`: ver su [README](clases/01-presentacion/README.md) — slides en `slides/`, actividad de DevTools en `ejemplos/01-inspeccionar-pagina/`, ejemplos de sintaxis en `ejemplos/02-sintaxis-js-ts/` (`node <archivo>`), el setup práctico en `ejemplos/03-setup-node-ts/` + `ejemplos/04-cli-ts-intro/` (`npm install`), y los ejercicios de repaso en `ejercicios/` (`npm install` + `npm test`).
 
 ## Estructura del repositorio (resumen)
 
@@ -23,4 +23,5 @@ clases/
       02-sintaxis-js-ts/           # Sintaxis básica de JS y TS
       03-setup-node-ts/            # Setup de un proyecto Node+TS desde cero
       04-cli-ts-intro/             # Calculadora + filtro JSON (con TODOs)
+    ejercicios/                    # 10 ejercicios cortos de repaso, con tests y README propio (npm test)
 ```

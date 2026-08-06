@@ -24,9 +24,9 @@ profesor lo explique en el momento.
 ## Sintaxis básica de JS y TS (Parte 2)
 
 `ejemplos/02-sintaxis-js-ts/` — un archivo por concepto (variables, objetos/arrays,
-condicionales, destructuring, métodos de array, callbacks, async/await, y el demo de
-TypeScript), corribles directo con `node`. Instrucciones y ejercicios guiados en su
-propio `README.md`.
+condicionales, destructuring, métodos de array, callbacks, async/await, y el bug que
+TypeScript atrapa), corribles directo con `node`. Instrucciones y ejercicios guiados en
+su propio `README.md`.
 
 ## Setup práctico: Node + TypeScript + Jest (Parte 2)
 
@@ -37,3 +37,12 @@ Dos carpetas, en orden:
 - `ejemplos/04-cli-ts-intro/` — proyecto ya armado (`npm install` y listo) con una
   calculadora y un filtro de JSON por línea de comandos. Parte del código ya está
   resuelto, y hay `// TODO` para completar.
+
+## Ejercicios: repaso de sintaxis JS/TS (Parte 2)
+
+`ejercicios/` — proyecto ya armado (`npm install` y listo), 10 ejercicios cortos con
+`// TODO`, uno por tema visto (funciones, objetos, condicionales, spread, métodos de
+array, async/await, y TypeScript: tipos propios, unión de tipos y enums). Cada uno tiene
+su carpeta con test para autovalidarse (`npm test`) y su propio README con la consigna y
+links a la documentación oficial. Pensado para completarse en un par de horas como
+mucho. Ver el [README general](ejercicios/README.md).
