@@ -1,0 +1,22 @@
+{
+  "name": "cli-ts-intro",
+  "version": "1.0.0",
+  "description": "CLI intro: calculadora + filtro JSON (Clase 1, Parte 2)",
+  "main": "index.js",
+  "scripts": {
+    "calc": "ts-node src/calculadora.ts",
+    "filtrar": "ts-node src/filtrar.ts",
+    "test": "jest --runInBand"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.1.2",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

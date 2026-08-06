@@ -6,16 +6,21 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 
 | Carpeta | Tema | Contenido publicado |
 |---|---|---|
-| `clases/01-presentacion/` | Presentación de la materia | Ejemplo: inspección de una página real con DevTools |
+| `clases/01-presentacion/` | Presentación de la materia | Slides (materia, Apps Web, Intro JS/TS/Node) + inspección de página con DevTools + sintaxis JS/TS + setup práctico Node/TS/Jest |
 
 ## Cómo ejecutar
 
-- `clases/01-presentacion/`: abrir `ejemplos/pagina-demo.html` en el navegador con las DevTools abiertas.
+- `clases/01-presentacion/`: ver su [README](clases/01-presentacion/README.md) — slides en `slides/`, actividad de DevTools en `ejemplos/01-inspeccionar-pagina/`, ejemplos de sintaxis en `ejemplos/02-sintaxis-js-ts/` (`node <archivo>`), y el setup práctico en `ejemplos/03-setup-node-ts/` + `ejemplos/04-cli-ts-intro/` (`npm install`).
 
 ## Estructura del repositorio (resumen)
 
 ```text
 clases/
   01-presentacion/
-    ejemplos/                 # Inspección de página real con DevTools
+    slides/                        # Slides de la clase (HTML)
+    ejemplos/
+      01-inspeccionar-pagina/      # Inspección de página real con DevTools
+      02-sintaxis-js-ts/           # Sintaxis básica de JS y TS
+      03-setup-node-ts/            # Setup de un proyecto Node+TS desde cero
+      04-cli-ts-intro/             # Calculadora + filtro JSON (con TODOs)
 ```
