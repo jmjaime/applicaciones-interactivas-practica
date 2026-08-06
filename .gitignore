@@ -5,9 +5,6 @@
 /dist
 /tmp
 /out-tsc
-*.js
-*.js.map
-*.d.ts
 *.tsbuildinfo
 
 # Node.js
