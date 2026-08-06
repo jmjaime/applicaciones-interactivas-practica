@@ -1,0 +1,22 @@
+{
+  "name": "ejercicios-clase1",
+  "version": "1.0.0",
+  "description": "Ejercicios de repaso: sintaxis JS/TS (Clase 1, Parte 2)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.1.2",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
