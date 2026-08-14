@@ -14,6 +14,10 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 - `clases/01-presentacion/`: ver su [README](clases/01-presentacion/README.md) — slides en `slides/`, actividad de DevTools en `ejemplos/01-inspeccionar-pagina/`, ejemplos de sintaxis en `ejemplos/02-sintaxis-js-ts/` (`node <archivo>`), el setup práctico en `ejemplos/03-setup-node-ts/` + `ejemplos/04-cli-ts-intro/` (`npm install`), y los ejercicios de repaso en `ejercicios/` (`npm install` + `npm test`).
 - `clases/02-js-ts-herramientas/`: ver su [README](clases/02-js-ts-herramientas/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install && npm run dev`, servidor único en `http://localhost:3000` con las rutas de `01-express-basico` a `05-api-externa`); ejercicios en `ejercicios/` con los mismos temas más `06-integrador` (`npm install && npm test`); y la lectura de autoestudio en [`tarea-para-el-hogar.md`](clases/02-js-ts-herramientas/tarea-para-el-hogar.md).
 
+## Bibliografía
+
+Ver [`bibliografia.md`](bibliografia.md) — libros y documentación oficial de la materia.
+
 ## Estructura del repositorio (resumen)
 
 ```text
