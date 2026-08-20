@@ -1,7 +1,7 @@
 #### Ejercicio 2.3: Table Per Type / JOINED (TPT) — Payment
 
-Autoestudio (Clase 3 solo da la teoría con TPH y TPC en vivo) — mismo
-patrón que esos dos, aplicado a la misma jerarquía de pagos.
+Autoestudio — mismo patrón que TPH y TPC, aplicado a la misma jerarquía
+de pagos.
 
 **Objetivo**: mapear la jerarquía de pagos (`CreditCardPayment` /
 `BankTransferPayment` / `CashPayment`) a una tabla base + tablas

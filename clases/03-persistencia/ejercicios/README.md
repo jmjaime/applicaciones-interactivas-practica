@@ -15,9 +15,9 @@ puntero de una línea al README y los `TODO` inline en cada método.
 
 ### 1. Relaciones (`01-relaciones/`)
 
-- `one-to-one/` — `Product` ↔ `Inventory` (1:1, FK con UNIQUE). En clase
-- `one-to-many/` — `Customer` → `PurchaseOrder` (1:N, también N:1). En clase
-- `many-to-many/` — `Recipe` ↔ `Ingredient` vía `RecipeIngredient` (N:M, integrador). En clase, en parejas
+- `one-to-one/` — `Product` ↔ `Inventory` (1:1, FK con UNIQUE)
+- `one-to-many/` — `Customer` → `PurchaseOrder` (1:N, también N:1)
+- `many-to-many/` — `Recipe` ↔ `Ingredient` vía `RecipeIngredient` (N:M, integrador)
 
 ```bash
 npm test -- 01-relaciones
@@ -28,9 +28,9 @@ npm test -- 01-relaciones
 Misma jerarquía `Payment` (`CreditCardPayment`/`BankTransferPayment`/
 `CashPayment`), mapeada con 3 estrategias distintas:
 
-- `table-per-hierarchy/` — TPH. En clase
-- `table-per-class/` — TPC. En clase
-- `table-per-type/` — JOINED. Autoestudio
+- `table-per-hierarchy/` — TPH
+- `table-per-class/` — TPC
+- `table-per-type/` — JOINED (autoestudio)
 
 ```bash
 npm test -- 02-herencia
@@ -40,7 +40,6 @@ npm test -- 02-herencia
 
 Ejercicio de diseño abierto (hotel, Entidad/VO) — ver `enunciado.md`. Sin
 tests: se evalúa la justificación escrita, no un resultado ejecutable.
-Cierre de clase.
 
 ## Otros scripts
 
