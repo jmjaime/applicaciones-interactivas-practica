@@ -2,7 +2,7 @@
 
 **Objetivo**: mapear una relación 1:1 entre `product` e `inventory`,
 garantizada por constraint UNIQUE en la FK (mismo concepto que la demo
-`ejemplos/src/02-mappeo-relaciones/one-to-one`, otro dominio).
+`ejemplos/src/02-mappeo-relaciones/one-to-one`).
 
 **Requisitos**:
 

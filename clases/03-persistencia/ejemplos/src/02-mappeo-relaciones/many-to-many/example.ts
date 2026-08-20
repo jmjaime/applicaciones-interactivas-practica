@@ -3,11 +3,10 @@ import { paso } from "../../utils/demo";
 
 // N:M (Students ↔ Courses) — versión acotada a propósito.
 //
-// N:M es el tema del ejercicio integrador de la clase (dominio distinto:
-// Recipe/Ingredient, ver ejercicios/02-relaciones/many-to-many — no se pisan
-// entre sí, pero tampoco tiene sentido resolver acá lo que el ejercicio
-// pide). Este ejemplo se queda solo con el esquema y la inserción — muestra
-// CÓMO se arma la tabla puente, no cómo se consulta.
+// N:M es el tema del ejercicio integrador de la clase (ver
+// ejercicios/01-relaciones/many-to-many). Este ejemplo se queda solo con
+// el esquema y la inserción — muestra CÓMO se arma la tabla puente, no
+// cómo se consulta.
 
 async function main() {
   const db = new Database("rel-many-to-many.sqlite");

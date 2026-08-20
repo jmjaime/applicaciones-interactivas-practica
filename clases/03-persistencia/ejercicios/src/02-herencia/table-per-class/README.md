@@ -3,7 +3,7 @@
 **Objetivo**: mapear la misma jerarquía de pagos (`CreditCardPayment` /
 `BankTransferPayment` / `CashPayment`) a una tabla independiente por cada
 clase concreta, sin tabla base (mismo concepto que la demo
-`ejemplos/src/03-mappeo-herencia/table-per-class`, otro dominio).
+`ejemplos/src/03-mappeo-herencia/table-per-class`).
 
 **Requisitos**:
 

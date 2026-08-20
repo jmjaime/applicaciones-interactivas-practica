@@ -26,8 +26,7 @@ npm run mapeo-basico-sql
 - `many-to-many/` — `Student` ↔ `Course` (N:M). **Recortado a
   propósito**: solo arma el esquema y los datos (tabla puente incluida),
   sin las consultas — esas son el ejercicio integrador
-  (`../ejercicios/src/01-relaciones/many-to-many`, dominio distinto:
-  `Recipe`/`Ingredient`)
+  (`../ejercicios/src/01-relaciones/many-to-many`)
 
 ```bash
 npm run one-to-one-sql

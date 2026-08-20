@@ -4,7 +4,7 @@
 el lado "muchos". La misma FK cubre también la consulta N:1 (desde el lado
 "muchos", como se vio en la slide de Relaciones · N:1) — mismo concepto que
 la demo `ejemplos/src/02-mappeo-relaciones/one-to-many` y
-`.../many-to-one`, otro dominio.
+`.../many-to-one`.
 
 **Requisitos**:
 

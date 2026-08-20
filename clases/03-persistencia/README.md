@@ -1,6 +1,6 @@
 # Clase 3 — Mecanismos de Persistencia
 
-Continúa desde la Clase 2: acá se deja Express de lado por un momento para entender cómo se persisten los objetos en una base de datos relacional, con SQL puro (sin ORM) — el ORM (TypeORM) llega en la Clase 4.
+Continúa desde la Clase 2: acá se deja Express de lado por un momento para entender cómo se persisten los objetos en una base de datos relacional, escribiendo el SQL a mano.
 
 ## Slides
 
@@ -25,7 +25,7 @@ Ver el [README de ejemplos](ejemplos/README.md) para el resto de los scripts.
 
 ## Ejercicios
 
-`ejercicios/` — mismos temas (relaciones, herencia) con dominio propio (`Product`/`Inventory`, `Customer`/`PurchaseOrder`, `Recipe`/`Ingredient`, `Payment`), más un ejercicio de diseño abierto (Entidad/Value Object, dominio de reservas de hotel). Ver su [README](ejercicios/README.md).
+`ejercicios/` — mismos temas (relaciones, herencia) con casos propios, más un ejercicio de diseño abierto (Entidad/Value Object). Ver su [README](ejercicios/README.md).
 
 ```bash
 cd ejercicios

@@ -8,13 +8,13 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 |---|---|---|
 | `clases/01-presentacion/` | Presentación de la materia | Slides (materia, Apps Web, Intro JS/TS/Node) + inspección de página con DevTools + sintaxis JS/TS + setup práctico Node/TS/Jest + ejercicios de repaso con tests |
 | `clases/02-js-ts-herramientas/` | JS/TS y herramientas de desarrollo | Slides + servidor Express+TS por bloques (routing, ESLint, validaciones manual/Zod, filtrar/dar forma/modificar, API externa) + ejercicios con casos propios + tarea de autoestudio |
-| `clases/03-persistencia/` | Mecanismos de Persistencia | Slides + demos de mapeo objeto-relacional con SQL puro (básico, relaciones, herencia, objetos embebidos) + ejercicios con dominio propio + ejercicio de diseño Entidad/Value Object |
+| `clases/03-persistencia/` | Mecanismos de Persistencia | Slides + demos de mapeo objeto-relacional (básico, relaciones, herencia, objetos embebidos) + ejercicios con casos propios + ejercicio de diseño Entidad/Value Object |
 
 ## Cómo ejecutar
 
 - `clases/01-presentacion/`: ver su [README](clases/01-presentacion/README.md) — slides en `slides/`, actividad de DevTools en `ejemplos/01-inspeccionar-pagina/`, ejemplos de sintaxis en `ejemplos/02-sintaxis-js-ts/` (`node <archivo>`), el setup práctico en `ejemplos/03-setup-node-ts/` + `ejemplos/04-cli-ts-intro/` (`npm install`), y los ejercicios de repaso en `ejercicios/` (`npm install` + `npm test`).
 - `clases/02-js-ts-herramientas/`: ver su [README](clases/02-js-ts-herramientas/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install && npm run dev`, servidor único en `http://localhost:3000` con las rutas de `01-express-basico` a `05-api-externa`); ejercicios en `ejercicios/` con los mismos temas más `06-integrador` (`npm install && npm test`); y la lectura de autoestudio en [`tarea-para-el-hogar.md`](clases/02-js-ts-herramientas/tarea-para-el-hogar.md).
-- `clases/03-persistencia/`: ver su [README](clases/03-persistencia/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install`, SQL puro sin ORM: mapeo básico, relaciones, herencia y objetos embebidos como autoestudio); ejercicios en `ejercicios/` con los mismos temas más un ejercicio de diseño abierto (`npm install && npm test`).
+- `clases/03-persistencia/`: ver su [README](clases/03-persistencia/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install`, mapeo básico, relaciones, herencia y objetos embebidos como autoestudio); ejercicios en `ejercicios/` con los mismos temas más un ejercicio de diseño abierto (`npm install && npm test`).
 
 ## Bibliografía
 
@@ -39,6 +39,6 @@ clases/
     tarea-para-el-hogar.md         # Autoestudio: ==/===, POO prototipal, event loop
   03-persistencia/
     slides/                        # Slides de la clase (HTML)
-    ejemplos/                      # SQL puro sin ORM: básico, relaciones, herencia, embebido (01 a 04)
-    ejercicios/                    # Mismos temas con dominio propio + diseño abierto (npm test)
+    ejemplos/                      # Mapeo básico, relaciones, herencia, embebido (01 a 04)
+    ejercicios/                    # Mismos temas con casos propios + diseño abierto (npm test)
 ```

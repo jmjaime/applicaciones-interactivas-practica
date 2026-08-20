@@ -6,7 +6,7 @@ patrón que esos dos, aplicado a la misma jerarquía de pagos.
 **Objetivo**: mapear la jerarquía de pagos (`CreditCardPayment` /
 `BankTransferPayment` / `CashPayment`) a una tabla base + tablas
 específicas por tipo, unidas por FK (PK compartida) — mismo concepto que
-la demo `ejemplos/src/03-mappeo-herencia/joined-table`, otro dominio.
+la demo `ejemplos/src/03-mappeo-herencia/joined-table`.
 
 **Requisitos**:
 

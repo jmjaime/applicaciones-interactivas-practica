@@ -2,8 +2,8 @@
 
 **Objetivo**: mapear una jerarquía de pagos (`CreditCardPayment` /
 `BankTransferPayment` / `CashPayment`) a una única tabla con columna
-discriminadora, sin usar ORM (mismo concepto que la demo
-`ejemplos/src/03-mappeo-herencia/table-per-hierarchy`, otro dominio).
+discriminadora (mismo concepto que la demo
+`ejemplos/src/03-mappeo-herencia/table-per-hierarchy`).
 
 **Requisitos**:
 
