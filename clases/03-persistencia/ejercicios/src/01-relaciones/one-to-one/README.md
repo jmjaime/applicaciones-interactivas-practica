@@ -21,6 +21,3 @@ garantizada por constraint UNIQUE en la FK (mismo concepto que la demo
 `exercise.spec.ts` construye sus propios `Product`/`Inventory`, los
 inserta y valida los objetos tipados que devuelven las consultas — no
 depende del SQL interno, solo de lo que entra y lo que sale.
-
-`Product` e `Inventory` son dos Entidades distintas relacionadas por FK
-(cada una con su propio id) — sin Value Objects acá.

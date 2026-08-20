@@ -25,7 +25,3 @@ parejas.
 `exercise.spec.ts` construye sus propios `Recipe`/`Ingredient`, los
 inserta y valida los objetos tipados que devuelven las consultas — no
 depende del SQL interno, solo de lo que entra y lo que sale.
-
-`Recipe` e `Ingredient` son las Entidades de este ejercicio;
-`RecipeIngredient` es la tabla de unión (no es Value Object, tiene su
-propia identidad de fila).

@@ -21,10 +21,6 @@ discriminadora (mismo concepto que la demo
 inserta y valida los objetos tipados que devuelven las consultas — no
 depende del SQL interno, solo de lo que entra y lo que sale.
 
-`Payment` (en cualquiera de sus 3 variantes) es la Entidad de este
-ejercicio (identidad = id de fila) — sin Value Objects acá, todos los
-campos son primitivos.
-
 Esta misma jerarquía `Payment` se mapea con las 3 estrategias de herencia
 de la clase (TPH acá, TPC y JOINED en las carpetas vecinas) — comparar
 cómo cambia el esquema SQL con la estrategia, sobre el mismo dominio.

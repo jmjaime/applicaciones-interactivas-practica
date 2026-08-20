@@ -21,9 +21,6 @@ clase concreta, sin tabla base (mismo concepto que la demo
 inserta y valida los objetos tipados que devuelven las consultas — no
 depende del SQL interno, solo de lo que entra y lo que sale.
 
-`Payment` (en cualquiera de sus 3 variantes) es la Entidad de este
-ejercicio — sin Value Objects acá.
-
 Esta misma jerarquía `Payment` se mapea con las 3 estrategias de herencia
 de la clase (TPC acá, TPH y JOINED en las carpetas vecinas) — comparar
 cómo cambia el esquema SQL con la estrategia, sobre el mismo dominio.

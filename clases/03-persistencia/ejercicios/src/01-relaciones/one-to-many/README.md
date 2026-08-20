@@ -22,6 +22,3 @@ la demo `ejemplos/src/02-mappeo-relaciones/one-to-many` y
 `exercise.spec.ts` construye sus propios `Customer`/`Order`, los inserta y
 valida los objetos tipados que devuelven las consultas — no depende del
 SQL interno, solo de lo que entra y lo que sale.
-
-`Customer` y `Order` son dos Entidades relacionadas por FK — sin Value
-Objects acá.
