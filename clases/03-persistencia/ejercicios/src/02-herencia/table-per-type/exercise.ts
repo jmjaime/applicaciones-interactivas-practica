@@ -66,18 +66,18 @@ export class TablePerTypeExercise {
   }
 }
 
-if (require.main === module) {
-  (async () => {
-    await preloadSqlJs();
-    const ex = new TablePerTypeExercise();
-    await ex.createSchema();
-    await ex.insertPayment({
-      method: "cash",
-      amount: 3000,
-      paidAt: "2026-08-01",
-      receivedBy: "Ana",
-    });
-    console.log("Pagos:", await ex.getAll());
-    ex.close();
-  })().catch(console.error);
+async function main(): Promise<void> {
+  await preloadSqlJs();
+  const ex = new TablePerTypeExercise();
+  await ex.createSchema();
+  await ex.insertPayment({
+    method: "cash",
+    amount: 3000,
+    paidAt: "2026-08-01",
+    receivedBy: "Ana",
+  });
+  console.log("Pagos:", await ex.getAll());
+  ex.close();
 }
+
+main();

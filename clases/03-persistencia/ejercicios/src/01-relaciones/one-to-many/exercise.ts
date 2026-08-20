@@ -62,25 +62,25 @@ export class OneToManyExercise {
   }
 }
 
-if (require.main === module) {
-  (async () => {
-    await preloadSqlJs();
-    const ex = new OneToManyExercise();
-    await ex.createSchema();
-    const customer = await ex.insertCustomer({
-      code: "CUST001",
-      companyName: "TechCorp Solutions",
-      contactName: "Ana García",
-      email: "ana.garcia@techcorp.com",
-      isActive: true,
-    });
-    await ex.insertOrder({
-      orderNumber: "ORD-001",
-      customerId: customer.id!,
-      totalAmount: 18400,
-      status: "Delivered",
-    });
-    console.log("Órdenes:", await ex.getAllOrders());
-    ex.close();
-  })().catch(console.error);
+async function main(): Promise<void> {
+  await preloadSqlJs();
+  const ex = new OneToManyExercise();
+  await ex.createSchema();
+  const customer = await ex.insertCustomer({
+    code: "CUST001",
+    companyName: "TechCorp Solutions",
+    contactName: "Ana García",
+    email: "ana.garcia@techcorp.com",
+    isActive: true,
+  });
+  await ex.insertOrder({
+    orderNumber: "ORD-001",
+    customerId: customer.id!,
+    totalAmount: 18400,
+    status: "Delivered",
+  });
+  console.log("Órdenes:", await ex.getAllOrders());
+  ex.close();
 }
+
+main();

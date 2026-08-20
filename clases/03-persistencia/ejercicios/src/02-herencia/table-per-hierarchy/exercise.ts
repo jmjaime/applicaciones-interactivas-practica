@@ -66,19 +66,19 @@ export class TablePerHierarchyExercise {
   }
 }
 
-if (require.main === module) {
-  (async () => {
-    await preloadSqlJs();
-    const ex = new TablePerHierarchyExercise();
-    await ex.createSchema();
-    await ex.insertPayment({
-      method: "credit_card",
-      amount: 15000,
-      paidAt: "2026-08-01",
-      cardLast4: "4242",
-      installments: 3,
-    });
-    console.log("Pagos:", await ex.getAll());
-    ex.close();
-  })().catch(console.error);
+async function main(): Promise<void> {
+  await preloadSqlJs();
+  const ex = new TablePerHierarchyExercise();
+  await ex.createSchema();
+  await ex.insertPayment({
+    method: "credit_card",
+    amount: 15000,
+    paidAt: "2026-08-01",
+    cardLast4: "4242",
+    installments: 3,
+  });
+  console.log("Pagos:", await ex.getAll());
+  ex.close();
 }
+
+main();

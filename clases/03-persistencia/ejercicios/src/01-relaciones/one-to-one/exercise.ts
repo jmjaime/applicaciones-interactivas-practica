@@ -57,25 +57,25 @@ export class ProductInventoryExercise {
   }
 }
 
-if (require.main === module) {
-  (async () => {
-    await preloadSqlJs();
-    const ex = new ProductInventoryExercise();
-    await ex.createSchema();
-    const product = await ex.insertProduct({
-      sku: "TEC-001",
-      name: "Teclado mecánico",
-      price: 45000,
-    });
-    await ex.insertInventory({
-      productId: product.id!,
-      quantity: 120,
-      warehouse: "CABA",
-    });
-    console.log(
-      "Producto con inventario:",
-      await ex.getProductWithInventory(product.id!)
-    );
-    ex.close();
-  })().catch(console.error);
+async function main(): Promise<void> {
+  await preloadSqlJs();
+  const ex = new ProductInventoryExercise();
+  await ex.createSchema();
+  const product = await ex.insertProduct({
+    sku: "TEC-001",
+    name: "Teclado mecánico",
+    price: 45000,
+  });
+  await ex.insertInventory({
+    productId: product.id!,
+    quantity: 120,
+    warehouse: "CABA",
+  });
+  console.log(
+    "Producto con inventario:",
+    await ex.getProductWithInventory(product.id!)
+  );
+  ex.close();
 }
+
+main();

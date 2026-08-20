@@ -66,20 +66,20 @@ export class RecipeIngredientExercise {
   }
 }
 
-if (require.main === module) {
-  (async () => {
-    await preloadSqlJs();
-    const ex = new RecipeIngredientExercise();
-    await ex.createSchema();
-    const recipe = await ex.insertRecipe({ name: "Tortilla de papas", servings: 4 });
-    const eggs = await ex.insertIngredient({ name: "Huevo", unit: "unidades" });
-    const potatoes = await ex.insertIngredient({ name: "Papa", unit: "g" });
-    await ex.addIngredientToRecipe(recipe.id!, eggs.id!, 6);
-    await ex.addIngredientToRecipe(recipe.id!, potatoes.id!, 500);
-    console.log(
-      "Receta con ingredientes:",
-      await ex.getRecipeWithIngredients(recipe.id!)
-    );
-    ex.close();
-  })().catch(console.error);
+async function main(): Promise<void> {
+  await preloadSqlJs();
+  const ex = new RecipeIngredientExercise();
+  await ex.createSchema();
+  const recipe = await ex.insertRecipe({ name: "Tortilla de papas", servings: 4 });
+  const eggs = await ex.insertIngredient({ name: "Huevo", unit: "unidades" });
+  const potatoes = await ex.insertIngredient({ name: "Papa", unit: "g" });
+  await ex.addIngredientToRecipe(recipe.id!, eggs.id!, 6);
+  await ex.addIngredientToRecipe(recipe.id!, potatoes.id!, 500);
+  console.log(
+    "Receta con ingredientes:",
+    await ex.getRecipeWithIngredients(recipe.id!)
+  );
+  ex.close();
 }
+
+main();

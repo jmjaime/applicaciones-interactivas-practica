@@ -64,19 +64,19 @@ export class TablePerClassExercise {
   }
 }
 
-if (require.main === module) {
-  (async () => {
-    await preloadSqlJs();
-    const ex = new TablePerClassExercise();
-    await ex.createSchema();
-    await ex.insertPayment({
-      method: "bank_transfer",
-      amount: 20000,
-      paidAt: "2026-08-01",
-      bankName: "Santander",
-      accountNumber: "0987654321",
-    });
-    console.log("Pagos:", await ex.getAll());
-    ex.close();
-  })().catch(console.error);
+async function main(): Promise<void> {
+  await preloadSqlJs();
+  const ex = new TablePerClassExercise();
+  await ex.createSchema();
+  await ex.insertPayment({
+    method: "bank_transfer",
+    amount: 20000,
+    paidAt: "2026-08-01",
+    bankName: "Santander",
+    accountNumber: "0987654321",
+  });
+  console.log("Pagos:", await ex.getAll());
+  ex.close();
 }
+
+main();
