@@ -1,0 +1,71 @@
+<svg width="900" height="420" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Relación N a 1: Employees → Department</title>
+  <desc id="desc">Diagrama con tablas EMPLOYEES y DEPARTMENTS mostrando columnas y filas, con flechas desde múltiples employees.department_id hacia departments.id.</desc>
+  <defs>
+    <style>
+      .table { fill: #ffffff; stroke: #282a36; stroke-width: 2; rx: 8; ry: 8; }
+      .header { fill: #6272a4; }
+      .header-text { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 16px; }
+      .cell-text { fill: #282a36; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 14px; }
+      .muted { fill: #44475a; font-size: 12px; }
+      .grid { stroke: #b0b4c0; stroke-width: 1; }
+      .arrow { stroke: #9aa0a6; stroke-width: 3; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9aa0a6" />
+    </marker>
+  </defs>
+
+  <!-- EMPLOYEES table -->
+  <rect x="40" y="40" width="360" height="260" class="table" />
+  <rect x="40" y="40" width="360" height="40" class="header" />
+  <text x="60" y="66" class="header-text">EMPLOYEES</text>
+
+  <!-- Column headers -->
+  <line x1="40" y1="100" x2="400" y2="100" class="grid" />
+  <text x="60" y="92" class="cell-text">id (PK)</text>
+  <text x="140" y="92" class="cell-text">name</text>
+  <text x="260" y="92" class="cell-text">department_id (FK)</text>
+
+  <!-- Rows -->
+  <line x1="40" y1="140" x2="400" y2="140" class="grid" />
+  <text x="60" y="128" class="cell-text">1</text>
+  <text x="140" y="128" class="cell-text">Ana</text>
+  <text x="300" y="128" class="cell-text">10</text>
+
+  <line x1="40" y1="180" x2="400" y2="180" class="grid" />
+  <text x="60" y="168" class="cell-text">2</text>
+  <text x="140" y="168" class="cell-text">Luis</text>
+  <text x="300" y="168" class="cell-text">10</text>
+
+  <line x1="40" y1="220" x2="400" y2="220" class="grid" />
+  <text x="60" y="208" class="cell-text muted">3</text>
+  <text x="140" y="208" class="cell-text muted">Sofía</text>
+  <text x="300" y="208" class="cell-text muted">20</text>
+
+  <!-- DEPARTMENTS table (lower level) -->
+  <rect x="500" y="200" width="360" height="160" class="table" />
+  <rect x="500" y="200" width="360" height="40" class="header" />
+  <text x="520" y="226" class="header-text">DEPARTMENTS</text>
+
+  <!-- Column headers -->
+  <line x1="500" y1="260" x2="860" y2="260" class="grid" />
+  <text x="520" y="252" class="cell-text">id (PK)</text>
+  <text x="620" y="252" class="cell-text">name</text>
+
+  <!-- Rows -->
+  <line x1="500" y1="300" x2="860" y2="300" class="grid" />
+  <text x="520" y="288" class="cell-text">10</text>
+  <text x="620" y="288" class="cell-text">IT</text>
+
+  <line x1="500" y1="340" x2="860" y2="340" class="grid" />
+  <text x="520" y="328" class="cell-text muted">20</text>
+  <text x="620" y="328" class="cell-text muted">HR</text>
+
+  <!-- Arrows from employees with department_id 10 to departments.id 10 -->
+
+  <!-- Legend -->
+  <text x="40" y="400" class="cell-text"><tspan font-weight="700">Relación N:1</tspan> — Muchos empleados pertenecen a un mismo departamento.</text>
+</svg>
+
+

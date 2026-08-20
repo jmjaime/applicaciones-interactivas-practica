@@ -1,0 +1,69 @@
+<svg width="980" height="460" viewBox="0 0 980 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Herencia: JOINED (Tabla base + especializaciones)</title>
+  <desc id="desc">Tabla base VEHICLE y tablas AUTO/MOTO con PK=FK; columnas y filas de ejemplo.</desc>
+  <defs>
+    <style>
+      .table { fill: #21222c; stroke-width: 2; rx: 10; ry: 10; }
+      .table-base { stroke: #ffb86c; }
+      .table-auto { stroke: #8be9fd; }
+      .table-moto { stroke: #bd93f9; }
+      .header-base { fill: #ffb86c; }
+      .header-auto { fill: #8be9fd; }
+      .header-moto { fill: #bd93f9; }
+      .header-text { fill: #282a36; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 24px; }
+      .col-label { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 19px; }
+      .cell-text { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 19px; }
+      .grid { stroke: #44475a; stroke-width: 1; }
+      .legend { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 18px; }
+    </style>
+  </defs>
+
+  <!-- Base VEHICLE -->
+  <rect x="24" y="24" width="932" height="204" class="table table-base" />
+  <rect x="24" y="24" width="932" height="54" class="header header-base" />
+  <text x="44" y="59" class="header-text">VEHICLE (base)</text>
+
+  <line x1="24" y1="78" x2="956" y2="78" class="grid" />
+  <text x="44" y="110" class="col-label">id (PK)</text>
+  <text x="200" y="110" class="col-label">marca</text>
+  <text x="380" y="110" class="col-label">modelo</text>
+
+  <line x1="24" y1="128" x2="956" y2="128" class="grid" />
+  <text x="44" y="160" class="cell-text">1</text>
+  <text x="200" y="160" class="cell-text">Ford</text>
+  <text x="380" y="160" class="cell-text">Fiesta</text>
+
+  <line x1="24" y1="178" x2="956" y2="178" class="grid" />
+  <text x="44" y="210" class="cell-text">2</text>
+  <text x="200" y="210" class="cell-text">Yamaha</text>
+  <text x="380" y="210" class="cell-text">MT-07</text>
+
+  <!-- AUTO -->
+  <rect x="24" y="254" width="456" height="154" class="table table-auto" />
+  <rect x="24" y="254" width="456" height="54" class="header header-auto" />
+  <text x="44" y="289" class="header-text">AUTO</text>
+
+  <line x1="24" y1="308" x2="480" y2="308" class="grid" />
+  <text x="44" y="340" class="col-label">id (PK/FK)</text>
+  <text x="340" y="340" class="col-label">puertas</text>
+
+  <line x1="24" y1="358" x2="480" y2="358" class="grid" />
+  <text x="44" y="390" class="cell-text">1</text>
+  <text x="340" y="390" class="cell-text">4</text>
+
+  <!-- MOTO -->
+  <rect x="500" y="254" width="456" height="154" class="table table-moto" />
+  <rect x="500" y="254" width="456" height="54" class="header header-moto" />
+  <text x="520" y="289" class="header-text">MOTO</text>
+
+  <line x1="500" y1="308" x2="956" y2="308" class="grid" />
+  <text x="520" y="340" class="col-label">id (PK/FK)</text>
+  <text x="820" y="340" class="col-label">cilindrada</text>
+
+  <line x1="500" y1="358" x2="956" y2="358" class="grid" />
+  <text x="520" y="390" class="cell-text">2</text>
+  <text x="820" y="390" class="cell-text">689</text>
+
+  <!-- Nota -->
+  <text x="24" y="440" class="legend"><tspan font-weight="700" fill="#50fa7b">JOINED</tspan> — cada especialización se une a la base con JOIN por PK/FK compartida.</text>
+</svg>

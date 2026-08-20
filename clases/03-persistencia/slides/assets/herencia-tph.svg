@@ -1,0 +1,57 @@
+<svg width="980" height="420" viewBox="0 0 980 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Herencia: Table-Per-Hierarchy (TPH)</title>
+  <desc id="desc">Una tabla VEHICLE con columna discriminator (type) y columnas de subtipos; filas con NULL en columnas no aplicables.</desc>
+  <defs>
+    <style>
+      .table { fill: #21222c; stroke: #8be9fd; stroke-width: 2; rx: 10; ry: 10; }
+      .header { fill: #8be9fd; }
+      .header-text { fill: #282a36; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 24px; }
+      .col-label { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 19px; }
+      .cell-text { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 19px; }
+      .grid { stroke: #44475a; stroke-width: 1; }
+      .legend { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 18px; }
+    </style>
+  </defs>
+
+  <!-- VEHICLE (single table) -->
+  <rect x="24" y="24" width="932" height="254" class="table" />
+  <rect x="24" y="24" width="932" height="54" class="header" />
+  <text x="44" y="59" class="header-text">VEHICLE</text>
+
+  <!-- Column headers -->
+  <line x1="24" y1="78" x2="956" y2="78" class="grid" />
+  <text x="44" y="110" class="col-label">id</text>
+  <text x="140" y="110" class="col-label">type</text>
+  <text x="250" y="110" class="col-label">marca</text>
+  <text x="390" y="110" class="col-label">modelo</text>
+  <text x="560" y="110" class="col-label">puertas (Auto)</text>
+  <text x="770" y="110" class="col-label">cilindrada (Moto)</text>
+
+  <!-- Rows -->
+  <line x1="24" y1="128" x2="956" y2="128" class="grid" />
+  <text x="44" y="160" class="cell-text">1</text>
+  <text x="140" y="160" class="cell-text">auto</text>
+  <text x="250" y="160" class="cell-text">Ford</text>
+  <text x="390" y="160" class="cell-text">Fiesta</text>
+  <text x="590" y="160" class="cell-text">4</text>
+  <text x="820" y="160" class="cell-text">—</text>
+
+  <line x1="24" y1="178" x2="956" y2="178" class="grid" />
+  <text x="44" y="210" class="cell-text">2</text>
+  <text x="140" y="210" class="cell-text">moto</text>
+  <text x="250" y="210" class="cell-text">Yamaha</text>
+  <text x="390" y="210" class="cell-text">MT-07</text>
+  <text x="590" y="210" class="cell-text">—</text>
+  <text x="820" y="210" class="cell-text">689</text>
+
+  <line x1="24" y1="228" x2="956" y2="228" class="grid" />
+  <text x="44" y="260" class="cell-text">3</text>
+  <text x="140" y="260" class="cell-text">auto</text>
+  <text x="250" y="260" class="cell-text">VW</text>
+  <text x="390" y="260" class="cell-text">Golf</text>
+  <text x="590" y="260" class="cell-text">5</text>
+  <text x="820" y="260" class="cell-text">—</text>
+
+  <!-- Legend -->
+  <text x="24" y="340" class="legend"><tspan font-weight="700" fill="#50fa7b">TPH</tspan> — una sola tabla con discriminador; columnas no aplicables quedan con NULL/—.</text>
+</svg>

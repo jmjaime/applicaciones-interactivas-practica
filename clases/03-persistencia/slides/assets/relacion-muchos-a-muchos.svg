@@ -1,0 +1,82 @@
+<svg width="980" height="520" viewBox="0 0 980 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Relación N a M: Students ↔ Courses (tabla intermedia)</title>
+  <desc id="desc">Diagrama con tablas STUDENTS, COURSES y STUDENTS_COURSES mostrando columnas y filas, con flechas desde ambas tablas hacia la tabla intermedia.</desc>
+  <defs>
+    <style>
+      .table { fill: #21222c; stroke-width: 2; rx: 10; ry: 10; }
+      .table-students { stroke: #8be9fd; }
+      .table-courses { stroke: #bd93f9; }
+      .table-junction { stroke: #ffb86c; }
+      .header-students { fill: #8be9fd; }
+      .header-courses { fill: #bd93f9; }
+      .header-junction { fill: #ffb86c; }
+      .header-text { fill: #282a36; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 24px; }
+      .col-label { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 20px; }
+      .cell-text { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 20px; }
+      .grid { stroke: #44475a; stroke-width: 1; }
+      .arrow { stroke: #8be9fd; stroke-width: 4; fill: none; }
+      .legend { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 18px; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto">
+      <polygon points="0 0, 12 4.5, 0 9" fill="#8be9fd" />
+    </marker>
+  </defs>
+
+  <!-- STUDENTS table (left) -->
+  <rect x="24" y="24" width="430" height="204" class="table table-students" />
+  <rect x="24" y="24" width="430" height="54" class="header header-students" />
+  <text x="44" y="59" class="header-text">STUDENTS</text>
+
+  <line x1="24" y1="78" x2="454" y2="78" class="grid" />
+  <text x="44" y="110" class="col-label">id (PK)</text>
+  <text x="220" y="110" class="col-label">name</text>
+
+  <line x1="24" y1="128" x2="454" y2="128" class="grid" />
+  <text x="44" y="160" class="cell-text">1</text>
+  <text x="220" y="160" class="cell-text">Ana</text>
+
+  <line x1="24" y1="178" x2="454" y2="178" class="grid" />
+  <text x="44" y="210" class="cell-text">2</text>
+  <text x="220" y="210" class="cell-text">Luis</text>
+
+  <!-- COURSES table (right) -->
+  <rect x="526" y="24" width="430" height="204" class="table table-courses" />
+  <rect x="526" y="24" width="430" height="54" class="header header-courses" />
+  <text x="546" y="59" class="header-text">COURSES</text>
+
+  <line x1="526" y1="78" x2="956" y2="78" class="grid" />
+  <text x="546" y="110" class="col-label">id (PK)</text>
+  <text x="722" y="110" class="col-label">name</text>
+
+  <line x1="526" y1="128" x2="956" y2="128" class="grid" />
+  <text x="546" y="160" class="cell-text">10</text>
+  <text x="722" y="160" class="cell-text">DB</text>
+
+  <line x1="526" y1="178" x2="956" y2="178" class="grid" />
+  <text x="546" y="210" class="cell-text">20</text>
+  <text x="722" y="210" class="cell-text">Web</text>
+
+  <!-- STUDENTS_COURSES junction table (center lower) -->
+  <rect x="250" y="254" width="480" height="204" class="table table-junction" />
+  <rect x="250" y="254" width="480" height="54" class="header header-junction" />
+  <text x="270" y="289" class="header-text">STUDENTS_COURSES</text>
+
+  <line x1="250" y1="308" x2="730" y2="308" class="grid" />
+  <text x="270" y="340" class="col-label">student_id (FK)</text>
+  <text x="510" y="340" class="col-label">course_id (FK)</text>
+
+  <line x1="250" y1="358" x2="730" y2="358" class="grid" />
+  <text x="290" y="390" class="cell-text">1</text>
+  <text x="530" y="390" class="cell-text">10</text>
+
+  <line x1="250" y1="408" x2="730" y2="408" class="grid" />
+  <text x="290" y="440" class="cell-text">1</text>
+  <text x="530" y="440" class="cell-text">20</text>
+
+  <!-- Arrows to junction table -->
+  <path d="M 239 228 L 350 254" class="arrow" marker-end="url(#arrowhead)" />
+  <path d="M 741 228 L 630 254" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- Legend -->
+  <text x="24" y="498" class="legend"><tspan font-weight="700" fill="#50fa7b">Relación N:M</tspan> — muchos estudiantes pueden cursar muchos cursos mediante una tabla intermedia.</text>
+</svg>

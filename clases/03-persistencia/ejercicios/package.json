@@ -1,0 +1,58 @@
+{
+  "name": "ejercicios-clase1-sql",
+  "version": "1.0.0",
+  "description": "Ejercicios prácticos de mapeo con SQL plano: herencia y relaciones",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf --glob dist \"*.sqlite\" \"*.db\"",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.ts\"",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix",
+    "typecheck": "tsc --noEmit",
+
+    "relaciones": "echo \"=== EJERCICIO RELACIONES (SQL) ===\" && npm run one-to-one-sql && npm run one-to-many-sql && npm run many-to-many-sql",
+    "one-to-one-sql": "ts-node src/01-relaciones/one-to-one/exercise.ts",
+    "one-to-many-sql": "ts-node src/01-relaciones/one-to-many/exercise.ts",
+    "many-to-many-sql": "ts-node src/01-relaciones/many-to-many/exercise.ts",
+
+    "herencia": "echo \"=== EJERCICIO HERENCIA (SQL) ===\" && npm run tph-sql && npm run tpc-sql && npm run tpt-sql",
+    "tph-sql": "ts-node src/02-herencia/table-per-hierarchy/exercise.ts",
+    "tpc-sql": "ts-node src/02-herencia/table-per-class/exercise.ts",
+    "tpt-sql": "ts-node src/02-herencia/table-per-type/exercise.ts",
+
+    "all-sql": "npm run relaciones && npm run herencia"
+  },
+  "keywords": [
+    "sqlite", 
+    "sql", 
+    "nodejs", 
+    "typescript", 
+    "mapping", 
+    "inheritance",
+    "relations",
+    "database-design",
+    "educational"
+  ],
+  "author": "UADE - Aplicaciones Interactivas",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.10.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "eslint": "^9.36.0",
+    "jest": "^30.1.1",
+    "rimraf": "^5.0.10",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+} 

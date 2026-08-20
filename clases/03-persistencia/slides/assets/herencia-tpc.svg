@@ -1,0 +1,61 @@
+<svg width="980" height="420" viewBox="0 0 980 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Herencia: Table-Per-Class (TPC)</title>
+  <desc id="desc">Tablas AUTO y MOTO con columnas propias e heredadas; sin columnas NULL. Filas de ejemplo.</desc>
+  <defs>
+    <style>
+      .table { fill: #21222c; stroke-width: 2; rx: 10; ry: 10; }
+      .table-auto { stroke: #8be9fd; }
+      .table-moto { stroke: #bd93f9; }
+      .header-auto { fill: #8be9fd; }
+      .header-moto { fill: #bd93f9; }
+      .header-text { fill: #282a36; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 24px; }
+      .col-label { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 20px; }
+      .cell-text { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 20px; }
+      .grid { stroke: #44475a; stroke-width: 1; }
+      .legend { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 18px; }
+    </style>
+  </defs>
+
+  <!-- AUTO table -->
+  <rect x="24" y="24" width="440" height="204" class="table table-auto" />
+  <rect x="24" y="24" width="440" height="54" class="header header-auto" />
+  <text x="44" y="59" class="header-text">AUTO</text>
+
+  <line x1="24" y1="78" x2="464" y2="78" class="grid" />
+  <text x="44" y="110" class="col-label">id</text>
+  <text x="150" y="110" class="col-label">marca</text>
+  <text x="270" y="110" class="col-label">modelo</text>
+  <text x="400" y="110" class="col-label">puertas</text>
+
+  <line x1="24" y1="128" x2="464" y2="128" class="grid" />
+  <text x="44" y="160" class="cell-text">1</text>
+  <text x="150" y="160" class="cell-text">Ford</text>
+  <text x="270" y="160" class="cell-text">Fiesta</text>
+  <text x="410" y="160" class="cell-text">4</text>
+
+  <line x1="24" y1="178" x2="464" y2="178" class="grid" />
+  <text x="44" y="210" class="cell-text">3</text>
+  <text x="150" y="210" class="cell-text">VW</text>
+  <text x="270" y="210" class="cell-text">Golf</text>
+  <text x="410" y="210" class="cell-text">5</text>
+
+  <!-- MOTO table -->
+  <rect x="496" y="24" width="460" height="154" class="table table-moto" />
+  <rect x="496" y="24" width="460" height="54" class="header header-moto" />
+  <text x="516" y="59" class="header-text">MOTO</text>
+
+  <line x1="496" y1="78" x2="956" y2="78" class="grid" />
+  <text x="516" y="110" class="col-label">id</text>
+  <text x="610" y="110" class="col-label">marca</text>
+  <text x="730" y="110" class="col-label">modelo</text>
+  <text x="850" y="110" class="col-label">cilindrada</text>
+
+  <line x1="496" y1="128" x2="956" y2="128" class="grid" />
+  <text x="516" y="160" class="cell-text">2</text>
+  <text x="610" y="160" class="cell-text">Yamaha</text>
+  <text x="730" y="160" class="cell-text">MT-07</text>
+  <text x="870" y="160" class="cell-text">689</text>
+
+  <!-- Legend -->
+  <text x="24" y="340" class="legend"><tspan font-weight="700" fill="#50fa7b">TPC</tspan> — una tabla por clase concreta; consultas polimórficas requieren UNION.</text>
+</svg>

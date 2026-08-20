@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420" role="img" aria-labelledby="title desc">
+  <title id="title">Mapeo Objeto → Tabla</title>
+  <desc id="desc">A la izquierda, un objeto Person en bloque de código JSON. A la derecha, la tabla PERSON con columnas y filas de ejemplo.</desc>
+  <defs>
+    <style>
+      .table { fill: #21222c; stroke-width: 2; rx: 10; ry: 10; }
+      .table-object { stroke: #8be9fd; }
+      .table-row { stroke: #bd93f9; }
+      .header-object { fill: #8be9fd; }
+      .header-row { fill: #bd93f9; }
+      .header-text { fill: #282a36; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 24px; }
+      .col-label { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-weight: 700; font-size: 20px; }
+      .cell-text { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 20px; }
+      .grid { stroke: #44475a; stroke-width: 1; }
+      .codebox { fill: #191a21; stroke: #44475a; stroke-width: 2; rx: 8; ry: 8; }
+      .code-text { fill: #f1fa8c; font-family: "Fira Code", Menlo, Consolas, monospace; font-size: 19px; }
+      .legend { fill: #f8f8f2; font-family: Inter, Segoe UI, Roboto, sans-serif; font-size: 18px; }
+    </style>
+  </defs>
+
+  <!-- Code block: Person JSON -->
+  <rect x="24" y="24" width="440" height="252" class="table table-object" />
+  <rect x="24" y="24" width="440" height="54" class="header header-object" />
+  <text x="44" y="59" class="header-text">Objeto Person (JSON)</text>
+
+  <rect x="44" y="92" width="400" height="164" class="codebox" />
+  <text x="64" y="122" class="code-text" xml:space="preserve">{</text>
+  <text x="84" y="150" class="code-text" xml:space="preserve">"id": 1,</text>
+  <text x="84" y="178" class="code-text" xml:space="preserve">"name": "Juan",</text>
+  <text x="84" y="206" class="code-text" xml:space="preserve">"lastName": "Pérez",</text>
+  <text x="84" y="234" class="code-text" xml:space="preserve">"age": 25</text>
+  <text x="64" y="240" class="code-text" xml:space="preserve"></text>
+  <text x="64" y="248" class="code-text" xml:space="preserve">}</text>
+
+  <!-- Table: PERSON -->
+  <rect x="516" y="24" width="440" height="204" class="table table-row" />
+  <rect x="516" y="24" width="440" height="54" class="header header-row" />
+  <text x="536" y="59" class="header-text">PERSON</text>
+
+  <line x1="516" y1="78" x2="956" y2="78" class="grid" />
+  <text x="536" y="110" class="col-label">id (PK)</text>
+  <text x="620" y="110" class="col-label">name</text>
+  <text x="720" y="110" class="col-label">lastName</text>
+  <text x="870" y="110" class="col-label">age</text>
+
+  <line x1="516" y1="128" x2="956" y2="128" class="grid" />
+  <text x="536" y="160" class="cell-text">1</text>
+  <text x="620" y="160" class="cell-text">Juan</text>
+  <text x="720" y="160" class="cell-text">Pérez</text>
+  <text x="870" y="160" class="cell-text">25</text>
+
+  <line x1="516" y1="178" x2="956" y2="178" class="grid" />
+  <text x="536" y="210" class="cell-text">2</text>
+  <text x="620" y="210" class="cell-text">María</text>
+  <text x="720" y="210" class="cell-text">García</text>
+  <text x="870" y="210" class="cell-text">30</text>
+
+  <!-- Caption -->
+  <text x="24" y="400" class="legend"><tspan font-weight="700" fill="#50fa7b">Mapeo:</tspan> objeto → fila; propiedad → columna.</text>
+</svg>
