@@ -1,5 +1,6 @@
 import { UserSQLPersistence, UserData } from "./user-persistence";
 import { paso } from "../../utils/demo";
+import { preloadSqlJs } from "../../utils/sqlite";
 
 function tabla(users: UserData[]) {
   console.table(
@@ -15,6 +16,7 @@ function tabla(users: UserData[]) {
 }
 
 async function main() {
+  await preloadSqlJs();
   const persistence = new UserSQLPersistence();
 
   try {

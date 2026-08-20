@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 import { paso } from "../../utils/demo";
 
 // ============================================================================
@@ -8,7 +8,7 @@ import { paso } from "../../utils/demo";
 // ============================================================================
 
 class TablePerClassSQL {
-  private db: Database.Database;
+  private db: Database;
 
   constructor() {
     this.db = new Database("table-per-class.sqlite");
@@ -107,6 +107,7 @@ class TablePerClassSQL {
 
 async function main() {
   console.log("=== TABLE PER CLASS (TPC) - SQL PLANO ===");
+  await preloadSqlJs();
   const example = new TablePerClassSQL();
 
   try {

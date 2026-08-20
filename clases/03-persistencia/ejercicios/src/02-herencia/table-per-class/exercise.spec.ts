@@ -1,5 +1,6 @@
 import fs from "fs";
 import { TablePerClassExercise, Payment } from "./exercise";
+import { preloadSqlJs } from "../../utils/sqlite";
 
 const DB_PATH = "test-tpc-payments.sqlite";
 
@@ -11,6 +12,7 @@ describe("Table Per Class (payments)", () => {
   let ex: TablePerClassExercise;
 
   beforeEach(async () => {
+    await preloadSqlJs();
     removeDbFile();
     ex = new TablePerClassExercise(DB_PATH);
     await ex.createSchema();

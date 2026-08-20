@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database } from "../../utils/sqlite";
 
 export interface Specification {
   key: string;
@@ -51,7 +51,7 @@ export interface ProductWithJSONMetadata {
 }
 
 export class ProductSQLPersistence {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "json-mapping-sql.sqlite") {
     this.db = new Database(dbPath);

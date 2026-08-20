@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 
 // Ejercicio 2.1: Table Per Hierarchy (TPH) — ver README.md de esta carpeta.
 
@@ -28,7 +28,7 @@ export type CashPayment = PaymentBase & {
 export type Payment = CreditCardPayment | BankTransferPayment | CashPayment;
 
 export class TablePerHierarchyExercise {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "ejercicio-tph.sqlite") {
     this.db = new Database(dbPath);
@@ -68,6 +68,7 @@ export class TablePerHierarchyExercise {
 
 if (require.main === module) {
   (async () => {
+    await preloadSqlJs();
     const ex = new TablePerHierarchyExercise();
     await ex.createSchema();
     await ex.insertPayment({

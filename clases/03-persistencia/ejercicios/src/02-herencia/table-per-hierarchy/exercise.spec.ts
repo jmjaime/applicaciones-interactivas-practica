@@ -1,5 +1,6 @@
 import fs from "fs";
 import { TablePerHierarchyExercise, Payment } from "./exercise";
+import { preloadSqlJs } from "../../utils/sqlite";
 
 const DB_PATH = "test-tph-payments.sqlite";
 
@@ -11,6 +12,7 @@ describe("Table Per Hierarchy (payments)", () => {
   let ex: TablePerHierarchyExercise;
 
   beforeEach(async () => {
+    await preloadSqlJs();
     removeDbFile();
     ex = new TablePerHierarchyExercise(DB_PATH);
     await ex.createSchema();

@@ -1,11 +1,11 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 import { paso } from "../../utils/demo";
 
 // Table Per Hierarchy - Una sola tabla con discriminador
 // Mismo dominio que la slide "Herencia · TPH" de la clase: Vehicle con
 // discriminador 'type' (auto/moto), columnas específicas NULL según el tipo.
 class TablePerHierarchySQL {
-  private db: Database.Database;
+  private db: Database;
 
   constructor() {
     this.db = new Database("table-per-hierarchy.sqlite");
@@ -102,6 +102,7 @@ class TablePerHierarchySQL {
 
 async function main() {
   console.log("=== TABLE PER HIERARCHY (TPH) - SQL PLANO ===");
+  await preloadSqlJs();
   const example = new TablePerHierarchySQL();
 
   try {

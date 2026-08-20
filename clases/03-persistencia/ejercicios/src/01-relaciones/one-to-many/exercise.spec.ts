@@ -1,5 +1,6 @@
 import fs from "fs";
 import { OneToManyExercise, Customer, Order } from "./exercise";
+import { preloadSqlJs } from "../../utils/sqlite";
 
 const DB_PATH = "test-one-to-many.sqlite";
 
@@ -11,6 +12,7 @@ describe("One-to-Many (customer/order)", () => {
   let ex: OneToManyExercise;
 
   beforeEach(async () => {
+    await preloadSqlJs();
     removeDbFile();
     ex = new OneToManyExercise(DB_PATH);
     await ex.createSchema();

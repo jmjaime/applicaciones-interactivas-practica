@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database } from "../../utils/sqlite";
 
 export interface UserData {
   id?: number;
@@ -23,7 +23,7 @@ export interface UserWithEmbeddedAddress {
 }
 
 export class UserSQLPersistence {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "multiple-columns-sql.sqlite") {
     this.db = new Database(dbPath);

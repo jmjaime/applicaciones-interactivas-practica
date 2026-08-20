@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 
 // Ejercicio 2.3: Table Per Type / JOINED (TPT) — ver README.md de esta
 // carpeta. Autoestudio.
@@ -29,7 +29,7 @@ export type CashPayment = PaymentBase & {
 export type Payment = CreditCardPayment | BankTransferPayment | CashPayment;
 
 export class TablePerTypeExercise {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "ejercicio-tpt.sqlite") {
     this.db = new Database(dbPath);
@@ -68,6 +68,7 @@ export class TablePerTypeExercise {
 
 if (require.main === module) {
   (async () => {
+    await preloadSqlJs();
     const ex = new TablePerTypeExercise();
     await ex.createSchema();
     await ex.insertPayment({

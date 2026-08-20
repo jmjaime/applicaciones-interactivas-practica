@@ -1,5 +1,6 @@
 import { ArticleSQLPersistence, ArticleData } from "./article-persistence";
 import { paso } from "../../utils/demo";
+import { preloadSqlJs } from "../../utils/sqlite";
 
 function tabla(articles: ArticleData[]) {
   console.table(
@@ -12,6 +13,7 @@ function tabla(articles: ArticleData[]) {
 }
 
 async function main() {
+  await preloadSqlJs();
   const persistence = new ArticleSQLPersistence();
 
   try {

@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 
 // Ejercicio 1.3: Many-to-Many (N:M) — ver README.md de esta carpeta.
 
@@ -19,7 +19,7 @@ export type RecipeWithIngredients = Recipe & {
 };
 
 export class RecipeIngredientExercise {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "ejercicio-recipe-ingredient.sqlite") {
     this.db = new Database(dbPath);
@@ -68,6 +68,7 @@ export class RecipeIngredientExercise {
 
 if (require.main === module) {
   (async () => {
+    await preloadSqlJs();
     const ex = new RecipeIngredientExercise();
     await ex.createSchema();
     const recipe = await ex.insertRecipe({ name: "Tortilla de papas", servings: 4 });

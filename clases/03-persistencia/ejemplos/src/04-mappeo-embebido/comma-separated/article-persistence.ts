@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database } from "../../utils/sqlite";
 
 export interface ArticleData {
   id?: number;
@@ -17,7 +17,7 @@ export interface ArticleWithCommaTags {
 }
 
 export class ArticleSQLPersistence {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "comma-separated-sql.sqlite") {
     this.db = new Database(dbPath);

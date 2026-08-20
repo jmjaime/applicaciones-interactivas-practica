@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../utils/sqlite";
 import { paso } from "../utils/demo";
 
 type Person = {
@@ -8,7 +8,7 @@ type Person = {
   age: number;
 };
 
-function initializeDatabase(db: Database.Database): void {
+function initializeDatabase(db: Database): void {
   db.exec(`
     CREATE TABLE IF NOT EXISTS person (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,7 +19,7 @@ function initializeDatabase(db: Database.Database): void {
   `);
 }
 
-function insertPeople(db: Database.Database, people: Person[]): number[] {
+function insertPeople(db: Database, people: Person[]): number[] {
   const insert = db.prepare(
     `INSERT INTO person (name, lastName, age) VALUES (@name, @lastName, @age)`
   );
@@ -29,14 +29,14 @@ function insertPeople(db: Database.Database, people: Person[]): number[] {
   return transaction(people);
 }
 
-function listPeople(db: Database.Database): Person[] {
+function listPeople(db: Database): Person[] {
   const rows = db
     .prepare(`SELECT id, name, lastName, age FROM person ORDER BY id`)
     .all();
   return rows as Person[];
 }
 
-function findAdults(db: Database.Database, minAge: number): Person[] {
+function findAdults(db: Database, minAge: number): Person[] {
   const rows = db
     .prepare(
       `SELECT id, name, lastName, age FROM person WHERE age >= ? ORDER BY age DESC`
@@ -48,6 +48,7 @@ function findAdults(db: Database.Database, minAge: number): Person[] {
 async function main(): Promise<void> {
   console.log("=== MAPEO BÁSICO SQL: CLASE → COLUMNAS ===");
 
+  await preloadSqlJs();
   const db = new Database("mapeo-basico.sqlite");
   try {
     await paso("Esquema: CREATE TABLE person (id PK, name, lastName, age)", () => {

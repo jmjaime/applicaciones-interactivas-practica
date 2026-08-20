@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 
 // Ejercicio 1.2: One-to-Many / Many-to-One — ver README.md de esta carpeta.
 
@@ -20,7 +20,7 @@ export type Order = {
 };
 
 export class OneToManyExercise {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "ejercicio-one-to-many.sqlite") {
     this.db = new Database(dbPath);
@@ -64,6 +64,7 @@ export class OneToManyExercise {
 
 if (require.main === module) {
   (async () => {
+    await preloadSqlJs();
     const ex = new OneToManyExercise();
     await ex.createSchema();
     const customer = await ex.insertCustomer({

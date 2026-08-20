@@ -1,7 +1,8 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 import { paso } from "../../utils/demo";
 
 async function main() {
+  await preloadSqlJs();
   const db = new Database("rel-one-to-many.sqlite");
   db.pragma("foreign_keys = ON");
 

@@ -4,6 +4,7 @@ import {
   Product,
   Inventory,
 } from "./exercise";
+import { preloadSqlJs } from "../../utils/sqlite";
 
 const DB_PATH = "test-product-inventory.sqlite";
 
@@ -15,6 +16,7 @@ describe("One-to-One (product/inventory)", () => {
   let ex: ProductInventoryExercise;
 
   beforeEach(async () => {
+    await preloadSqlJs();
     removeDbFile();
     ex = new ProductInventoryExercise(DB_PATH);
     await ex.createSchema();

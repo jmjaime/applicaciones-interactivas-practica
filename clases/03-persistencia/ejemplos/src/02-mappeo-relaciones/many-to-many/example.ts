@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 import { paso } from "../../utils/demo";
 
 // N:M (Students ↔ Courses) — versión acotada a propósito.
@@ -9,6 +9,7 @@ import { paso } from "../../utils/demo";
 // cómo se consulta.
 
 async function main() {
+  await preloadSqlJs();
   const db = new Database("rel-many-to-many.sqlite");
   db.pragma("foreign_keys = ON");
 

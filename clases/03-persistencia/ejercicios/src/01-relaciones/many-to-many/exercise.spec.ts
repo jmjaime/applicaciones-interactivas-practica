@@ -4,6 +4,7 @@ import {
   Recipe,
   Ingredient,
 } from "./exercise";
+import { preloadSqlJs } from "../../utils/sqlite";
 
 const DB_PATH = "test-recipe-ingredient.sqlite";
 
@@ -15,6 +16,7 @@ describe("Many-to-Many (recipe/ingredient)", () => {
   let ex: RecipeIngredientExercise;
 
   beforeEach(async () => {
+    await preloadSqlJs();
     removeDbFile();
     ex = new RecipeIngredientExercise(DB_PATH);
     await ex.createSchema();

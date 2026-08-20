@@ -1,5 +1,6 @@
 import { ProductSQLPersistence, ProductData } from "./product-persistence";
 import { paso } from "../../utils/demo";
+import { preloadSqlJs } from "../../utils/sqlite";
 
 function tabla(products: ProductData[]) {
   console.table(
@@ -15,6 +16,7 @@ function tabla(products: ProductData[]) {
 }
 
 async function main() {
+  await preloadSqlJs();
   const persistence = new ProductSQLPersistence();
 
   try {

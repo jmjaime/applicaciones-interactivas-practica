@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 
 // Ejercicio 1.1: One-to-One (1:1) — ver README.md de esta carpeta.
 
@@ -19,7 +19,7 @@ export type Inventory = {
 export type ProductWithInventory = Product & { inventory: Inventory };
 
 export class ProductInventoryExercise {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "ejercicio-product-inventory.sqlite") {
     this.db = new Database(dbPath);
@@ -59,6 +59,7 @@ export class ProductInventoryExercise {
 
 if (require.main === module) {
   (async () => {
+    await preloadSqlJs();
     const ex = new ProductInventoryExercise();
     await ex.createSchema();
     const product = await ex.insertProduct({

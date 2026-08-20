@@ -1,4 +1,4 @@
-import Database from "better-sqlite3";
+import { Database, preloadSqlJs } from "../../utils/sqlite";
 
 // Ejercicio 2.2: Table Per Class (TPC) — ver README.md de esta carpeta.
 
@@ -28,7 +28,7 @@ export type CashPayment = PaymentBase & {
 export type Payment = CreditCardPayment | BankTransferPayment | CashPayment;
 
 export class TablePerClassExercise {
-  private db: Database.Database;
+  private db: Database;
 
   constructor(dbPath: string = "ejercicio-tpc.sqlite") {
     this.db = new Database(dbPath);
@@ -66,6 +66,7 @@ export class TablePerClassExercise {
 
 if (require.main === module) {
   (async () => {
+    await preloadSqlJs();
     const ex = new TablePerClassExercise();
     await ex.createSchema();
     await ex.insertPayment({
