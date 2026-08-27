@@ -18,6 +18,7 @@
 - [TypeScript — Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript — Documentación](https://www.typescriptlang.org/docs/)
 - [ECMAScript Specifications](https://tc39.es/ecma262/)
+- [TypeORM — Documentación Oficial](https://typeorm.io/docs/)
 - [Node.js — Docs](https://nodejs.org/en/docs)
 - [Node.js — API Reference](https://nodejs.org/api/)
 - [npm — Docs](https://docs.npmjs.com/)

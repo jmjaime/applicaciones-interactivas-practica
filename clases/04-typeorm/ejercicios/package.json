@@ -1,0 +1,53 @@
+{
+  "name": "typeorm-ejercicios",
+  "version": "1.0.0",
+  "description": "Ejercicios de TypeORM para la Clase 4",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf --glob dist \"*.sqlite\"",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch --runInBand",
+    "test:ci": "jest --ci --reporters=default --runInBand",
+    "test:ej01": "cross-env EJ_SCOPE=ej01 jest --runInBand --runTestsByPath src/01-entidades/exercise.spec.ts",
+    "test:ej02": "cross-env EJ_SCOPE=ej02 jest --runInBand --runTestsByPath src/02-restricciones/exercise.spec.ts",
+    "test:ej03": "cross-env EJ_SCOPE=ej03 jest --runInBand --runTestsByPath src/03-validacion/exercise.spec.ts",
+    "test:ej04a": "cross-env EJ_SCOPE=ej04a jest --runInBand --runTestsByPath src/04-relaciones/uno-a-uno/exercise.spec.ts",
+    "test:ej04b": "cross-env EJ_SCOPE=ej04b jest --runInBand --runTestsByPath src/04-relaciones/uno-a-muchos/exercise.spec.ts",
+    "test:ej04c": "cross-env EJ_SCOPE=ej04c jest --runInBand --runTestsByPath src/04-relaciones/muchos-a-muchos/exercise.spec.ts",
+    "test:ej05": "cross-env EJ_SCOPE=ej05 jest --runInBand --runTestsByPath src/05-carga/exercise.spec.ts",
+    "test:ej07": "cross-env EJ_SCOPE=ej07 jest --runInBand --runTestsByPath src/07-herencia/exercise.spec.ts",
+    "test:ej07b": "cross-env EJ_SCOPE=ej07b jest --runInBand --runTestsByPath src/07-herencia/table-per-class/exercise.spec.ts",
+    "test:ej08": "cross-env EJ_SCOPE=ej08 jest --runInBand --runTestsByPath src/08-query-builder/exercise.spec.ts",
+    "test:ej09": "cross-env EJ_SCOPE=ej09 jest --runInBand --runTestsByPath src/09-optimizacion/exercise.spec.ts",
+    "test:ej10": "cross-env EJ_SCOPE=ej10 jest --runInBand --runTestsByPath src/10-migraciones/exercise.spec.ts",
+    "test:ej11": "cross-env EJ_SCOPE=ej11 jest --runInBand --runTestsByPath src/11-transacciones/exercise.spec.ts"
+  },
+  "keywords": [
+    "typeorm",
+    "typescript",
+    "orm",
+    "database",
+    "sql",
+    "sqlite"
+  ],
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "reflect-metadata": "^0.1.13",
+    "sql.js": "^1.13.0",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.0.0",
+    "@types/sql.js": "^1.4.9",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}
