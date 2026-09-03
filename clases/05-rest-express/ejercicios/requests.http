@@ -1,0 +1,56 @@
+### 1.1 — Listar authors
+GET http://localhost:3001/authors
+
+### 1.1 — Crear author
+POST http://localhost:3001/authors
+Content-Type: application/json
+
+{ "name": "Julio Cortázar", "nationality": "Argentina" }
+
+### 1.2 — Detalle
+GET http://localhost:3001/authors/1
+
+### 1.2 — 404
+GET http://localhost:3001/authors/999
+
+### 1.3 — Filtro por query param
+GET http://localhost:3001/authors?nationality=Argentina
+
+### 2.1 — Books de una collection (subrecurso)
+GET http://localhost:3001/collections/1/books
+
+### 2.2 — Mismos books, por query param
+GET http://localhost:3001/books?collectionId=1
+
+### 2.3 — Agregar un book a una collection
+POST http://localhost:3001/collections/1/books
+Content-Type: application/json
+
+{ "bookId": 3 }
+
+### 2.3 — Sacar un book de una collection
+DELETE http://localhost:3001/collections/1/books/1
+
+### 4.1 — Crear collection (Zod)
+POST http://localhost:3001/collections
+Content-Type: application/json
+
+{ "name": "Ciencia ficción" }
+
+### 4.1 — Body inválido a propósito
+POST http://localhost:3001/collections
+Content-Type: application/json
+
+{}
+
+### 5.1 — Borrar un author
+DELETE http://localhost:3001/authors/2
+
+### 5.3 — Actualización parcial (Zod)
+PATCH http://localhost:3001/authors/1
+Content-Type: application/json
+
+{ "nationality": "España" }
+
+### 4.2 / 5.4 — Documentación generada (Swagger UI) — abrir en el navegador
+GET http://localhost:3001/docs

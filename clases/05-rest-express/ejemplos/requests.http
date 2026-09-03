@@ -1,0 +1,35 @@
+### Listar artists
+GET http://localhost:3000/artists
+
+### Detalle
+GET http://localhost:3000/artists/42
+
+### Artista que no existe → 404
+GET http://localhost:3000/artists/999
+
+### Crear un artista — Zod valida el body
+POST http://localhost:3000/artists
+Content-Type: application/json
+
+{ "name": "Rosalía", "genre": "flamenco pop" }
+
+### Body inválido a propósito → 400
+POST http://localhost:3000/artists
+Content-Type: application/json
+
+{ "genre": "trap" }
+
+### Subrecurso: tracks de un artista (path)
+GET http://localhost:3000/artists/42/tracks
+
+### Mismo dato, filtro por query param
+GET http://localhost:3000/tracks?artistId=42
+
+### Artista que no existe → 404, capturado por el middleware de errores
+GET http://localhost:3000/artists/999/tracks
+
+### Ruta pensada para el middleware de errores (400 a propósito)
+GET http://localhost:3000/demo/error
+
+### Documentación generada (Swagger UI) — abrir en el navegador
+GET http://localhost:3000/docs

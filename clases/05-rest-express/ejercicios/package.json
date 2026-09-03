@@ -1,0 +1,31 @@
+{
+  "name": "clase5-ejercicios",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Práctica de la Clase 5: CRUD de Author, subrecursos Collection/Book, schema de Zod y práctica integradora (middlewares + OpenAPI)",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest --runInBand",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^7.3.4",
+    "express": "^5.1.0",
+    "swagger-ui-express": "^5.0.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "@types/supertest": "^6.0.3",
+    "@types/swagger-ui-express": "^4.1.8",
+    "jest": "^30.1.1",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.4.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
+  }
+}

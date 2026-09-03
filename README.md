@@ -10,6 +10,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 | `clases/02-js-ts-herramientas/` | JS/TS y herramientas de desarrollo | Slides + servidor Express+TS por bloques (routing, ESLint, validaciones manual/Zod, filtrar/dar forma/modificar, API externa) + ejercicios con casos propios + tarea de autoestudio |
 | `clases/03-persistencia/` | Mecanismos de Persistencia | Slides + demos de mapeo objeto-relacional (básico, relaciones, herencia, objetos embebidos) + ejercicios con casos propios + ejercicio de diseño Entidad/Value Object |
 | `clases/04-typeorm/` | Framework de Persistencia: TypeORM | Slides + demos con TypeORM (entidades, restricciones/validación, relaciones, carga, embebidos, herencia, query builder, optimización, migraciones, transacciones) + ejercicios con dominio propio |
+| `clases/05-rest-express/` | Semántica REST y bases de Express | Slides + demo de servidor Express+TS (CRUD, relaciones entre recursos, middlewares/manejo de errores, OpenAPI generado desde Zod) + ejercicios con dominio propio |
 
 ## Cómo ejecutar
 
@@ -17,6 +18,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 - `clases/02-js-ts-herramientas/`: ver su [README](clases/02-js-ts-herramientas/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install && npm run dev`, servidor único en `http://localhost:3000` con las rutas de `01-express-basico` a `05-api-externa`); ejercicios en `ejercicios/` con los mismos temas más `06-integrador` (`npm install && npm test`); y la lectura de autoestudio en [`tarea-para-el-hogar.md`](clases/02-js-ts-herramientas/tarea-para-el-hogar.md).
 - `clases/03-persistencia/`: ver su [README](clases/03-persistencia/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install`, mapeo básico, relaciones, herencia y objetos embebidos como autoestudio); ejercicios en `ejercicios/` con los mismos temas más un ejercicio de diseño abierto (`npm install && npm test`).
 - `clases/04-typeorm/`: ver su [README](clases/04-typeorm/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install`, un tema por carpeta, `npm run <script>`); ejercicios en `ejercicios/` con los mismos temas más un ejercicio integrador de relaciones N:M (`npm install && npm test`).
+- `clases/05-rest-express/`: ver su [README](clases/05-rest-express/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install && npm run dev`, servidor único en `http://localhost:3000` con las rutas de `01-crud` a `04-openapi`); ejercicios en `ejercicios/` con los mismos temas sobre otro dominio más una práctica integradora (`npm install && npm test`).
 
 ## Bibliografía
 
@@ -47,4 +49,8 @@ clases/
     slides/                        # Slides de la clase (HTML)
     ejemplos/                      # Entidades a transacciones con TypeORM (01 a 11)
     ejercicios/                    # Mismos temas con dominio propio + integrador N:M (npm test)
+  05-rest-express/
+    slides/                        # Slides de la clase (HTML)
+    ejemplos/                      # Servidor Express+TS por tema (01 a 04)
+    ejercicios/                    # Mismos temas con dominio propio + práctica integradora (npm test)
 ```
