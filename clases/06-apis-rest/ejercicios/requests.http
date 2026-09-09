@@ -1,0 +1,40 @@
+### Status
+GET http://localhost:3001/api/status
+Accept: application/json
+
+### Nota: inmobiliariaId=1 asume que ya corriste la migración de seed
+### (ver src/propiedades-tpo/migrations.ts) o que creaste una inmobiliaria
+### a mano en la base.
+
+### Listar propiedades (paginado)
+GET http://localhost:3001/api/propiedades?page=1&limit=10
+
+### Crear propiedad
+POST http://localhost:3001/api/propiedades
+Content-Type: application/json
+
+{
+  "titulo": "Depto 2 ambientes en Palermo",
+  "tipo": "DEPARTAMENTO",
+  "operacion": "VENTA",
+  "precio": 120000,
+  "moneda": "USD",
+  "direccion": "Av. Santa Fe 3000",
+  "zona": "Palermo",
+  "superficieTotal": 55,
+  "inmobiliariaId": 1
+}
+
+### Ver detalle
+GET http://localhost:3001/api/propiedades/1
+
+### Actualizar parcialmente
+PATCH http://localhost:3001/api/propiedades/1
+Content-Type: application/json
+
+{
+  "precio": 130000
+}
+
+### Borrar
+DELETE http://localhost:3001/api/propiedades/1
