@@ -23,12 +23,14 @@ export const initializeDatabase = async (mode: Mode = "app") => {
       ? {
           type: "sqljs",
           synchronize: true,
+          location: "propiedades-tpo.sqlite",
           logging: false,
           entities: [entitiesGlob],
           namingStrategy: new SnakeNamingStrategy(),
         }
       : {
           type: "sqljs",
+          location: "propiedades-tpo.sqlite",
           synchronize: false,
           logging: false,
           entities: [],
