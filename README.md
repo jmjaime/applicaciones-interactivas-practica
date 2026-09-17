@@ -12,6 +12,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 | `clases/04-typeorm/` | Framework de Persistencia: TypeORM | Slides + demos con TypeORM (entidades, restricciones/validación, relaciones, carga, embebidos, herencia, query builder, optimización, migraciones, transacciones) + ejercicios con dominio propio |
 | `clases/05-rest-express/` | Semántica REST y bases de Express | Slides + demo de servidor Express+TS (CRUD, relaciones entre recursos, middlewares/manejo de errores, OpenAPI generado desde Zod) + ejercicios con dominio propio |
 | `clases/06-apis-rest/` | APIs REST | Ejercicio único: ABM de `Propiedad` (TPO) con TypeORM — migraciones, seed, repository/service/controller en capas, validación, manejo de errores y paginación |
+| `clases/07-repaso-tpo/` | Repaso + TPO | Slides + guía (sin ejemplos/ejercicios) para repasar Repository, rutas/params/paginado, validación y documentación de la API, y sumar JWT, aplicándolos directamente sobre el proyecto propio del TPO |
 
 ## Cómo ejecutar
 
@@ -21,6 +22,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 - `clases/04-typeorm/`: ver su [README](clases/04-typeorm/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install`, un tema por carpeta, `npm run <script>`); ejercicios en `ejercicios/` con los mismos temas más un ejercicio integrador de relaciones N:M (`npm install && npm test`).
 - `clases/05-rest-express/`: ver su [README](clases/05-rest-express/README.md) — slides en `slides/`; ejemplos en `ejemplos/` (`npm install && npm run dev`, servidor único en `http://localhost:3000` con las rutas de `01-crud` a `04-openapi`); ejercicios en `ejercicios/` con los mismos temas sobre otro dominio más una práctica integradora (`npm install && npm test`).
 - `clases/06-apis-rest/`: ver su [README](clases/06-apis-rest/README.md) — sin slides publicadas; un solo ejercicio en `ejercicios/` (`npm install && npm test`), servidor en `http://localhost:3001` (`npm run dev`).
+- `clases/07-repaso-tpo/`: ver su [README](clases/07-repaso-tpo/README.md) — slides en `slides/clase7-slides.html`; sin proyecto npm, guía de repaso para aplicar directamente sobre el proyecto propio del TPO, no hay nada que instalar ni correr acá.
 
 ## Bibliografía
 
@@ -57,4 +59,7 @@ clases/
     ejercicios/                    # Mismos temas con dominio propio + práctica integradora (npm test)
   06-apis-rest/
     ejercicios/                    # ABM de Propiedad con TypeORM, capas + migraciones + seed (npm test)
+  07-repaso-tpo/
+    slides/                        # Slides de la clase (HTML)
+    README.md                      # Repaso: Repository, rutas/params/paginado, validación, documentación y JWT, aplicado al TPO propio
 ```
