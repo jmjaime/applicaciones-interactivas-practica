@@ -1,0 +1,111 @@
+@base = http://localhost:3000
+@agencyAna = aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa
+@agencyBruno = bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb
+
+# ─────────────────────────────────────────────
+# 1.1 · Actividad síncrona vs. por eventos
+# ─────────────────────────────────────────────
+
+### Tirar abajo el módulo de Actividad
+POST {{base}}/demo/activity/down
+
+### Versión síncrona → 500, aunque el comentario se guardó
+POST {{base}}/sync/properties/p1/comments
+Content-Type: application/json
+
+{ "authorName": "Lucía", "content": "¿Acepta mascotas?" }
+
+### Versión con eventos → 201; el error queda en la consola del server
+POST {{base}}/events/properties/p1/comments
+Content-Type: application/json
+
+{ "authorName": "Lucía", "content": "¿Tiene cochera?" }
+
+### Levantar Actividad de nuevo
+POST {{base}}/demo/activity/up
+
+### Comparar: comentarios guardados vs. actividades registradas
+GET {{base}}/comments
+
+###
+GET {{base}}/activity
+
+# ─────────────────────────────────────────────
+# 3.1 · Sesión en el servidor + cookie
+# ─────────────────────────────────────────────
+
+### Login → mirar el header Set-Cookie del response
+POST {{base}}/session/login
+Content-Type: application/json
+
+{ "email": "ana@demo.com", "password": "123456" }
+
+### Quién soy (el cliente reenvía la cookie solo)
+GET {{base}}/session/me
+
+### Logout: se borra la sesión del servidor
+POST {{base}}/session/logout
+
+# ─────────────────────────────────────────────
+# 3.2 · JWT
+# ─────────────────────────────────────────────
+
+### Registro: Seller + Agency en el mismo paso
+POST {{base}}/auth/register
+Content-Type: application/json
+
+{
+  "fullName": "Carla Oeste",
+  "email": "carla@demo.com",
+  "password": "123456",
+  "agency": { "name": "Oeste Propiedades", "contactPhone": "11-4000-3333" }
+}
+
+### Login de Ana → copiar el token a jwt.io
+# @name loginAna
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{ "email": "ana@demo.com", "password": "123456" }
+
+### Credenciales inválidas → 401
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{ "email": "ana@demo.com", "password": "otra" }
+
+### Quién soy, con token
+GET {{base}}/auth/me
+Authorization: Bearer {{loginAna.response.body.token}}
+
+### Perfil público de la inmobiliaria (sin token) → 200
+GET {{base}}/agencies/{{agencyAna}}
+
+### Editar SIN token → 401
+PUT {{base}}/agencies/{{agencyAna}}
+Content-Type: application/json
+
+{ "name": "Norte Premium" }
+
+### Editar la propia CON token → 200
+PUT {{base}}/agencies/{{agencyAna}}
+Content-Type: application/json
+Authorization: Bearer {{loginAna.response.body.token}}
+
+{ "name": "Norte Premium" }
+
+### Editar la de Bruno con el token de Ana → 403
+PUT {{base}}/agencies/{{agencyBruno}}
+Content-Type: application/json
+Authorization: Bearer {{loginAna.response.body.token}}
+
+{ "name": "Hackeada" }
+
+### Renovar el access con el refresh (la cookie la guardó el login) → token nuevo
+POST {{base}}/auth/refresh
+
+### Logout: borra el refresh del servidor y la cookie → 204
+POST {{base}}/auth/logout
+
+### Refresh después del logout → 401
+POST {{base}}/auth/refresh
