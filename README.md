@@ -14,6 +14,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 | `clases/06-apis-rest/` | APIs REST | Ejercicio único: ABM de `Propiedad` (TPO) con TypeORM — migraciones, seed, repository/service/controller en capas, validación, manejo de errores y paginación |
 | `clases/07-repaso-tpo/` | Repaso + TPO | Slides + guía (sin ejemplos/ejercicios) para repasar Repository, rutas/params/paginado, validación y documentación de la API, y sumar JWT, aplicándolos directamente sobre el proyecto propio del TPO |
 | `clases/09-clientes-web/` | Del servidor al cliente | Slides (arquitectura de webservices, evolución del cliente web, sesión y JWT) + servidor Express+TS con eventos, sesión con cookie y JWT (registro, login, `requireAuth`, dueño); la práctica se hace sobre el TPO propio |
+| `clases/10-html-css/` | Fundamentos de la web | Slides (HTML, CSS y JS sobre el DOM) + demos estáticas sobre el listado de propiedades (HTML semántico, cascada, Flexbox/Grid, eventos, `fetch`, estado + render) + ejercicios por bloque con integrador + páginas de referencia |
 
 ## Cómo ejecutar
 
@@ -25,6 +26,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 - `clases/06-apis-rest/`: ver su [README](clases/06-apis-rest/README.md) — sin slides publicadas; un solo ejercicio en `ejercicios/` (`npm install && npm test`), servidor en `http://localhost:3001` (`npm run dev`).
 - `clases/07-repaso-tpo/`: ver su [README](clases/07-repaso-tpo/README.md) — slides en `slides/clase7-slides.html`; sin proyecto npm, guía de repaso para aplicar directamente sobre el proyecto propio del TPO, no hay nada que instalar ni correr acá.
 - `clases/09-clientes-web/`: ver su [README](clases/09-clientes-web/README.md) — slides en `slides/clase9-slides.html`; ejemplos en `ejemplos/` (`npm install`, copiar `.env.example` a `.env`, `npm run dev`, servidor en `http://localhost:3000` con `1.1-eventos`, `3.1-sesion-cookie` y `3.2-jwt`, requests en `requests.http`); sin `ejercicios/`, la práctica de autenticación se hace sobre el proyecto propio del TPO.
+- `clases/10-html-css/`: ver su [README](clases/10-html-css/README.md) — slides en `slides/clase10-slides.html`; sin `npm install`: ejemplos en `ejemplos/` y ejercicios en `ejercicios/` (HTML/CSS se abren con doble click; los de JS se sirven con `npx serve` dentro de la carpeta); páginas de consulta en `referencia/`.
 
 ## Bibliografía
 
@@ -67,4 +69,9 @@ clases/
   09-clientes-web/
     slides/                        # Slides de la clase (HTML)
     ejemplos/                      # Servidor Express+TS: eventos (1.1), sesión con cookie (3.1), JWT (3.2)
+  10-html-css/
+    slides/                        # Slides de la clase (HTML)
+    ejemplos/                      # Demos estáticas: HTML (1.x), CSS (2.x), JS sobre el DOM (3.x)
+    ejercicios/                    # Perfil de inmobiliaria por bloque + integrador (sin npm)
+    referencia/                    # Páginas interactivas de consulta de HTML y CSS
 ```

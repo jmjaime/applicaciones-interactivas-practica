@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.1 · El documento es un árbol</title>
+  </head>
+  <body>
+    <!--
+      Foco de la demo: abrir DevTools → Elements y recorrer el árbol.
+      El anidamiento de las etiquetas es lo que define padre, hijos y hermanos.
+    -->
+    <h1>Propiedades en venta</h1>
+
+    <section>
+      <article class="card">
+        <img src="https://picsum.photos/seed/prop2/400/260" alt="Casa con jardín y pileta" width="400" height="260" />
+        <h2>Casa con jardín y pileta</h2>
+        <p>USD 285.000 · <strong>Venta</strong></p>
+      </article>
+
+      <article class="card">
+        <img src="https://picsum.photos/seed/prop3/400/260" alt="Monoambiente a estrenar" width="400" height="260" />
+        <h2>Monoambiente a estrenar</h2>
+        <p>USD 79.000 · <strong>Venta</strong></p>
+      </article>
+    </section>
+
+    <!--
+      🔧 Probar en Elements:
+        - Pasar el mouse por cada nodo: se resalta en la página.
+        - ¿Quién es el padre del <strong>? ¿Cuántos hijos tiene el <section>?
+        - Editar el texto del <h2> o arrastrar una card arriba de la otra:
+          cambia la pantalla, pero al recargar vuelve: el archivo no cambió.
+    -->
+  </body>
+</html>

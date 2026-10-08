@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Ejemplos CSS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #e74c3c;
+        --accent-color: #f39c12;
+        --success-color: #27ae60;
+        --text-color: #2c3e50;
+        --bg-color: #ecf0f1;
+        --white: #ffffff;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+        --transition: all 0.3s ease;
+        --border-radius: 10px;
+        --spacing: 1.5rem;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 3rem 2rem;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border-radius: var(--border-radius);
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255, 255, 255, 0.1) 10px,
+          rgba(255, 255, 255, 0.1) 20px
+        );
+        animation: slide 20s linear infinite;
+      }
+
+      @keyframes slide {
+        0% { transform: translateX(-50px) translateY(-50px); }
+        100% { transform: translateX(50px) translateY(50px); }
+      }
+
+      .header h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .header p {
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+      }
+
+      .objectives {
+        background-color: var(--white);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      .objectives h2 {
+        color: var(--text-color);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .objectives ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .objectives li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .objectives li:last-child {
+        border-bottom: none;
+      }
+
+      .objectives li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--success-color);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .examples-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--spacing);
+        margin: 2rem 0;
+      }
+
+      .example-card {
+        background-color: var(--white);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .example-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .card-header {
+        padding: 1.5rem;
+        background: linear-gradient(135deg, var(--primary-color), #2980b9);
+        color: white;
+        position: relative;
+      }
+
+      .card-header h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-header .card-number {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .card-body {
+        padding: 1.5rem;
+      }
+
+      .card-body p {
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .topics-list {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0;
+      }
+
+      .topics-list li {
+        padding: 0.25rem 0;
+        color: #555;
+        font-size: 0.9rem;
+      }
+
+      .topics-list li::before {
+        content: '•';
+        color: var(--primary-color);
+        margin-right: 0.5rem;
+      }
+
+      .card-footer {
+        padding: 1rem 1.5rem;
+        background-color: #f8f9fa;
+        border-top: 1px solid #eee;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: var(--transition);
+        text-align: center;
+        width: 100%;
+      }
+
+      .btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .status-indicator {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: var(--success-color);
+        box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.3);
+        animation: pulse-dot 2s infinite;
+      }
+
+      @keyframes pulse-dot {
+        0% {
+          box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(39, 174, 96, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(39, 174, 96, 0);
+        }
+      }
+
+      .resources {
+        background-color: var(--white);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        margin: 3rem 0;
+      }
+
+      .resources h2 {
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid var(--accent-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .resource-item {
+        padding: 1rem;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent-color);
+      }
+
+      .resource-item h4 {
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .resource-item a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .resource-item a:hover {
+        text-decoration: underline;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 2rem;
+        background-color: var(--white);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+      }
+
+      .footer p {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .footer .back-link {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background: linear-gradient(45deg, var(--secondary-color), #c0392b);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: var(--transition);
+      }
+
+      .footer .back-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .examples-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header {
+          padding: 2rem 1rem;
+        }
+
+        .objectives,
+        .resources,
+        .footer {
+          padding: 1.5rem;
+        }
+      }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        .objectives,
+        .example-card,
+        .resources,
+        .footer {
+          background-color: #34495e;
+          color: white;
+        }
+
+        .card-body p,
+        .topics-list li {
+          color: #bdc3c7;
+        }
+
+        .card-footer {
+          background-color: #2c3e50;
+        }
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Dashboard de Ejemplos CSS</h1>
+        <p>
+          Fundamentos de CSS para desarrollo frontend moderno
+        </p>
+      </div>
+
+      <div class="objectives">
+        <h2>Objetivos de Aprendizaje</h2>
+        <ul>
+          <li>Dominar la sintaxis y selectores CSS fundamentales</li>
+          <li>Aplicar propiedades de texto, fuentes y tipografía</li>
+          <li>Implementar colores, fondos y gradientes efectivos</li>
+          <li>Comprender y utilizar el modelo de caja (box model)</li>
+          <li>Crear layouts modernos con Flexbox y Grid</li>
+          <li>Desarrollar diseños responsive y animaciones</li>
+          <li>Aplicar mejores prácticas de CSS moderno</li>
+        </ul>
+      </div>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="status-indicator"></div>
+          <div class="card-header">
+            <div class="card-number">01</div>
+            <h3>Sintaxis y Selectores</h3>
+            <p>Fundamentos de CSS</p>
+          </div>
+          <div class="card-body">
+            <p>
+              Explora la anatomía de las reglas CSS, tipos de selectores, 
+              especificidad y cómo estructurar hojas de estilo efectivas.
+            </p>
+            <ul class="topics-list">
+              <li>Selectores básicos y avanzados</li>
+              <li>Pseudo-clases y pseudo-elementos</li>
+              <li>Especificidad y cascada</li>
+              <li>Agrupación de selectores</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="01-sintaxis-selectores.html" class="btn">Ver Ejemplo</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="status-indicator"></div>
+          <div class="card-header">
+            <div class="card-number">02</div>
+            <h3>Texto y Fuentes</h3>
+            <p>Tipografía y formato</p>
+          </div>
+          <div class="card-body">
+            <p>
+              Aprende a controlar la apariencia del texto con propiedades de 
+              fuente, espaciado, alineación y efectos tipográficos modernos.
+            </p>
+            <ul class="topics-list">
+              <li>Familias de fuentes y Google Fonts</li>
+              <li>Tamaños responsive con clamp()</li>
+              <li>Espaciado y alineación</li>
+              <li>Efectos de texto avanzados</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="02-texto-fuentes.html" class="btn">Ver Ejemplo</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="status-indicator"></div>
+          <div class="card-header">
+            <div class="card-number">03</div>
+            <h3>Colores y Fondos</h3>
+            <p>Paletas y efectos visuales</p>
+          </div>
+          <div class="card-body">
+            <p>
+              Domina el uso de colores, gradientes, fondos múltiples y 
+              efectos visuales para crear interfaces atractivas.
+            </p>
+            <ul class="topics-list">
+              <li>Sistemas de color (hex, rgb, hsl)</li>
+              <li>Gradientes lineales y radiales</li>
+              <li>Fondos múltiples y patrones</li>
+              <li>Variables CSS para theming</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="03-colores-fondos.html" class="btn">Ver Ejemplo</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="status-indicator"></div>
+          <div class="card-header">
+            <div class="card-number">04</div>
+            <h3>Modelo de Caja</h3>
+            <p>Box model y espaciado</p>
+          </div>
+          <div class="card-body">
+            <p>
+              Comprende el modelo de caja, padding, margin, border y 
+              cómo controlar el comportamiento de los elementos.
+            </p>
+            <ul class="topics-list">
+              <li>Box model tradicional vs border-box</li>
+              <li>Padding, margin y border</li>
+              <li>Display y visibility</li>
+              <li>Overflow y posicionamiento</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="04-modelo-caja.html" class="btn">Ver Ejemplo</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="status-indicator"></div>
+          <div class="card-header">
+            <div class="card-number">05</div>
+            <h3>Flexbox y Grid</h3>
+            <p>Layouts modernos</p>
+          </div>
+          <div class="card-body">
+            <p>
+              Crea layouts flexibles y complejos usando las herramientas 
+              más poderosas de CSS moderno: Flexbox y Grid.
+            </p>
+            <ul class="topics-list">
+              <li>Flexbox para componentes</li>
+              <li>CSS Grid para layouts</li>
+              <li>Cuándo usar cada uno</li>
+              <li>Ejemplos prácticos combinados</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="05-flexbox-grid.html" class="btn">Ver Ejemplo</a>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="status-indicator"></div>
+          <div class="card-header">
+            <div class="card-number">06</div>
+            <h3>Responsive y Animaciones</h3>
+            <p>Diseño adaptativo y dinámico</p>
+          </div>
+          <div class="card-body">
+            <p>
+              Desarrolla sitios que se adapten a cualquier dispositivo y 
+              añade interactividad con transiciones y animaciones CSS.
+            </p>
+            <ul class="topics-list">
+              <li>Media queries y breakpoints</li>
+              <li>Tipografía y espaciado fluido</li>
+              <li>Transiciones y keyframes</li>
+              <li>Animaciones de carga e interacción</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="06-responsive-animaciones.html" class="btn">Ver Ejemplo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="resources">
+        <h2>Recursos Adicionales</h2>
+        <div class="resources-grid">
+          <div class="resource-item">
+            <h4>Documentación</h4>
+            <p><a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank">MDN CSS Reference</a></p>
+            <p><a href="https://www.w3.org/Style/CSS/" target="_blank">W3C CSS Specifications</a></p>
+          </div>
+          <div class="resource-item">
+            <h4>Herramientas</h4>
+            <p><a href="https://cssgrid-generator.netlify.app/" target="_blank">CSS Grid Generator</a></p>
+            <p><a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a></p>
+          </div>
+          <div class="resource-item">
+            <h4>Juegos</h4>
+            <p><a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a></p>
+            <p><a href="https://flukeout.github.io/" target="_blank">CSS Diner</a></p>
+          </div>
+          <div class="resource-item">
+            <h4>Compatibilidad</h4>
+            <p><a href="https://caniuse.com/" target="_blank">Can I Use</a></p>
+            <p><a href="https://autoprefixer.github.io/" target="_blank">Autoprefixer</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>
+          <strong>Instrucciones:</strong> Cada ejemplo es interactivo y está diseñado 
+          para ser explorado. Usa las DevTools (F12) para inspeccionar el código 
+          y experimentar con los estilos.
+        </p>
+        <p>
+          <strong>Tip:</strong> Redimensiona la ventana del navegador para ver 
+          cómo los ejemplos se adaptan a diferentes tamaños de pantalla.
+        </p>
+        <a href="../html/index.html" class="back-link">← Ver Ejemplos HTML</a>
+      </div>
+    </div>
+
+    <script>
+      // Simple script para marcar ejemplos como "visitados"
+      document.querySelectorAll('.example-card .btn').forEach(link => {
+        link.addEventListener('click', () => {
+          const card = link.closest('.example-card');
+          const indicator = card.querySelector('.status-indicator');
+          
+          // Cambiar color del indicador
+          indicator.style.backgroundColor = '#f39c12';
+          indicator.style.boxShadow = '0 0 0 3px rgba(243, 156, 18, 0.3)';
+          
+          // Guardar en localStorage
+          localStorage.setItem(link.href, 'visited');
+        });
+        
+        // Cargar estado guardado
+        if (localStorage.getItem(link.href) === 'visited') {
+          const card = link.closest('.example-card');
+          const indicator = card.querySelector('.status-indicator');
+          indicator.style.backgroundColor = '#f39c12';
+          indicator.style.boxShadow = '0 0 0 3px rgba(243, 156, 18, 0.3)';
+        }
+      });
+
+      // Animación de entrada para las tarjetas
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Aplicar animación inicial
+      document.querySelectorAll('.example-card').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>

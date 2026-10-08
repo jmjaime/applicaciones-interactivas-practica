@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02 - Elementos de Texto</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .example-section {
+        background-color: #f9f9f9;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        border-left: 4px solid #007acc;
+      }
+      .code-example {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Elementos de Texto en HTML</h1>
+      <p><strong>Ejemplo 2:</strong> Marcado semántico de contenido textual</p>
+    </header>
+
+    <main>
+      <section class="example-section">
+        <h2>Jerarquía de Encabezados</h2>
+        <p>HTML proporciona 6 niveles de encabezados:</p>
+
+        <h1>Encabezado Nivel 1 (h1) - Título Principal</h1>
+        <h2>Encabezado Nivel 2 (h2) - Subtítulo</h2>
+        <h3>Encabezado Nivel 3 (h3) - Subsección</h3>
+        <h4>Encabezado Nivel 4 (h4) - Subsubsección</h4>
+        <h5>Encabezado Nivel 5 (h5) - Título Menor</h5>
+        <h6>Encabezado Nivel 6 (h6) - Título Mínimo</h6>
+
+        <p><strong>Regla importante:</strong> Solo usar un h1 por página</p>
+      </section>
+
+      <section class="example-section">
+        <h2>Párrafos y Saltos de Línea</h2>
+
+        <p>
+          Este es un párrafo normal. Los párrafos se separan automáticamente
+          con espacio arriba y abajo. Pueden contener texto, enlaces, imágenes
+          y otros elementos inline.
+        </p>
+
+        <p>
+          Este es otro párrafo. Nota cómo se separa del anterior sin necesidad
+          de código adicional.
+        </p>
+
+        <p>
+          Para hacer saltos de línea dentro de un párrafo:<br />
+          Usamos la etiqueta br<br />
+          Como en este ejemplo
+        </p>
+
+        <p>Contenido antes de la línea horizontal</p>
+        <hr />
+        <p>Contenido después de la línea horizontal</p>
+      </section>
+
+      <section class="example-section">
+        <h2>Listas No Ordenadas (Bullets)</h2>
+        <p>Para elementos sin orden específico:</p>
+        <ul>
+          <li>Primer elemento</li>
+          <li>Segundo elemento</li>
+          <li>Tercer elemento</li>
+          <li>
+            Elemento con sublista:
+            <ul>
+              <li>Subelemento 1</li>
+              <li>Subelemento 2</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="example-section">
+        <h2>Listas Ordenadas (Numeradas)</h2>
+        <p>Para elementos con orden específico:</p>
+        <ol>
+          <li>Primer paso</li>
+          <li>Segundo paso</li>
+          <li>Tercer paso</li>
+          <li>
+            Paso con subpasos:
+            <ol>
+              <li>Subpaso A</li>
+              <li>Subpaso B</li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section class="example-section">
+        <h2>Lista de Definiciones</h2>
+        <p>Para términos y sus definiciones:</p>
+        <dl>
+          <dt>HTML</dt>
+          <dd>HyperText Markup Language - Lenguaje de marcado para páginas web</dd>
+
+          <dt>CSS</dt>
+          <dd>Cascading Style Sheets - Lenguaje para estilos y presentación</dd>
+
+          <dt>JavaScript</dt>
+          <dd>Lenguaje de programación para interactividad web</dd>
+
+          <dt>Frontend</dt>
+          <dd>Parte de una aplicación web que interactúa directamente con el usuario</dd>
+        </dl>
+      </section>
+
+      <section class="example-section">
+        <h2>Elementos de Texto Inline</h2>
+
+        <p>
+          Texto con <strong>importancia fuerte</strong> y texto con
+          <em>énfasis</em>.
+        </p>
+
+        <p>
+          Diferencia semántica vs visual: <b>negrita visual</b> vs
+          <strong>importancia semántica</strong>
+        </p>
+
+        <p>
+          Texto con <i>cursiva visual</i> vs <em>énfasis semántico</em>
+        </p>
+
+        <p>
+          El elemento <code>&lt;html&gt;</code> es la raíz del documento.
+        </p>
+
+        <p>
+          Fórmula química del agua: H<sub>2</sub>O
+        </p>
+
+        <p>
+          Ecuación de Einstein: E=mc<sup>2</sup>
+        </p>
+
+        <p>
+          Texto <mark>resaltado</mark> como si fuera con marcador.
+        </p>
+
+        <p>
+          <small>Texto en tamaño pequeño para notas al pie o disclaimers.</small>
+        </p>
+      </section>
+
+      <section class="example-section">
+        <h2>Elementos Genéricos</h2>
+
+        <div style="background-color: #e7f3ff; padding: 10px; margin: 10px 0;">
+          <h3>Div - Contenedor de Bloque</h3>
+          <p>
+            Este contenido está dentro de un div con estilos aplicados. Los divs
+            son contenedores genéricos de bloque.
+          </p>
+        </div>
+
+        <p>
+          Este párrafo contiene un
+          <span style="color: red; font-weight: bold;">span resaltado</span>
+          en el medio del texto. Los spans son contenedores inline.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Ejercicio:</strong> Inspecciona el código fuente para ver cómo
+        está marcado cada elemento.
+      </p>
+      <p><a href="index.html">← Volver al índice de ejemplos</a></p>
+    </footer>
+  </body>
+</html>

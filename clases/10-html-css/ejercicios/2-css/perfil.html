@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Del Parque Propiedades · Inmobi</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <!-- Punto de partida del bloque 2: el HTML de los ejercicios 1.1 y 1.2 ya resuelto. -->
+    <header class="sitio">
+      <a href="#" class="marca">🏠 Inmobi</a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="#">Comprar</a></li>
+          <li><a href="#">Alquilar</a></li>
+          <li><a href="#">Inmobiliarias</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="perfil">
+        <img class="logo" src="https://picsum.photos/seed/delparque/160/160" alt="Logo de Del Parque Propiedades" width="160" height="160" />
+        <div>
+          <h1>Del Parque Propiedades</h1>
+          <p>
+            Inmobiliaria familiar con 20 años en Villa Urquiza y alrededores.
+            Venta y alquiler de casas, PH y departamentos.
+          </p>
+          <address>
+            <a href="tel:+541145551234">📞 11 4555-1234</a> ·
+            <a href="mailto:contacto@delparque.com.ar">✉️ contacto@delparque.com.ar</a> ·
+            📍 Av. Triunvirato 4500, Villa Urquiza
+          </address>
+        </div>
+      </section>
+
+      <section aria-labelledby="titulo-propiedades">
+        <h2 id="titulo-propiedades">Propiedades publicadas</h2>
+        <div class="grilla">
+          <article class="card">
+            <img src="https://picsum.photos/seed/dp11/400/260" alt="Casa de 4 ambientes con patio" width="400" height="260" />
+            <div class="card-body">
+              <p class="card-precio"><strong>USD 198.000</strong> <span class="badge">Venta</span></p>
+              <h3>Casa de 4 ambientes con patio</h3>
+              <p>Villa Urquiza</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/dp12/400/260" alt="Departamento 3 ambientes al frente" width="400" height="260" />
+            <div class="card-body">
+              <p class="card-precio"><strong>ARS 590.000</strong> <span class="badge">Alquiler</span></p>
+              <h3>Departamento 3 ambientes al frente</h3>
+              <p>Coghlan</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/dp13/400/260" alt="PH con terraza y parrilla" width="400" height="260" />
+            <div class="card-body">
+              <p class="card-precio"><strong>USD 142.000</strong> <span class="badge">Venta</span></p>
+              <h3>PH con terraza y parrilla</h3>
+              <p>Villa Pueyrredón</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/dp14/400/260" alt="Monoambiente cerca del subte" width="400" height="260" />
+            <div class="card-body">
+              <p class="card-precio"><strong>ARS 380.000</strong> <span class="badge">Alquiler</span></p>
+              <h3>Monoambiente cerca del subte</h3>
+              <p>Villa Urquiza</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="columnas">
+        <section aria-labelledby="titulo-resenas">
+          <h2 id="titulo-resenas">Reseñas</h2>
+          <p class="resumen">★ 3.8 promedio · 5 reseñas</p>
+          <ul class="resenas">
+            <li>
+              <article class="resena">
+                <header>
+                  <strong>Lucía G.</strong>
+                  <span class="estrellas" aria-label="5 de 5">★★★★★</span>
+                  <time datetime="2026-09-12">12/09/2026</time>
+                </header>
+                <p>Muy buena atención, respondieron todas las consultas el mismo día.</p>
+              </article>
+            </li>
+            <li>
+              <article class="resena">
+                <header>
+                  <strong>Martín R.</strong>
+                  <span class="estrellas" aria-label="3 de 5">★★★☆☆</span>
+                  <time datetime="2026-08-30">30/08/2026</time>
+                </header>
+                <p>La visita se reprogramó dos veces, pero el departamento era tal cual las fotos.</p>
+              </article>
+            </li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="titulo-nueva-resena">
+          <h2 id="titulo-nueva-resena">Dejar una reseña</h2>
+          <form id="form-resena" class="formulario">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required minlength="2" />
+
+            <label for="calificacion">Calificación</label>
+            <select id="calificacion" name="calificacion" required>
+              <option value="">Elegir…</option>
+              <option value="5">★★★★★ (5)</option>
+              <option value="4">★★★★ (4)</option>
+              <option value="3">★★★ (3)</option>
+              <option value="2">★★ (2)</option>
+              <option value="1">★ (1)</option>
+            </select>
+
+            <label for="contenido">Reseña</label>
+            <textarea id="contenido" name="contenido" rows="4" required maxlength="500"></textarea>
+
+            <button type="submit">Publicar reseña</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="pie">
+      <small>© 2026 Inmobi · Aplicaciones Interactivas, UADE</small>
+    </footer>
+  </body>
+</html>

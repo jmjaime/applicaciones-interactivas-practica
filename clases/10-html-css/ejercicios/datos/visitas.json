@@ -1,0 +1,8 @@
+[
+  { "id": 1, "nombre": "Ana López", "telefono": "11 5123-4567", "fecha": "2026-10-10T10:00", "propiedad": "Casa de 4 ambientes con patio", "estado": "Pendiente" },
+  { "id": 2, "nombre": "Jorge Pérez", "telefono": "11 5987-6543", "fecha": "2026-10-11T16:30", "propiedad": "PH con terraza y parrilla", "estado": "Confirmada" },
+  { "id": 3, "nombre": "Valeria Díaz", "telefono": "11 5222-3333", "fecha": "2026-10-11T11:00", "propiedad": "Departamento 3 ambientes al frente", "estado": "Pendiente" },
+  { "id": 4, "nombre": "Pablo Sosa", "telefono": "11 5444-1111", "fecha": "2026-10-09T18:00", "propiedad": "Monoambiente cerca del subte", "estado": "Rechazada" },
+  { "id": 5, "nombre": "Mariana Ruiz", "telefono": "11 5666-7777", "fecha": "2026-10-14T09:30", "propiedad": "Casa de 4 ambientes con patio", "estado": "Pendiente" },
+  { "id": 6, "nombre": "Tomás Vega", "telefono": "11 5888-9999", "fecha": "2026-10-15T15:00", "propiedad": "PH con terraza y parrilla", "estado": "Pendiente" }
+]

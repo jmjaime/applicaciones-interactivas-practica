@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2 · Eventos</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="3.2-eventos.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <strong>🏠 Inmobi</strong>
+      <span class="contador">❤️ <span id="contador-favoritos">0</span></span>
+    </header>
+
+    <main class="contenido">
+      <form class="filtros" id="form-busqueda">
+        <input type="search" name="texto" placeholder="Buscar por título…" />
+        <button type="submit">Buscar</button>
+      </form>
+
+      <section class="listado" id="listado">
+        <article class="card" data-id="1">
+          <div class="card-body">
+            <div class="card-precio">
+              <strong>ARS 650.000</strong>
+              <button class="fav" type="button" aria-label="Favorito">❤️</button>
+            </div>
+            <h2>Departamento luminoso con balcón</h2>
+            <p>Palermo · Alquiler</p>
+          </div>
+        </article>
+        <article class="card" data-id="2">
+          <div class="card-body">
+            <div class="card-precio">
+              <strong>USD 285.000</strong>
+              <button class="fav" type="button" aria-label="Favorito">❤️</button>
+            </div>
+            <h2>Casa con jardín y pileta</h2>
+            <p>Villa Devoto · Venta</p>
+          </div>
+        </article>
+        <article class="card" data-id="3">
+          <div class="card-body">
+            <div class="card-precio">
+              <strong>USD 79.000</strong>
+              <button class="fav" type="button" aria-label="Favorito">❤️</button>
+            </div>
+            <h2>Monoambiente a estrenar</h2>
+            <p>Almagro · Venta</p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.3 · Flexbox</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        background: #f4f4f7;
+      }
+
+      /* Flexbox = layout en UNA dimensión (fila o columna) */
+      .header {
+        display: flex;
+        justify-content: space-between; /* eje principal (horizontal) */
+        align-items: center;            /* eje cruzado (vertical) */
+        padding: 1rem 2rem;
+        background: #282a36;
+        color: white;
+      }
+
+      .header a { color: inherit; text-decoration: none; }
+
+      .nav ul {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .card {
+        width: 320px;
+        margin: 2rem;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      }
+
+      .card img { display: block; width: 100%; height: auto; }
+
+      .card-body { padding: 1rem; }
+
+      /* Precio a la izquierda, badge a la derecha, en la misma línea */
+      .card-precio {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .badge {
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #50fa7b;
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#"><strong>🏠 Inmobi</strong></a>
+      <nav class="nav" aria-label="Principal">
+        <ul>
+          <li><a href="#">Comprar</a></li>
+          <li><a href="#">Alquilar</a></li>
+          <li><a href="#">Inmobiliarias</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article class="card">
+      <img src="https://picsum.photos/seed/prop1/400/260" alt="Living con ventanal y balcón" width="400" height="260" />
+      <div class="card-body">
+        <div class="card-precio">
+          <strong>ARS 650.000</strong>
+          <span class="badge">Alquiler</span>
+        </div>
+        <h2>Departamento luminoso con balcón</h2>
+        <p>Palermo · 3 amb. · 68 m²</p>
+      </div>
+    </article>
+
+    <!--
+      🔧 Probar en el .header, en vivo desde DevTools (ícono de flexbox en Styles):
+        - justify-content: center | flex-start | space-around
+        - flex-direction: column → el eje principal pasa a ser el vertical
+      En el .card-precio: sacar el display: flex y ver cómo el badge baja de línea.
+    -->
+  </body>
+</html>

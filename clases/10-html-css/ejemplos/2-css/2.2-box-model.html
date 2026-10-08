@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2 · Box model</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+
+      .card {
+        width: 300px;
+        padding: 20px;
+        border: 5px solid #6272a4;
+        margin: 0 0 24px;
+        border-radius: 8px;
+      }
+
+      /*
+        Checkpoint de predicción: las dos cards dicen width: 300px.
+        ¿Cuánto ocupa cada una en pantalla?
+          content-box (default): 300 + 2·20 + 2·5 = 350px
+          border-box:            300px, el padding y el borde van "para adentro"
+      */
+      .content-box { box-sizing: content-box; }
+      .border-box  { box-sizing: border-box; }
+
+      /* Por eso casi todo proyecto arranca con este reset: */
+      /* *, *::before, *::after { box-sizing: border-box; } */
+
+      /* inline vs. block: el width no aplica a un elemento inline */
+      .badge {
+        display: inline;
+        width: 200px; /* ignorado mientras sea inline */
+        padding: 4px 8px;
+        background: gold;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="card content-box">
+      <h2>content-box</h2>
+      <p>Mide 350px de ancho total.</p>
+    </article>
+
+    <article class="card border-box">
+      <h2>border-box</h2>
+      <p>Mide 300px de ancho total.</p>
+      <span class="badge">Alquiler</span>
+    </article>
+
+    <!--
+      🔧 Probar: en DevTools → Elements → Computed se ve el diagrama de la
+      caja (margin / border / padding / content) del elemento seleccionado.
+      Cambiar el display del .badge a inline-block y ver que el width ahora sí aplica.
+    -->
+  </body>
+</html>

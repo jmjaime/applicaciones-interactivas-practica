@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1 · Selectores y cascada</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        color: #333; /* herencia: todo el texto lo toma, salvo que alguien lo pise */
+        max-width: 640px;
+        margin: 2rem auto;
+      }
+
+      /*
+        Checkpoint de predicción: ¿de qué color queda el precio?
+        Las cuatro reglas apuntan al MISMO elemento.
+      */
+      #precio-destacado { color: crimson; }   /* id      → (1,0,0) */
+      .card .precio     { color: seagreen; }  /* 2 clases → (0,2,0) */
+      .precio           { color: royalblue; } /* clase   → (0,1,0) */
+      strong            { color: orange; }    /* tipo    → (0,0,1) */
+
+      /* Mismo peso, gana la que viene DESPUÉS en el archivo */
+      .badge { background: lightgray; }
+      .badge { background: gold; }
+
+      /* Selectores combinados */
+      .card h2 { margin: 0 0 0.5rem; }            /* descendiente */
+      .card > p { margin: 0.25rem 0; }            /* hijo directo */
+      .card a:hover { text-decoration: none; }    /* pseudo-clase */
+      .card li:first-child { font-weight: bold; } /* pseudo-clase estructural */
+    </style>
+  </head>
+  <body>
+    <article class="card">
+      <h2>Departamento luminoso con balcón</h2>
+      <p>
+        <strong class="precio" id="precio-destacado">ARS 650.000</strong>
+        <span class="badge">Alquiler</span>
+      </p>
+      <ul>
+        <li>3 ambientes</li>
+        <li>68 m² cubiertos</li>
+      </ul>
+      <a href="#">Ver detalle</a>
+    </article>
+
+    <!--
+      🔧 Probar, de a uno, y predecir antes de recargar:
+        1. Borrar la regla del id → ¿qué color toma?
+        2. Agregar style="color: purple" en el <strong> → gana el inline.
+        3. Agregar !important a la regla de "strong" → le gana a todo. Por
+           eso se evita: rompe el razonamiento por especificidad.
+      En DevTools → Elements → Styles se ve cada regla tachada por quién la pisó.
+    -->
+  </body>
+</html>

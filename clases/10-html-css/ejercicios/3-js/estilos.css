@@ -1,0 +1,198 @@
+/* Punto de partida del bloque 3: el CSS de los ejercicios 2.1 y 2.2 ya resuelto. */
+
+/* ── Base (ya venía armada) ────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --oscuro: #282a36;
+  --acento: #bd93f9;
+  --fondo: #f4f4f7;
+  --borde: #ddd;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background: var(--fondo);
+  color: #222;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+img { max-width: 100%; height: auto; }
+
+.pie {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+/* ── 2.1 · Header, perfil y cards ──────────────────────────────── */
+.sitio {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--oscuro);
+}
+
+.sitio a { color: white; text-decoration: none; }
+
+.sitio ul {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marca { font-weight: bold; font-size: 1.2rem; white-space: nowrap; }
+
+.perfil {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.5rem;
+  margin: 1rem 0 2rem;
+  background: white;
+  border-left: 6px solid var(--acento);
+  border-radius: 8px;
+}
+
+.logo {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.perfil h1 { margin: 0; }
+
+.perfil address { font-style: normal; color: #555; }
+
+.card {
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.card img { display: block; width: 100%; }
+
+.card-body { padding: 0.75rem 1rem 1rem; }
+
+.card h3 { margin: 0.25rem 0; font-size: 1.05rem; }
+
+.card p { margin: 0; color: #555; }
+
+.card-precio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #8be9fd;
+  font-size: 0.8rem;
+}
+
+/* ── 2.2 · Grilla responsive y columnas ────────────────────────── */
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.columnas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .columnas { grid-template-columns: 2fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .perfil { flex-direction: column; text-align: center; }
+}
+
+.resenas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resena {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.resena header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.resena p { margin: 0.5rem 0 0; }
+
+.resena time { margin-left: auto; color: #888; font-size: 0.85rem; }
+
+.estrellas { color: #e6a700; }
+
+.resumen { font-weight: bold; }
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea,
+.formulario button {
+  padding: 8px;
+  font: inherit;
+}
+
+.formulario button {
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--oscuro);
+  color: white;
+  cursor: pointer;
+}
+
+.formulario button:hover { background: var(--acento); }
+
+/* ── Controles de filtro/orden (ejercicio 3.3) ─────────────────── */
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.controles select { margin-left: 0.25rem; padding: 4px; }
+
+.vacio { color: #888; font-style: italic; }

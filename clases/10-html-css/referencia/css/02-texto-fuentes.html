@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02 - Texto y Fuentes CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+
+      .container {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      /* Encabezado principal */
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 3rem 2rem;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .header h1 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        font-weight: 300;
+        opacity: 0.9;
+      }
+
+      /* Títulos de sección */
+      h2 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 2.2rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 0.5rem;
+      }
+
+      h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 1.4rem;
+        color: #34495e;
+        margin: 2rem 0 1rem 0;
+        font-weight: 600;
+      }
+
+      /* Ejemplos de familias de fuentes */
+      .font-serif {
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+
+      .font-sans-serif {
+        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .font-monospace {
+        font-family: "Fira Code", "Courier New", monospace;
+        font-size: 1rem;
+        background-color: #f4f4f4;
+        padding: 1rem;
+        border-radius: 5px;
+        border-left: 4px solid #3498db;
+      }
+
+      /* Tamaños de fuente */
+      .size-small {
+        font-size: 0.8rem;
+      }
+
+      .size-normal {
+        font-size: 1rem;
+      }
+
+      .size-large {
+        font-size: 1.2rem;
+      }
+
+      .size-xlarge {
+        font-size: 1.5rem;
+      }
+
+      .size-xxlarge {
+        font-size: 2rem;
+      }
+
+      .size-em {
+        font-size: 1.5em; /* Relativo al elemento padre */
+      }
+
+      .size-rem {
+        font-size: 1.5rem; /* Relativo al elemento raíz */
+      }
+
+      .size-vw {
+        font-size: 4vw; /* Relativo al viewport */
+      }
+
+      /* Pesos de fuente */
+      .weight-light {
+        font-weight: 300;
+      }
+
+      .weight-normal {
+        font-weight: 400;
+      }
+
+      .weight-medium {
+        font-weight: 500;
+      }
+
+      .weight-bold {
+        font-weight: 700;
+      }
+
+      .weight-number {
+        font-weight: 600;
+      }
+
+      /* Estilos de fuente */
+      .style-normal {
+        font-style: normal;
+      }
+
+      .style-italic {
+        font-style: italic;
+      }
+
+      .style-oblique {
+        font-style: oblique;
+      }
+
+      /* Variantes de fuente */
+      .variant-normal {
+        font-variant: normal;
+      }
+
+      .variant-small-caps {
+        font-variant: small-caps;
+      }
+
+      /* Alineación de texto */
+      .align-left {
+        text-align: left;
+      }
+
+      .align-center {
+        text-align: center;
+        padding: 1rem;
+        background-color: #ecf0f1;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      .align-right {
+        text-align: right;
+        padding: 1rem;
+        background-color: #ecf0f1;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      .align-justify {
+        text-align: justify;
+        padding: 1rem;
+        background-color: #ecf0f1;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      /* Decoración de texto */
+      .decoration-none {
+        text-decoration: none;
+        color: #3498db;
+      }
+
+      .decoration-underline {
+        text-decoration: underline;
+      }
+
+      .decoration-overline {
+        text-decoration: overline;
+      }
+
+      .decoration-line-through {
+        text-decoration: line-through;
+      }
+
+      .decoration-multiple {
+        text-decoration: underline overline;
+        text-decoration-color: #e74c3c;
+        text-decoration-style: wavy;
+      }
+
+      /* Transformación de texto */
+      .transform-none {
+        text-transform: none;
+      }
+
+      .transform-uppercase {
+        text-transform: uppercase;
+      }
+
+      .transform-lowercase {
+        text-transform: lowercase;
+      }
+
+      .transform-capitalize {
+        text-transform: capitalize;
+      }
+
+      /* Espaciado */
+      .spacing-letters {
+        letter-spacing: 3px;
+        background-color: #f8f9fa;
+        padding: 0.5rem;
+        border-radius: 3px;
+      }
+
+      .spacing-words {
+        word-spacing: 10px;
+        background-color: #f8f9fa;
+        padding: 0.5rem;
+        border-radius: 3px;
+      }
+
+      .spacing-lines {
+        line-height: 2.5;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 5px;
+      }
+
+      /* Ejemplos avanzados */
+      .text-shadow-example {
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        color: #2c3e50;
+        text-align: center;
+        padding: 2rem;
+        background: linear-gradient(45deg, #f39c12, #e67e22);
+        color: white;
+        border-radius: 10px;
+        margin: 2rem 0;
+      }
+
+      .gradient-text {
+        font-size: 3rem;
+        font-weight: bold;
+        background: linear-gradient(45deg, #3498db, #9b59b6, #e74c3c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      /* Tipografía responsive */
+      .responsive-text {
+        font-size: clamp(1rem, 4vw, 2.5rem);
+        text-align: center;
+        padding: 2rem;
+        background-color: #34495e;
+        color: white;
+        border-radius: 10px;
+        margin: 2rem 0;
+      }
+
+      /* Ejemplos de código */
+      .code-example {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 1rem;
+        border-radius: 5px;
+        font-family: "Fira Code", monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+        border-left: 4px solid #3498db;
+      }
+
+      /* Grid de ejemplos */
+      .examples-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .example-card {
+        background-color: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+      }
+
+      .example-card h4 {
+        color: #495057;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      /* Utilidades */
+      .highlight {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      .mb-2 {
+        margin-bottom: 1rem;
+      }
+
+      .mt-2 {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Texto y Fuentes CSS</h1>
+      <p><strong>Ejemplo 2:</strong> Tipografía y propiedades de texto</p>
+    </div>
+
+    <main>
+      <div class="container">
+        <h2>Familias de Fuentes</h2>
+
+        <h3>Serif</h3>
+        <p class="font-serif">
+          Las fuentes serif tienen pequeños trazos decorativos en los extremos
+          de las letras. Son tradicionales y elegantes, ideales para textos
+          largos impresos. Ejemplos: Times New Roman, Georgia, Playfair Display.
+        </p>
+
+        <h3>Sans-serif</h3>
+        <p class="font-sans-serif">
+          Las fuentes sans-serif no tienen trazos decorativos. Son modernas y
+          limpias, perfectas para pantallas digitales. Ejemplos: Arial,
+          Helvetica, Inter.
+        </p>
+
+        <h3>Monospace</h3>
+        <div class="font-monospace">
+          Las fuentes monospace tienen el mismo ancho para cada carácter.
+          Perfectas para código y datos tabulares. Ejemplos: Courier New, Fira
+          Code, Monaco.
+        </div>
+
+        <div class="code-example">
+          /* Definir familias de fuentes */<br />
+          .serif { font-family: "Playfair Display", Georgia, serif; }<br />
+          .sans-serif { font-family: "Inter", Arial, sans-serif; }<br />
+          .monospace { font-family: "Fira Code", "Courier New", monospace; }
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Tamaños de Fuente</h2>
+
+        <div class="examples-grid">
+          <div class="example-card">
+            <h4>Unidades Absolutas</h4>
+            <p class="size-small">Pequeño (0.8rem)</p>
+            <p class="size-normal">Normal (1rem)</p>
+            <p class="size-large">Grande (1.2rem)</p>
+            <p class="size-xlarge">Muy grande (1.5rem)</p>
+            <p class="size-xxlarge">Extra grande (2rem)</p>
+          </div>
+
+          <div class="example-card">
+            <h4>Unidades Relativas</h4>
+            <p class="size-em">Tamaño em (1.5em)</p>
+            <p class="size-rem">Tamaño rem (1.5rem)</p>
+            <p class="size-vw">Tamaño viewport (4vw)</p>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <strong>Diferencia clave:</strong>
+          <ul>
+            <li><strong>em:</strong> Relativo al font-size del elemento padre</li>
+            <li><strong>rem:</strong> Relativo al font-size del elemento raíz</li>
+            <li><strong>vw/vh:</strong> Relativo al viewport (1vw = 1% del ancho)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Peso de Fuente (Font Weight)</h2>
+
+        <div class="examples-grid">
+          <div class="example-card">
+            <h4>Pesos Nombrados</h4>
+            <p class="weight-light">Ligero (light/300)</p>
+            <p class="weight-normal">Normal (normal/400)</p>
+            <p class="weight-medium">Medio (medium/500)</p>
+            <p class="weight-bold">Negrita (bold/700)</p>
+          </div>
+
+          <div class="example-card">
+            <h4>Pesos Numéricos</h4>
+            <p class="weight-number">Peso 600</p>
+            <p style="font-weight: 100">Peso 100 (Thin)</p>
+            <p style="font-weight: 800">Peso 800 (Extra Bold)</p>
+            <p style="font-weight: 900">Peso 900 (Black)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Estilo y Variantes</h2>
+
+        <h3>Font Style</h3>
+        <p class="style-normal">Texto normal (font-style: normal)</p>
+        <p class="style-italic">Texto en cursiva (font-style: italic)</p>
+        <p class="style-oblique">Texto oblicuo (font-style: oblique)</p>
+
+        <h3>Font Variant</h3>
+        <p class="variant-normal">Texto normal (font-variant: normal)</p>
+        <p class="variant-small-caps">
+          Texto en versalitas (font-variant: small-caps)
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>Alineación de Texto</h2>
+
+        <p class="align-left">Texto alineado a la izquierda (text-align: left)</p>
+
+        <p class="align-center">
+          Texto centrado (text-align: center)
+        </p>
+
+        <p class="align-right">
+          Texto alineado a la derecha (text-align: right)
+        </p>
+
+        <p class="align-justify">
+          Texto justificado (text-align: justify). Este párrafo es más largo
+          para demostrar cómo el texto se distribuye uniformemente entre los
+          márgenes izquierdo y derecho, creando líneas de igual longitud excepto
+          posiblemente la última línea.
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>Decoración de Texto</h2>
+
+        <p>
+          <a href="#" class="decoration-none">Enlace sin decoración</a> |
+          <span class="decoration-underline">Texto subrayado</span> |
+          <span class="decoration-overline">Texto con línea superior</span> |
+          <span class="decoration-line-through">Texto tachado</span>
+        </p>
+
+        <p class="decoration-multiple mt-2">
+          Decoración múltiple con color y estilo personalizado
+        </p>
+
+        <div class="code-example">
+          .decoration-multiple {<br />
+          &nbsp;&nbsp;text-decoration: underline overline;<br />
+          &nbsp;&nbsp;text-decoration-color: #e74c3c;<br />
+          &nbsp;&nbsp;text-decoration-style: wavy;<br />
+          }
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Transformación de Texto</h2>
+
+        <p class="transform-none">Texto sin transformación (text-transform: none)</p>
+        <p class="transform-uppercase">
+          texto en mayúsculas (text-transform: uppercase)
+        </p>
+        <p class="transform-lowercase">
+          TEXTO EN MINÚSCULAS (text-transform: lowercase)
+        </p>
+        <p class="transform-capitalize">
+          texto capitalizado (text-transform: capitalize)
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>Espaciado de Texto</h2>
+
+        <h3>Letter Spacing</h3>
+        <p class="spacing-letters">Espaciado entre letras aumentado</p>
+
+        <h3>Word Spacing</h3>
+        <p class="spacing-words">Espaciado entre palabras aumentado</p>
+
+        <h3>Line Height</h3>
+        <p class="spacing-lines">
+          Este párrafo tiene un line-height aumentado para demostrar cómo afecta
+          el espaciado vertical entre líneas. Un line-height adecuado mejora
+          significativamente la legibilidad del texto.
+        </p>
+      </div>
+
+      <div class="container">
+        <h2>Efectos Avanzados</h2>
+
+        <h3>Text Shadow</h3>
+        <div class="text-shadow-example">Texto con Sombra</div>
+
+        <h3>Texto con Gradiente</h3>
+        <div class="gradient-text">CSS Gradients</div>
+
+        <h3>Tipografía Responsive</h3>
+        <div class="responsive-text">
+          Este texto se adapta al tamaño de la pantalla usando clamp()
+        </div>
+
+        <div class="code-example">
+          .responsive-text {<br />
+          &nbsp;&nbsp;font-size: clamp(1rem, 4vw, 2.5rem);<br />
+          &nbsp;&nbsp;/* min: 1rem, preferido: 4vw, max: 2.5rem */<br />
+          }
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Mejores Prácticas</h2>
+
+        <div class="highlight">
+          <h3>Legibilidad</h3>
+          <ul>
+            <li><strong>Contraste:</strong> Mínimo 4.5:1 para texto normal</li>
+            <li><strong>Line-height:</strong> Entre 1.4 y 1.6 para párrafos</li>
+            <li><strong>Longitud de línea:</strong> 45-75 caracteres óptimo</li>
+            <li><strong>Tamaño mínimo:</strong> 16px para texto base</li>
+          </ul>
+
+          <h3>Performance</h3>
+          <ul>
+            <li>Usar <code>font-display: swap</code> para fuentes web</li>
+            <li>Precargar fuentes críticas con <code>rel="preload"</code></li>
+            <li>Limitar el número de pesos y estilos</li>
+            <li>Considerar fuentes del sistema para mejor rendimiento</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="container" style="text-align: center">
+      <p>
+        <strong>Ejercicio:</strong> Cambia las fuentes en DevTools y observa
+        cómo afecta la legibilidad y el diseño.
+      </p>
+      <p><a href="index.html">← Volver al índice de ejemplos CSS</a></p>
+    </footer>
+  </body>
+</html>

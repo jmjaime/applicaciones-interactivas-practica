@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05 - Flexbox y Grid CSS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border-radius: 10px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .section {
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 0.5rem;
+      }
+
+      h3 {
+        color: #34495e;
+        font-size: 1.3rem;
+        margin: 1.5rem 0 1rem 0;
+      }
+
+      /* FLEXBOX EXAMPLES */
+      .flex-demo {
+        border: 2px solid #3498db;
+        border-radius: 8px;
+        margin: 1rem 0;
+        min-height: 120px;
+      }
+
+      .flex-container {
+        display: flex;
+        background-color: #ecf0f1;
+        padding: 1rem;
+        min-height: 100px;
+      }
+
+      .flex-item {
+        background-color: #3498db;
+        color: white;
+        padding: 1rem;
+        margin: 0.25rem;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Flex Direction */
+      .flex-row {
+        flex-direction: row;
+      }
+
+      .flex-column {
+        flex-direction: column;
+        height: 200px;
+      }
+
+      .flex-row-reverse {
+        flex-direction: row-reverse;
+      }
+
+      /* Justify Content */
+      .justify-start {
+        justify-content: flex-start;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .justify-end {
+        justify-content: flex-end;
+      }
+
+      .justify-between {
+        justify-content: space-between;
+      }
+
+      .justify-around {
+        justify-content: space-around;
+      }
+
+      .justify-evenly {
+        justify-content: space-evenly;
+      }
+
+      /* Align Items */
+      .align-start {
+        align-items: flex-start;
+        height: 120px;
+      }
+
+      .align-center {
+        align-items: center;
+        height: 120px;
+      }
+
+      .align-end {
+        align-items: flex-end;
+        height: 120px;
+      }
+
+      .align-stretch {
+        align-items: stretch;
+        height: 120px;
+      }
+
+      .align-stretch .flex-item {
+        height: auto;
+      }
+
+      /* Flex Items Properties */
+      .flex-grow-demo .flex-item:nth-child(2) {
+        flex-grow: 2;
+        background-color: #e74c3c;
+      }
+
+      .flex-shrink-demo {
+        width: 300px;
+      }
+
+      .flex-shrink-demo .flex-item {
+        width: 150px;
+      }
+
+      .flex-shrink-demo .flex-item:nth-child(2) {
+        flex-shrink: 0;
+        background-color: #e74c3c;
+      }
+
+      /* GRID EXAMPLES */
+      .grid-demo {
+        border: 2px solid #e74c3c;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      .grid-container {
+        display: grid;
+        background-color: #ecf0f1;
+        padding: 1rem;
+        gap: 0.5rem;
+      }
+
+      .grid-item {
+        background-color: #e74c3c;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Grid Template Columns */
+      .grid-3-columns {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .grid-fixed-flexible {
+        grid-template-columns: 200px 1fr 100px;
+      }
+
+      .grid-repeat {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .grid-auto-fit {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      /* Grid Areas */
+      .grid-areas {
+        grid-template-areas:
+          "header header header"
+          "sidebar main main"
+          "footer footer footer";
+        grid-template-columns: 200px 1fr 1fr;
+        grid-template-rows: 80px 200px 60px;
+      }
+
+      .grid-header {
+        grid-area: header;
+        background-color: #3498db;
+      }
+
+      .grid-sidebar {
+        grid-area: sidebar;
+        background-color: #27ae60;
+      }
+
+      .grid-main {
+        grid-area: main;
+        background-color: #f39c12;
+      }
+
+      .grid-footer {
+        grid-area: footer;
+        background-color: #8e44ad;
+      }
+
+      /* Grid Positioning */
+      .grid-positioning {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 80px);
+      }
+
+      .grid-span-item {
+        background-color: #e67e22;
+        grid-column: 2 / 4;
+        grid-row: 1 / 3;
+      }
+
+      /* Practical Examples */
+      .card-layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card h4 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+
+      .card p {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+      }
+
+      .card .button {
+        background-color: #3498db;
+        color: white;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        margin-top: auto;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2c3e50;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .code-example {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 1.5rem;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+        border-left: 4px solid #3498db;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #ddd;
+        padding: 1rem;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+      }
+
+      .highlight {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Flexbox y Grid CSS</h1>
+        <p><strong>Ejemplo 5:</strong> Layouts modernos y sistemas de diseño</p>
+      </div>
+
+      <div class="section">
+        <h2>CSS Flexbox</h2>
+
+        <h3>Flex Direction</h3>
+        <div class="flex-demo">
+          <div class="flex-container flex-row">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>flex-direction: row (por defecto)</em></p>
+
+        <div class="flex-demo">
+          <div class="flex-container flex-column">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>flex-direction: column</em></p>
+
+        <h3>Justify Content (Eje Principal)</h3>
+        <div class="flex-demo">
+          <div class="flex-container justify-start">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>justify-content: flex-start</em></p>
+
+        <div class="flex-demo">
+          <div class="flex-container justify-center">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>justify-content: center</em></p>
+
+        <div class="flex-demo">
+          <div class="flex-container justify-between">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>justify-content: space-between</em></p>
+
+        <div class="flex-demo">
+          <div class="flex-container justify-evenly">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>justify-content: space-evenly</em></p>
+
+        <h3>Align Items (Eje Cruzado)</h3>
+        <div class="flex-demo">
+          <div class="flex-container align-start">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2<br />Más<br />Alto</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>align-items: flex-start</em></p>
+
+        <div class="flex-demo">
+          <div class="flex-container align-center">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2<br />Más<br />Alto</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>align-items: center</em></p>
+
+        <div class="flex-demo">
+          <div class="flex-container align-stretch">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2<br />Más<br />Alto</div>
+            <div class="flex-item">3</div>
+          </div>
+        </div>
+        <p><em>align-items: stretch</em></p>
+
+        <h3>Flex Grow y Shrink</h3>
+        <div class="flex-demo">
+          <div class="flex-container flex-grow-demo">
+            <div class="flex-item">Normal</div>
+            <div class="flex-item">Grow: 2</div>
+            <div class="flex-item">Normal</div>
+          </div>
+        </div>
+        <p><em>flex-grow: 2 en el elemento central</em></p>
+
+        <div class="code-example">
+          /* Contenedor Flex */<br />
+          .flex-container {<br />
+          &nbsp;&nbsp;display: flex;<br />
+          &nbsp;&nbsp;flex-direction: row; /* row, column, row-reverse, column-reverse */<br />
+          &nbsp;&nbsp;justify-content: center; /* flex-start, center, flex-end, space-between, space-around, space-evenly */<br />
+          &nbsp;&nbsp;align-items: center; /* flex-start, center, flex-end, stretch, baseline */<br />
+          &nbsp;&nbsp;gap: 1rem;<br />
+          }<br />
+          <br />
+          /* Elementos Flex */<br />
+          .flex-item {<br />
+          &nbsp;&nbsp;flex-grow: 1; /* proporción de crecimiento */<br />
+          &nbsp;&nbsp;flex-shrink: 1; /* proporción de encogimiento */<br />
+          &nbsp;&nbsp;flex-basis: auto; /* tamaño base */<br />
+          }
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>CSS Grid</h2>
+
+        <h3>Grid Template Columns</h3>
+        <div class="grid-demo">
+          <div class="grid-container grid-3-columns">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+          </div>
+        </div>
+        <p><em>grid-template-columns: 1fr 1fr 1fr</em></p>
+
+        <div class="grid-demo">
+          <div class="grid-container grid-fixed-flexible">
+            <div class="grid-item">200px</div>
+            <div class="grid-item">Flexible</div>
+            <div class="grid-item">100px</div>
+          </div>
+        </div>
+        <p><em>grid-template-columns: 200px 1fr 100px</em></p>
+
+        <div class="grid-demo">
+          <div class="grid-container grid-auto-fit">
+            <div class="grid-item">Auto</div>
+            <div class="grid-item">Fit</div>
+            <div class="grid-item">Responsive</div>
+            <div class="grid-item">Grid</div>
+          </div>
+        </div>
+        <p><em>grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))</em></p>
+
+        <h3>Grid Areas (Layout Semántico)</h3>
+        <div class="grid-demo">
+          <div class="grid-container grid-areas">
+            <div class="grid-item grid-header">Header</div>
+            <div class="grid-item grid-sidebar">Sidebar</div>
+            <div class="grid-item grid-main">Main Content</div>
+            <div class="grid-item grid-footer">Footer</div>
+          </div>
+        </div>
+
+        <h3>Grid Positioning</h3>
+        <div class="grid-demo">
+          <div class="grid-container grid-positioning">
+            <div class="grid-item">1</div>
+            <div class="grid-item grid-span-item">Span 2x2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+          </div>
+        </div>
+
+        <div class="code-example">
+          /* Contenedor Grid */<br />
+          .grid-container {<br />
+          &nbsp;&nbsp;display: grid;<br />
+          &nbsp;&nbsp;grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */<br />
+          &nbsp;&nbsp;grid-template-rows: 100px auto 50px;<br />
+          &nbsp;&nbsp;gap: 1rem;<br />
+          &nbsp;&nbsp;grid-template-areas:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;"header header header"<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;"sidebar main main"<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;"footer footer footer";<br />
+          }<br />
+          <br />
+          /* Elementos Grid */<br />
+          .grid-item {<br />
+          &nbsp;&nbsp;grid-column: 1 / 3; /* de columna 1 a 3 */<br />
+          &nbsp;&nbsp;grid-row: 2 / 4; /* de fila 2 a 4 */<br />
+          &nbsp;&nbsp;grid-area: header; /* usar área nombrada */<br />
+          }
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Flexbox vs Grid: ¿Cuándo usar cada uno?</h2>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspecto</th>
+              <th>Flexbox</th>
+              <th>CSS Grid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dimensión</strong></td>
+              <td>Unidimensional (fila o columna)</td>
+              <td>Bidimensional (filas y columnas)</td>
+            </tr>
+            <tr>
+              <td><strong>Uso Principal</strong></td>
+              <td>Componentes, alineación</td>
+              <td>Layouts de página</td>
+            </tr>
+            <tr>
+              <td><strong>Flexibilidad</strong></td>
+              <td>Elementos flexibles</td>
+              <td>Posicionamiento preciso</td>
+            </tr>
+            <tr>
+              <td><strong>Mejor para</strong></td>
+              <td>Navegación, botones, centrado</td>
+              <td>Layouts complejos, grillas</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight">
+          <h3>Recomendación</h3>
+          <p>
+            <strong>Usa Flexbox para:</strong> Componentes individuales, alineación de elementos, navegación.<br />
+            <strong>Usa Grid para:</strong> Layouts de página completa, sistemas de grillas, posicionamiento complejo.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Ejemplos Prácticos</h2>
+
+        <h3>Navegación con Flexbox</h3>
+        <nav class="navbar">
+          <div class="logo">Mi Sitio</div>
+          <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <h3>Cards Layout con Grid</h3>
+        <div class="card-layout">
+          <div class="card">
+            <h4>Tarjeta 1</h4>
+            <p>
+              Esta es una tarjeta de ejemplo que demuestra cómo Grid puede crear
+              layouts responsivos automáticamente.
+            </p>
+            <a href="#" class="button">Leer más</a>
+          </div>
+          <div class="card">
+            <h4>Tarjeta 2</h4>
+            <p>
+              El contenido de esta tarjeta es diferente, pero todas las tarjetas
+              mantienen la misma altura gracias a Flexbox interno.
+            </p>
+            <a href="#" class="button">Leer más</a>
+          </div>
+          <div class="card">
+            <h4>Tarjeta 3</h4>
+            <p>
+              Grid se encarga de la distribución horizontal, mientras que Flexbox
+              maneja la alineación vertical dentro de cada tarjeta.
+            </p>
+            <a href="#" class="button">Leer más</a>
+          </div>
+        </div>
+
+        <div class="code-example">
+          /* Navegación Flexbox */<br />
+          .navbar {<br />
+          &nbsp;&nbsp;display: flex;<br />
+          &nbsp;&nbsp;justify-content: space-between;<br />
+          &nbsp;&nbsp;align-items: center;<br />
+          }<br />
+          <br />
+          /* Cards con Grid */<br />
+          .card-layout {<br />
+          &nbsp;&nbsp;display: grid;<br />
+          &nbsp;&nbsp;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));<br />
+          &nbsp;&nbsp;gap: 1.5rem;<br />
+          }<br />
+          <br />
+          /* Card individual con Flexbox */<br />
+          .card {<br />
+          &nbsp;&nbsp;display: flex;<br />
+          &nbsp;&nbsp;flex-direction: column;<br />
+          }<br />
+          <br />
+          .card .button {<br />
+          &nbsp;&nbsp;margin-top: auto; /* empuja el botón al final */<br />
+          }
+        </div>
+      </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 2rem; color: white;">
+      <p>
+        <strong>Ejercicio:</strong> Redimensiona la ventana para ver cómo los
+        layouts se adaptan automáticamente.
+      </p>
+      <p>
+        <a href="index.html" style="color: #feca57; text-decoration: none;">
+          ← Volver al índice de ejemplos CSS
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>

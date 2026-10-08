@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2 · HTML semántico</title>
+  </head>
+  <body>
+    <!--
+      Sin una sola línea de CSS a propósito: el HTML describe QUÉ es cada
+      cosa, no cómo se ve. Así se ve el "estilo por defecto" del navegador.
+    -->
+    <header>
+      <a href="#">🏠 Inmobi</a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="#">Comprar</a></li>
+          <li><a href="#">Alquilar</a></li>
+          <li><a href="#">Inmobiliarias</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Departamentos en alquiler</h1>
+
+      <!-- Cada propiedad es un <article>: tiene sentido por sí sola, fuera de esta página. -->
+      <article>
+        <img
+          src="https://picsum.photos/seed/prop1/400/260"
+          alt="Living con ventanal y balcón"
+          width="400"
+          height="260"
+        />
+        <h2>Departamento luminoso con balcón</h2>
+        <p><strong>ARS 650.000</strong> / mes · Palermo</p>
+        <ul>
+          <li>3 ambientes</li>
+          <li>68 m² cubiertos</li>
+        </ul>
+        <a href="#">Ver detalle</a>
+      </article>
+
+      <article>
+        <img
+          src="https://picsum.photos/seed/prop6/400/260"
+          alt="Cocina integrada al living"
+          width="400"
+          height="260"
+        />
+        <h2>Departamento 2 ambientes con cochera</h2>
+        <p><strong>ARS 540.000</strong> / mes · Belgrano</p>
+        <ul>
+          <li>2 ambientes</li>
+          <li>48 m² cubiertos</li>
+        </ul>
+        <a href="#">Ver detalle</a>
+      </article>
+    </main>
+
+    <aside>
+      <h2>Publicar una propiedad</h2>
+      <p>Las inmobiliarias publican gratis durante el primer mes.</p>
+    </aside>
+
+    <footer>
+      <p><small>© 2026 Inmobi · Aplicaciones Interactivas, UADE</small></p>
+    </footer>
+
+    <!--
+      🔧 Probar: en DevTools → Elements, botón derecho sobre el <body> →
+      "Edit as HTML" y reemplazar header/nav/main/article por <div>. La
+      página se ve IGUAL. ¿Qué se perdió entonces? (pista: lector de
+      pantalla, buscadores, y DevTools → Accessibility tree)
+    -->
+  </body>
+</html>

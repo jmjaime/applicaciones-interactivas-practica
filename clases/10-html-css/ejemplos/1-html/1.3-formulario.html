@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.3 · Formularios</title>
+  </head>
+  <body>
+    <h1>Pedir una visita</h1>
+    <p>Departamento luminoso con balcón · Palermo</p>
+
+    <!--
+      Foco de la demo: validación NATIVA, sin una línea de JS.
+      required / type / min / pattern ya bloquean el submit y muestran el error.
+      action + method: así se mandaba un formulario antes de las SPA
+      (el navegador navega a la URL con los datos). Ver la URL después de enviar.
+    -->
+    <form action="#" method="get">
+      <p>
+        <!-- label + for/id: clickear el texto enfoca el input (y lo lee el lector de pantalla) -->
+        <label for="nombre">Nombre</label><br />
+        <input id="nombre" name="nombre" type="text" required minlength="2" />
+      </p>
+
+      <p>
+        <label for="telefono">Teléfono</label><br />
+        <input
+          id="telefono"
+          name="telefono"
+          type="tel"
+          required
+          pattern="[0-9 +\-]{8,}"
+          placeholder="11 5555 5555"
+        />
+      </p>
+
+      <p>
+        <label for="fecha">Fecha preferida</label><br />
+        <!-- La regla "la fecha tiene que ser futura" del TPO: min se completa con JS, o se valida en el server -->
+        <input id="fecha" name="fecha" type="date" required />
+      </p>
+
+      <fieldset>
+        <legend>Franja horaria</legend>
+        <label><input type="radio" name="franja" value="manana" checked /> Mañana</label>
+        <label><input type="radio" name="franja" value="tarde" /> Tarde</label>
+      </fieldset>
+
+      <p>
+        <label for="mensaje">Mensaje (opcional)</label><br />
+        <textarea id="mensaje" name="mensaje" rows="3" maxlength="300"></textarea>
+      </p>
+
+      <button type="submit">Pedir visita</button>
+    </form>
+
+    <!--
+      🔧 Probar: borrar "required" del nombre en DevTools y enviar vacío.
+      La validación del navegador se saltea en 5 segundos: por eso la API
+      del TPO valida igual, aunque el front también lo haga.
+    -->
+  </body>
+</html>

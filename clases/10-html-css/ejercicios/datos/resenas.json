@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nombre": "Lucía G.", "contenido": "Muy buena atención, respondieron todas las consultas el mismo día.", "calificacion": 5, "fecha": "2026-09-12" },
+  { "id": 2, "nombre": "Martín R.", "contenido": "La visita se reprogramó dos veces, pero el departamento era tal cual las fotos.", "calificacion": 3, "fecha": "2026-08-30" },
+  { "id": 3, "nombre": "Sofía P.", "contenido": "Alquilamos en una semana. Muy claros con los requisitos y los costos.", "calificacion": 5, "fecha": "2026-08-14" },
+  { "id": 4, "nombre": "Diego F.", "contenido": "Tardaron en devolver el llamado.", "calificacion": 2, "fecha": "2026-07-28" },
+  { "id": 5, "nombre": "Carla M.", "contenido": "Excelente predisposición para mostrar la casa un sábado.", "calificacion": 4, "fecha": "2026-07-03" }
+]

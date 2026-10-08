@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.4 · Grid y responsive</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 1rem;
+        background: #f4f4f7;
+      }
+
+      /*
+        Grid = layout en DOS dimensiones (filas y columnas).
+        auto-fill + minmax: "todas las columnas de al menos 240px que entren".
+        Responsive sin una sola media query.
+      */
+      .listado {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      }
+
+      /* Layout de página: filtros al costado en desktop, arriba en mobile */
+      .pagina {
+        display: grid;
+        grid-template-columns: 1fr; /* mobile first: una sola columna */
+        gap: 1rem;
+      }
+
+      .filtros {
+        background: #282a36;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      /* Media query: a partir de 768px de ancho, filtros a la izquierda */
+      @media (min-width: 768px) {
+        .pagina {
+          grid-template-columns: 220px 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pagina">
+      <aside class="filtros">
+        <h2>Filtros</h2>
+        <p>Operación, tipo, precio…</p>
+      </aside>
+
+      <main class="listado">
+        <article class="card"><h3>Departamento luminoso</h3><p>ARS 650.000</p></article>
+        <article class="card"><h3>Casa con pileta</h3><p>USD 285.000</p></article>
+        <article class="card"><h3>Monoambiente</h3><p>USD 79.000</p></article>
+        <article class="card"><h3>Local sobre avenida</h3><p>ARS 1.200.000</p></article>
+        <article class="card"><h3>PH reciclado</h3><p>USD 165.000</p></article>
+        <article class="card"><h3>2 ambientes con cochera</h3><p>ARS 540.000</p></article>
+      </main>
+    </div>
+
+    <!--
+      🔧 Probar: achicar la ventana (o DevTools → Toggle device toolbar, Ctrl+Shift+M)
+      y ver cómo cambian las columnas. Cambiar minmax(240px, 1fr) por
+      minmax(400px, 1fr). Sacar el <meta name="viewport"> y abrir en modo
+      mobile: la página se ve "de escritorio, achicada".
+    -->
+  </body>
+</html>

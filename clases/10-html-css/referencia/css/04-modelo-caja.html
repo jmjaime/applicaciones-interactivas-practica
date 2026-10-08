@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04 - Modelo de Caja CSS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border-radius: 10px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .section {
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 0.5rem;
+      }
+
+      h3 {
+        color: #34495e;
+        font-size: 1.3rem;
+        margin: 1.5rem 0 1rem 0;
+      }
+
+      /* Visualización del Box Model */
+      .box-model-demo {
+        margin: 2rem auto;
+        max-width: 600px;
+        position: relative;
+      }
+
+      .box-visual {
+        background-color: #3498db;
+        padding: 40px;
+        border: 20px solid #e74c3c;
+        margin: 30px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        position: relative;
+      }
+
+      .box-visual::before {
+        content: "CONTENT";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      /* Labels para el box model */
+      .box-labels {
+        position: relative;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .label-margin {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        color: #f39c12;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+
+      .label-border {
+        position: absolute;
+        top: 35px;
+        left: 35px;
+        color: #e74c3c;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+
+      .label-padding {
+        position: absolute;
+        top: 55px;
+        left: 55px;
+        color: #27ae60;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+
+      /* Ejemplos de box-sizing */
+      .box-sizing-demo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .box-content-box {
+        box-sizing: content-box;
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid #3498db;
+        margin: 20px;
+        background-color: #ecf0f1;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .box-border-box {
+        box-sizing: border-box;
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid #e74c3c;
+        margin: 20px;
+        background-color: #ecf0f1;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      /* Ejemplos de padding */
+      .padding-examples {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .padding-example {
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+      }
+
+      .padding-all {
+        padding: 20px;
+      }
+
+      .padding-vertical-horizontal {
+        padding: 10px 30px;
+      }
+
+      .padding-individual {
+        padding-top: 5px;
+        padding-right: 15px;
+        padding-bottom: 25px;
+        padding-left: 35px;
+      }
+
+      .padding-four-values {
+        padding: 5px 15px 25px 35px;
+      }
+
+      /* Ejemplos de margin */
+      .margin-examples {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+      }
+
+      .margin-example {
+        background-color: #e74c3c;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 5px;
+        width: 200px;
+      }
+
+      .margin-auto {
+        margin: 20px auto;
+      }
+
+      .margin-negative {
+        margin-top: -10px;
+        background-color: #f39c12;
+      }
+
+      .margin-collapse-1 {
+        margin-bottom: 30px;
+        background-color: #27ae60;
+      }
+
+      .margin-collapse-2 {
+        margin-top: 20px;
+        background-color: #8e44ad;
+      }
+
+      /* Ejemplos de border */
+      .border-examples {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .border-example {
+        padding: 20px;
+        text-align: center;
+        font-weight: bold;
+        background-color: #ecf0f1;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .border-solid {
+        border: 3px solid #3498db;
+      }
+
+      .border-dashed {
+        border: 3px dashed #e74c3c;
+      }
+
+      .border-dotted {
+        border: 3px dotted #27ae60;
+      }
+
+      .border-double {
+        border: 6px double #8e44ad;
+      }
+
+      .border-individual {
+        border-top: 2px solid #e74c3c;
+        border-right: 4px dashed #3498db;
+        border-bottom: 6px dotted #27ae60;
+        border-left: 8px double #8e44ad;
+      }
+
+      .border-radius {
+        border: 3px solid #f39c12;
+        border-radius: 15px;
+      }
+
+      .border-radius-individual {
+        border: 3px solid #34495e;
+        border-top-left-radius: 0;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 20px;
+      }
+
+      .border-circle {
+        border: 3px solid #e67e22;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+
+      /* Display examples */
+      .display-examples {
+        margin: 2rem 0;
+      }
+
+      .display-block {
+        display: block;
+        background-color: #3498db;
+        color: white;
+        padding: 10px;
+        margin: 5px 0;
+        text-align: center;
+      }
+
+      .display-inline {
+        display: inline;
+        background-color: #e74c3c;
+        color: white;
+        padding: 5px 10px;
+        margin: 0 5px;
+      }
+
+      .display-inline-block {
+        display: inline-block;
+        background-color: #27ae60;
+        color: white;
+        padding: 10px;
+        margin: 5px;
+        width: 150px;
+        text-align: center;
+      }
+
+      .display-none {
+        display: none;
+      }
+
+      .visibility-hidden {
+        visibility: hidden;
+        background-color: #8e44ad;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* Overflow examples */
+      .overflow-examples {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .overflow-example {
+        height: 100px;
+        width: 100%;
+        border: 2px solid #34495e;
+        padding: 10px;
+        background-color: #ecf0f1;
+      }
+
+      .overflow-visible {
+        overflow: visible;
+      }
+
+      .overflow-hidden {
+        overflow: hidden;
+      }
+
+      .overflow-scroll {
+        overflow: scroll;
+      }
+
+      .overflow-auto {
+        overflow: auto;
+      }
+
+      .overflow-content {
+        height: 150px;
+        background-color: #3498db;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      /* Código de ejemplo */
+      .code-example {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 1.5rem;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+        border-left: 4px solid #3498db;
+      }
+
+      /* Utilidades */
+      .highlight {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .mb-2 {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Modelo de Caja CSS</h1>
+        <p><strong>Ejemplo 4:</strong> Box Model, padding, border, margin y display</p>
+      </div>
+
+      <div class="section">
+        <h2>El Modelo de Caja (Box Model)</h2>
+
+        <div class="box-model-demo">
+          <div class="box-labels">
+            <div class="label-margin">MARGIN</div>
+            <div class="label-border">BORDER</div>
+            <div class="label-padding">PADDING</div>
+          </div>
+          <div class="box-visual"></div>
+        </div>
+
+        <div class="highlight">
+          <h3>Componentes del Box Model</h3>
+          <ul>
+            <li><strong>Content:</strong> El contenido real del elemento (texto, imágenes)</li>
+            <li><strong>Padding:</strong> Espacio interno entre el contenido y el borde</li>
+            <li><strong>Border:</strong> El borde que rodea el padding y el contenido</li>
+            <li><strong>Margin:</strong> Espacio externo que separa el elemento de otros</li>
+          </ul>
+        </div>
+
+        <div class="code-example">
+          /* Anatomía del Box Model */<br />
+          .elemento {<br />
+          &nbsp;&nbsp;width: 200px;        /* Ancho del contenido */<br />
+          &nbsp;&nbsp;height: 100px;       /* Alto del contenido */<br />
+          &nbsp;&nbsp;padding: 20px;       /* Espacio interno */<br />
+          &nbsp;&nbsp;border: 5px solid black; /* Borde */<br />
+          &nbsp;&nbsp;margin: 15px;        /* Espacio externo */<br />
+          }<br />
+          /* Ancho total = 200 + 40 + 10 + 30 = 280px */
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Box-sizing: La Revolución del Box Model</h2>
+
+        <div class="box-sizing-demo">
+          <div>
+            <h3>content-box (tradicional)</h3>
+            <div class="box-content-box">
+              200px × 100px<br />
+              + padding + border
+            </div>
+            <p><em>Ancho total: 260px (200 + 40 + 20)</em></p>
+          </div>
+
+          <div>
+            <h3>border-box (moderno)</h3>
+            <div class="box-border-box">
+              200px × 100px<br />
+              incluye todo
+            </div>
+            <p><em>Ancho total: 200px (incluye padding y border)</em></p>
+          </div>
+        </div>
+
+        <div class="code-example">
+          /* Modelo tradicional */<br />
+          .content-box {<br />
+          &nbsp;&nbsp;box-sizing: content-box; /* default */<br />
+          &nbsp;&nbsp;width: 200px; /* solo contenido */<br />
+          }<br />
+          <br />
+          /* Modelo moderno (recomendado) */<br />
+          .border-box {<br />
+          &nbsp;&nbsp;box-sizing: border-box;<br />
+          &nbsp;&nbsp;width: 200px; /* incluye padding y border */<br />
+          }<br />
+          <br />
+          /* Aplicar a todos los elementos */<br />
+          * { box-sizing: border-box; }
+        </div>
+
+        <div class="highlight">
+          <strong>Recomendación:</strong> Usar <code>box-sizing: border-box</code> 
+          hace que el diseño sea más predecible y fácil de manejar.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Padding (Espacio Interno)</h2>
+
+        <div class="padding-examples">
+          <div class="padding-example padding-all">
+            padding: 20px
+          </div>
+          <div class="padding-example padding-vertical-horizontal">
+            padding: 10px 30px
+          </div>
+          <div class="padding-example padding-individual">
+            padding individual
+          </div>
+          <div class="padding-example padding-four-values">
+            padding: 5px 15px 25px 35px
+          </div>
+        </div>
+
+        <div class="code-example">
+          /* Diferentes formas de especificar padding */<br />
+          .padding-all { padding: 20px; } /* todos los lados */<br />
+          .padding-vh { padding: 10px 30px; } /* vertical horizontal */<br />
+          .padding-individual {<br />
+          &nbsp;&nbsp;padding-top: 5px;<br />
+          &nbsp;&nbsp;padding-right: 15px;<br />
+          &nbsp;&nbsp;padding-bottom: 25px;<br />
+          &nbsp;&nbsp;padding-left: 35px;<br />
+          }<br />
+          .padding-four { padding: 5px 15px 25px 35px; } /* top right bottom left */
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Margin (Espacio Externo)</h2>
+
+        <div class="margin-examples">
+          <div class="margin-example margin-auto">
+            margin: 20px auto (centrado)
+          </div>
+          <div class="margin-example margin-collapse-1">
+            margin-bottom: 30px
+          </div>
+          <div class="margin-example margin-collapse-2">
+            margin-top: 20px (colapso: solo 30px)
+          </div>
+          <div class="margin-example margin-negative">
+            margin-top: -10px (superpuesto)
+          </div>
+        </div>
+
+        <div class="highlight">
+          <h3>Conceptos Importantes del Margin</h3>
+          <ul>
+            <li><strong>Centrado horizontal:</strong> <code>margin: 0 auto</code></li>
+            <li><strong>Colapso de márgenes:</strong> Los márgenes verticales se colapsan</li>
+            <li><strong>Márgenes negativos:</strong> Permiten superponer elementos</li>
+            <li><strong>Margin auto:</strong> Distribuye el espacio disponible automáticamente</li>
+          </ul>
+        </div>
+
+        <div class="code-example">
+          /* Técnicas útiles con margin */<br />
+          .centrado { margin: 0 auto; } /* centrado horizontal */<br />
+          .espaciado { margin: 2rem 0; } /* solo vertical */<br />
+          .superpuesto { margin-top: -20px; } /* negativo */<br />
+          .sin-margin { margin: 0; } /* resetear */
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Border (Bordes)</h2>
+
+        <div class="border-examples">
+          <div class="border-example border-solid">
+            border: solid
+          </div>
+          <div class="border-example border-dashed">
+            border: dashed
+          </div>
+          <div class="border-example border-dotted">
+            border: dotted
+          </div>
+          <div class="border-example border-double">
+            border: double
+          </div>
+          <div class="border-example border-individual">
+            bordes individuales
+          </div>
+          <div class="border-example border-radius">
+            border-radius
+          </div>
+          <div class="border-example border-radius-individual">
+            radius individual
+          </div>
+          <div class="border-example border-circle">
+            círculo
+          </div>
+        </div>
+
+        <div class="code-example">
+          /* Estilos de borde */<br />
+          .border-solid { border: 3px solid #3498db; }<br />
+          .border-dashed { border: 3px dashed #e74c3c; }<br />
+          .border-dotted { border: 3px dotted #27ae60; }<br />
+          <br />
+          /* Bordes individuales */<br />
+          .border-individual {<br />
+          &nbsp;&nbsp;border-top: 2px solid red;<br />
+          &nbsp;&nbsp;border-right: 4px dashed blue;<br />
+          &nbsp;&nbsp;border-bottom: 6px dotted green;<br />
+          &nbsp;&nbsp;border-left: 8px double purple;<br />
+          }<br />
+          <br />
+          /* Border radius */<br />
+          .rounded { border-radius: 15px; }<br />
+          .circle { border-radius: 50%; }
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Display: Controlando el Comportamiento</h2>
+
+        <h3>Display Block</h3>
+        <div class="display-block">Elemento de bloque (ocupa todo el ancho)</div>
+        <div class="display-block">Otro elemento de bloque</div>
+
+        <h3>Display Inline</h3>
+        <p>
+          Texto normal con 
+          <span class="display-inline">elemento inline</span> y 
+          <span class="display-inline">otro inline</span> 
+          en la misma línea.
+        </p>
+
+        <h3>Display Inline-block</h3>
+        <div class="display-inline-block">Inline-block 1</div>
+        <div class="display-inline-block">Inline-block 2</div>
+        <div class="display-inline-block">Inline-block 3</div>
+
+        <h3>Display None vs Visibility Hidden</h3>
+        <div class="display-block">Elemento visible</div>
+        <div class="display-none">Este elemento no se muestra (display: none)</div>
+        <div class="visibility-hidden">Este elemento está oculto pero ocupa espacio</div>
+        <div class="display-block">Elemento después del oculto</div>
+
+        <div class="code-example">
+          /* Valores de display */<br />
+          .block { display: block; } /* ocupa todo el ancho */<br />
+          .inline { display: inline; } /* solo el ancho del contenido */<br />
+          .inline-block { display: inline-block; } /* híbrido */<br />
+          .hidden { display: none; } /* no se muestra */<br />
+          .invisible { visibility: hidden; } /* oculto pero ocupa espacio */
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Overflow: Controlando el Desbordamiento</h2>
+
+        <div class="overflow-examples">
+          <div class="overflow-example overflow-visible">
+            <strong>overflow: visible</strong>
+            <div class="overflow-content">
+              Este contenido es más alto que el contenedor y se desborda visiblemente.
+            </div>
+          </div>
+
+          <div class="overflow-example overflow-hidden">
+            <strong>overflow: hidden</strong>
+            <div class="overflow-content">
+              Este contenido es más alto que el contenedor pero se corta.
+            </div>
+          </div>
+
+          <div class="overflow-example overflow-scroll">
+            <strong>overflow: scroll</strong>
+            <div class="overflow-content">
+              Este contenido es más alto que el contenedor y muestra barras de desplazamiento.
+            </div>
+          </div>
+
+          <div class="overflow-example overflow-auto">
+            <strong>overflow: auto</strong>
+            <div class="overflow-content">
+              Este contenido es más alto que el contenedor y muestra scroll solo si es necesario.
+            </div>
+          </div>
+        </div>
+
+        <div class="code-example">
+          /* Valores de overflow */<br />
+          .visible { overflow: visible; } /* default, se desborda */<br />
+          .hidden { overflow: hidden; } /* corta el contenido */<br />
+          .scroll { overflow: scroll; } /* siempre muestra scroll */<br />
+          .auto { overflow: auto; } /* scroll solo si es necesario */
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Mejores Prácticas del Box Model</h2>
+
+        <div class="highlight">
+          <h3>Recomendaciones</h3>
+          <ul>
+            <li><strong>Usar border-box:</strong> <code>* { box-sizing: border-box; }</code></li>
+            <li><strong>Reset CSS:</strong> Eliminar márgenes y padding por defecto</li>
+            <li><strong>Unidades consistentes:</strong> Usar rem/em para escalabilidad</li>
+            <li><strong>Espaciado sistemático:</strong> Usar múltiplos de un valor base</li>
+            <li><strong>DevTools:</strong> Inspeccionar el box model visualmente</li>
+          </ul>
+
+          <h3>Errores Comunes</h3>
+          <ul>
+            <li><strong>No usar border-box:</strong> Cálculos de ancho complicados</li>
+            <li><strong>Colapso de márgenes:</strong> No entender cómo funcionan</li>
+            <li><strong>Overflow oculto:</strong> Contenido cortado inesperadamente</li>
+            <li><strong>Display incorrecto:</strong> Elementos que no se comportan como esperado</li>
+          </ul>
+        </div>
+
+        <div class="code-example">
+          /* Reset básico recomendado */<br />
+          * {<br />
+          &nbsp;&nbsp;margin: 0;<br />
+          &nbsp;&nbsp;padding: 0;<br />
+          &nbsp;&nbsp;box-sizing: border-box;<br />
+          }<br />
+          <br />
+          /* Sistema de espaciado */<br />
+          :root {<br />
+          &nbsp;&nbsp;--spacing-xs: 0.25rem;<br />
+          &nbsp;&nbsp;--spacing-sm: 0.5rem;<br />
+          &nbsp;&nbsp;--spacing-md: 1rem;<br />
+          &nbsp;&nbsp;--spacing-lg: 2rem;<br />
+          &nbsp;&nbsp;--spacing-xl: 4rem;<br />
+          }
+        </div>
+      </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 2rem; color: white;">
+      <p>
+        <strong>Ejercicio:</strong> Usa las DevTools (F12) para inspeccionar el 
+        box model de diferentes elementos en esta página.
+      </p>
+      <p>
+        <a href="index.html" style="color: #feca57; text-decoration: none;">
+          ← Volver al índice de ejemplos CSS
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>

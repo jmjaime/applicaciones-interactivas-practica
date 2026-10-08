@@ -1,0 +1,14 @@
+{
+  "nombre": "Del Parque Propiedades",
+  "descripcion": "Inmobiliaria familiar con 20 años en Villa Urquiza y alrededores. Venta y alquiler de casas, PH y departamentos.",
+  "logo": "https://picsum.photos/seed/delparque/160/160",
+  "telefono": "11 4555-1234",
+  "email": "contacto@delparque.com.ar",
+  "direccion": "Av. Triunvirato 4500, Villa Urquiza",
+  "propiedades": [
+    { "id": 11, "titulo": "Casa de 4 ambientes con patio", "operacion": "Venta", "precio": 198000, "moneda": "USD", "barrio": "Villa Urquiza", "foto": "https://picsum.photos/seed/dp11/400/260" },
+    { "id": 12, "titulo": "Departamento 3 ambientes al frente", "operacion": "Alquiler", "precio": 590000, "moneda": "ARS", "barrio": "Coghlan", "foto": "https://picsum.photos/seed/dp12/400/260" },
+    { "id": 13, "titulo": "PH con terraza y parrilla", "operacion": "Venta", "precio": 142000, "moneda": "USD", "barrio": "Villa Pueyrredón", "foto": "https://picsum.photos/seed/dp13/400/260" },
+    { "id": 14, "titulo": "Monoambiente cerca del subte", "operacion": "Alquiler", "precio": 380000, "moneda": "ARS", "barrio": "Villa Urquiza", "foto": "https://picsum.photos/seed/dp14/400/260" }
+  ]
+}

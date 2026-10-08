@@ -1,0 +1,69 @@
+/* Ejercicios 2.1 y 2.2: completar las secciones marcadas con TODO.
+   No hace falta tocar perfil.html: las clases ya están puestas. */
+
+/* ── Base (ya armada) ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --oscuro: #282a36;
+  --acento: #bd93f9;
+  --fondo: #f4f4f7;
+  --borde: #ddd;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background: var(--fondo);
+  color: #222;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+img { max-width: 100%; height: auto; }
+
+.pie {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+/* ── 2.1 · Header, perfil y cards ──────────────────────────────── */
+
+/* TODO: .sitio → marca a la izquierda y nav a la derecha, en una sola fila,
+   centradas verticalmente, con fondo var(--oscuro) y links blancos sin subrayado. */
+
+/* TODO: los links del nav (.sitio ul) en fila, sin viñetas, separados entre sí. */
+
+/* TODO: .perfil → logo y datos lado a lado, como un "bloque" blanco
+   separado del resto, con un borde de color a la izquierda. */
+
+/* TODO: .logo → circular, de 120×120, que no se achique cuando falta espacio. */
+
+/* TODO: .card → fondo blanco, esquinas redondeadas, sombra suave; la imagen
+   ocupa todo el ancho y no deja espacio debajo. */
+
+/* TODO: .card-precio → precio a la izquierda y .badge a la derecha, en la misma línea. */
+
+/* TODO: .badge → "pastilla" redondeada con fondo de color. */
+
+/* ── 2.2 · Grilla responsive y columnas ────────────────────────── */
+
+/* TODO: .grilla → tantas columnas de al menos 220px como entren, sin media queries. */
+
+/* TODO: .columnas → reseñas y formulario uno debajo del otro en mobile;
+   desde 768px, lado a lado (reseñas más anchas que el formulario). */
+
+/* TODO: en pantallas de menos de 600px, .perfil apila logo y datos y centra el texto. */
+
+/* TODO: .resenas → lista sin viñetas; cada .resena es una tarjeta blanca.
+   En el header de cada reseña: nombre, estrellas y fecha en una fila, con la
+   fecha pegada a la derecha. */
+
+/* TODO: .formulario → campos uno debajo del otro, ocupando todo el ancho;
+   el botón con fondo var(--oscuro) que cambia a var(--acento) al pasar el mouse. */

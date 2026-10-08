@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4 · Estado + render</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="3.4-estado-render.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <strong>🏠 Inmobi</strong>
+      <span class="contador">❤️ <span id="contador-favoritos">0</span></span>
+    </header>
+
+    <main class="contenido">
+      <div class="filtros">
+        <input id="filtro-texto" type="search" placeholder="Buscar por título o barrio…" />
+        <select id="filtro-operacion">
+          <option value="">Venta y alquiler</option>
+          <option value="Venta">Venta</option>
+          <option value="Alquiler">Alquiler</option>
+        </select>
+        <label><input id="filtro-favoritos" type="checkbox" /> Solo favoritos</label>
+        <span id="resultados"></span>
+      </div>
+
+      <section class="listado" id="listado">
+        <p class="mensaje">Cargando propiedades…</p>
+      </section>
+    </main>
+  </body>
+</html>
