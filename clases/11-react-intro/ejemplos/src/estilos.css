@@ -1,0 +1,142 @@
+/* Los mismos estilos del listado de la clase pasada (ejemplos/3-js/estilos.css). */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #f4f4f7;
+  color: #222;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #282a36;
+  color: white;
+}
+
+.contador {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ff79c6;
+  color: #282a36;
+  font-weight: bold;
+}
+
+.contenido { padding: 1rem 2rem; }
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filtros input,
+.filtros select,
+.filtros button {
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+.listado {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 400 / 260; background: #ddd; }
+
+.card-body { padding: 0.75rem 1rem 1rem; }
+
+.card h2 { font-size: 1.05rem; margin: 0.5rem 0; }
+
+.card p { margin: 0.25rem 0; color: #555; }
+
+.card-precio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #50fa7b;
+  font-size: 0.8rem;
+}
+
+.badge.venta { background: #8be9fd; }
+
+.fav {
+  border: none;
+  background: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.fav.activo { filter: none; opacity: 1; }
+
+.mensaje { padding: 2rem; text-align: center; color: #666; }
+
+.mensaje.error { color: crimson; }
+
+.card.destacada { outline: 3px solid #ffb86c; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #eee;
+  font-size: 0.75rem;
+}
+
+.seccion h2 { margin: 0 0 1rem; }
+
+.contadores { display: flex; gap: 2rem; }
+
+.contadores section {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.contadores button { font-size: 1.5rem; padding: 0.25rem 1rem; cursor: pointer; }
+
+/* Shell de los ejemplos (índice y link de vuelta) */
+.indice li { margin: 0.5rem 0; }
+.indice small { color: #777; }
+
+.volver {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #282a36;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
