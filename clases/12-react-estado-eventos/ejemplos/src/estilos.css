@@ -1,0 +1,261 @@
+/* Los estilos del listado de las clases 10 y 11, más los de la Clase 12 (al final). */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #f4f4f7;
+  color: #222;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #282a36;
+  color: white;
+}
+
+.contador {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ff79c6;
+  color: #282a36;
+  font-weight: bold;
+}
+
+.contenido { padding: 1rem 2rem; }
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filtros input,
+.filtros select,
+.filtros button {
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+.listado {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 400 / 260; background: #ddd; }
+
+.card-body { padding: 0.75rem 1rem 1rem; }
+
+.card h2 { font-size: 1.05rem; margin: 0.5rem 0; }
+
+.card p { margin: 0.25rem 0; color: #555; }
+
+.card-precio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #50fa7b;
+  font-size: 0.8rem;
+}
+
+.badge.venta { background: #8be9fd; }
+
+.fav {
+  border: none;
+  background: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.fav.activo { filter: none; opacity: 1; }
+
+.mensaje { padding: 2rem; text-align: center; color: #666; }
+
+.mensaje.error { color: crimson; }
+
+.card.destacada { outline: 3px solid #ffb86c; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #eee;
+  font-size: 0.75rem;
+}
+
+.seccion h2 { margin: 0 0 1rem; }
+
+.contadores { display: flex; gap: 2rem; }
+
+.contadores section {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.contadores button { font-size: 1.5rem; padding: 0.25rem 1rem; cursor: pointer; }
+
+/* ── Clase 12 ─────────────────────────────────────────────── */
+
+.boton {
+  padding: 4px 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.boton:disabled { cursor: default; opacity: 0.5; }
+
+.boton.primario { border-color: #6272a4; background: #6272a4; color: white; }
+
+.card .boton { margin-top: 0.5rem; }
+
+code { padding: 1px 4px; border-radius: 4px; background: #e8e8ef; font-size: 0.9em; }
+
+/* 1.2 · Comparador */
+.comparador {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.comparador.vacio { color: #666; }
+
+.comparador-titulo { display: flex; justify-content: space-between; align-items: center; }
+
+.comparador-titulo h2 { margin: 0; font-size: 1.1rem; }
+
+.comparador table { width: 100%; margin-top: 0.75rem; border-collapse: collapse; }
+
+.comparador th,
+.comparador td { padding: 6px 8px; border-bottom: 1px solid #eee; text-align: left; }
+
+/* 2.1 · Listado y panel */
+.opcion-demo { display: block; margin-bottom: 1rem; }
+
+.dos-columnas {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(300px, 1.2fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.lista-items { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+
+.item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.item.seleccionado { border-color: #bd93f9; }
+
+.item img { width: 80px; border-radius: 4px; }
+
+.item small { display: block; color: #666; }
+
+.panel {
+  position: sticky;
+  top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.panel img { width: 100%; border-radius: 6px; }
+
+.panel h2 { margin: 0.5rem 0; }
+
+.panel textarea { display: block; width: 100%; margin-top: 0.25rem; }
+
+/* 3.x / 4.1 · Formularios */
+.detalle-con-form {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(300px, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.portada { width: 100%; max-width: 400px; border-radius: 8px; }
+
+.formulario {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.formulario h2 { margin: 0 0 0.5rem; }
+
+.formulario label { display: grid; gap: 0.25rem; }
+
+.formulario fieldset label { display: inline; margin-right: 1rem; }
+
+.formulario input:not([type="radio"]):not([type="checkbox"]),
+.formulario select,
+.formulario textarea { padding: 6px 8px; font: inherit; }
+
+.formulario fieldset { border: 1px solid #ddd; border-radius: 6px; }
+
+.formulario .boton.primario { justify-self: start; padding: 8px 16px; font-size: 1rem; }
+
+.error { margin: -0.25rem 0 0.25rem; color: crimson; font-size: 0.85rem; }
+
+/* Shell de los ejemplos (índice y link de vuelta) */
+.indice li { margin: 0.5rem 0; }
+.indice small { color: #777; }
+
+.volver {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #282a36;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+}

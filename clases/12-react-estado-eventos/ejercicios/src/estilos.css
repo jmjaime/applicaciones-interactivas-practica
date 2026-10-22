@@ -1,0 +1,229 @@
+/* Estilos ya resueltos: los ejercicios solo usan estas clases (ver el README de cada carpeta). */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #f4f4f7;
+  color: #222;
+}
+
+/* ── Comunes ──────────────────────────────────────────────────── */
+
+.panel-vendedor { max-width: 1000px; margin: 0 auto; padding: 1.5rem; }
+
+.mensaje { padding: 2rem; text-align: center; color: #666; }
+
+.boton {
+  padding: 4px 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.boton:disabled,
+.acciones button:disabled { cursor: default; opacity: 0.5; }
+
+.boton.primario { border-color: #6272a4; background: #6272a4; color: white; }
+
+.filtros { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
+
+.filtros select,
+.filtros button { padding: 6px 10px; font-size: 1rem; }
+
+.resumen-estados { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+
+.acciones { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.acciones button { padding: 4px 10px; cursor: pointer; }
+
+.estado {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background: #eee;
+}
+
+/* Solicitud de visita */
+.estado-pendiente { background: #f1fa8c; }
+.estado-confirmada { background: #50fa7b; }
+.estado-rechazada { background: #ff5555; color: white; }
+
+/* Propiedad */
+.estado-borrador { background: #ddd; color: #555; }
+.estado-publicada { background: #50fa7b; }
+.estado-pausada { background: #f1fa8c; }
+.estado-reservada { background: #ffb86c; }
+.estado-vendida,
+.estado-alquilada { background: #8be9fd; }
+.estado-cancelada { background: #ff5555; color: white; }
+
+.alerta { color: #c0392b; font-weight: bold; }
+
+/* ── 1 · Solicitudes de visita ────────────────────────────────── */
+
+.solicitud {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1rem;
+  align-items: start;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+}
+
+.solicitud h2 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+.solicitud p { margin: 0.15rem 0; color: #555; }
+.solicitud .acciones { grid-column: 1 / -1; }
+
+.nota { font-style: italic; }
+
+/* ── 2 · Bandeja de consultas ─────────────────────────────────── */
+
+.bandeja {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(300px, 1.2fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .bandeja { grid-template-columns: 1fr; }
+}
+
+.pendientes {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #ff79c6;
+  color: #282a36;
+  font-weight: bold;
+}
+
+.lista-consultas { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+
+.item-consulta {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid transparent;
+  border-left: 4px solid #ff79c6;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.item-consulta.respondida { border-left-color: #50fa7b; }
+.item-consulta.seleccionada { border-color: #bd93f9; }
+.item-consulta small { color: #777; }
+
+.panel-consulta {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.panel-consulta h2 { margin: 0 0 0.25rem; }
+
+.panel-consulta blockquote {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0.75rem;
+  border-left: 4px solid #bd93f9;
+  background: #f6f3ff;
+}
+
+.panel-consulta .formulario { padding: 0; box-shadow: none; }
+
+.respuesta {
+  padding: 0.5rem 0.75rem;
+  border-left: 4px solid #50fa7b;
+  background: #effdf2;
+}
+
+/* ── 3, 4 y 5 · Formulario de propiedad ───────────────────────── */
+
+.formulario {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.formulario h2 { margin: 0 0 0.5rem; }
+
+.formulario label { display: grid; gap: 0.25rem; }
+
+.formulario fieldset label { display: inline; margin-right: 1rem; }
+
+.formulario input:not([type="radio"]):not([type="checkbox"]),
+.formulario select,
+.formulario textarea { padding: 6px 8px; font: inherit; }
+
+.formulario fieldset { border: 1px solid #ddd; border-radius: 6px; }
+
+.formulario .boton { justify-self: start; padding: 8px 16px; font-size: 1rem; }
+
+.fila-campos { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: end; }
+
+.fila-campos > label { flex: 1 1 140px; }
+
+.botones { display: flex; gap: 0.5rem; }
+
+.error { margin: -0.25rem 0 0.25rem; color: crimson; font-size: 0.85rem; }
+
+.publicadas { padding-left: 1.25rem; }
+.publicadas li { margin: 0.35rem 0; }
+
+/* ── 5 · Integrador ───────────────────────────────────────────── */
+
+.titulo-con-accion { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+
+.fila {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+}
+
+.fila img { width: 120px; border-radius: 6px; }
+.fila h2 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+.fila p { margin: 0.15rem 0; color: #555; }
+
+@media (max-width: 600px) {
+  .fila { grid-template-columns: 1fr; }
+  .fila img { width: 100%; }
+}
+
+/* ── Shell (índice y link de vuelta) ─────────────────────────── */
+
+.indice { padding: 1rem 2rem; }
+.indice li { margin: 0.5rem 0; }
+.indice small { color: #777; }
+
+.volver {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #282a36;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
