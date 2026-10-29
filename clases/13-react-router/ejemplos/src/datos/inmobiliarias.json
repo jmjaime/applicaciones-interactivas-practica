@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "nombre": "Inmobiliaria del Sol",
+    "descripcion": "Alquileres y ventas en Palermo, Almagro y Belgrano desde 1998.",
+    "telefono": "011-5555-5555",
+    "email": "info@inmodelsol.com.ar",
+    "resenas": [
+      { "id": 1, "autor": "Juan", "texto": "Muy buena atención, respondieron todo en el día.", "calificacion": 5 },
+      { "id": 2, "autor": "Lucía", "texto": "Las fotos coincidían con el departamento.", "calificacion": 4 }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Casas & Jardines",
+    "descripcion": "Especialistas en casas y PH en zona oeste y norte de la ciudad.",
+    "telefono": "011-4444-1234",
+    "email": "contacto@casasyjardines.com.ar",
+    "resenas": [
+      { "id": 3, "autor": "Marcos", "texto": "Coordinamos la visita para el mismo fin de semana.", "calificacion": 5 },
+      { "id": 4, "autor": "Ana", "texto": "Tardaron en contestar la consulta.", "calificacion": 3 },
+      { "id": 5, "autor": "Pedro", "texto": "Buen asesoramiento, pero la visita se reprogramó dos veces.", "calificacion": 3 }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Avenida Propiedades",
+    "descripcion": "Locales comerciales, terrenos y oportunidades de inversión.",
+    "telefono": "011-3333-9876",
+    "email": "hola@avenidaprop.com.ar",
+    "resenas": []
+  }
+]

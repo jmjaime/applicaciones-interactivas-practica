@@ -1,0 +1,5 @@
+/* Pensado solo para CardInmobiliaria. Pero las dos reglas .titulo aplican a los DOS componentes:
+   en lo que se contradicen gana la que se cargó última; lo que no se pisa (el uppercase) se suma. */
+.ficha { padding: 1rem; margin-bottom: 1rem; border-radius: 8px; background: white; }
+
+.titulo { margin: 0 0 0.25rem; color: crimson; font-size: 1.6rem; text-transform: uppercase; }

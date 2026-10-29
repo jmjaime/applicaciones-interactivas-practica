@@ -18,6 +18,7 @@ export default function Ejemplo() {
           <Card />
           <Card />
           <Card />
+          <Card />
         </section>
       </main>
     </>

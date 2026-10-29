@@ -1,0 +1,21 @@
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.seleccionada { border-color: #bd93f9; }
+
+.badge { padding: 2px 8px; border-radius: 999px; font-size: 0.8rem; }
+
+/* Una clase por valor posible de "operacion": se elige con estilos[...] */
+.Venta { background: #8be9fd; }
+.Alquiler { background: #50fa7b; }

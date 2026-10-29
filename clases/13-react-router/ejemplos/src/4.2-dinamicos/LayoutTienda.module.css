@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #282a36;
+}
+
+.link {
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: #f8f8f2;
+  text-decoration: none;
+}
+
+.link:hover { background: #44475a; }
+
+/* Se compone con .link: el NavLink activo lleva las dos clases */
+.activo { background: #50fa7b; color: #282a36; font-weight: bold; }

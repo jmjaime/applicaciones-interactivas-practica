@@ -1,9 +1,3 @@
-// 3.2 · Renderizado condicional: ternario, && y return temprano.
-import propiedades from "../datos/propiedades.json";
-import type { Propiedad } from "../types";
-import Listado from "./Listado";
-
-const lista: Propiedad[] = propiedades;
 
 // Todavía sin estado: los favoritos son una constante (cambiarla a mano y guardar).
 const favoritos: number[] = [];

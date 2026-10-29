@@ -9,20 +9,33 @@ export default function Detalle() {
       </div>
 
       <section className="panel encabezado">
-        {/* TODO: badge con la operación, con la clase según sea venta o alquiler */}
-        {/* TODO: título de la propiedad */}
-        {/* TODO: precio con moneda y separador de miles */}
+        <h1>{propiedad.titulo}</h1>
+        <h3>{propiedad.barrio}</h3>
+        <p>{propiedad.descripcion}</p>
+        <p className="precio">
+          {propiedad.moneda} {propiedad.precio.toLocaleString("es-AR")}
+        </p>
       </section>
 
       <section className="panel">
         <h2>Características</h2>
-        {/* TODO: barrio, ambientes y superficies en una línea */}
-        {/* TODO: descripción */}
+        <ul>
+          <li>{propiedad.ambientes} ambientes</li>
+          <li>{propiedad.superficieCubierta} m² cubiertos</li>
+          <li>{propiedad.superficieTotal} m² totales</li>
+          <li>Publicado el {propiedad.inmobiliaria.nombre}</li>
+        </ul>
       </section>
 
       <section className="panel">
         <h2>Inmobiliaria</h2>
-        {/* TODO: nombre, calificación con cantidad de reseñas, teléfono y email clickeables */}
+        <p>
+         Email: <a href={`mailto:${propiedad.inmobiliaria.email}`}>{propiedad.inmobiliaria.email}</a>
+        </p>
+        <p>Teléfono: <a href={`tel:${propiedad.inmobiliaria.telefono}`}>{propiedad.inmobiliaria.telefono}</a></p>
+        <p>
+          Calificación: <strong>{propiedad.inmobiliaria.calificacion}</strong> ({propiedad.inmobiliaria.cantidadResenas} reseñas)
+        </p>
       </section>
     </main>
   );

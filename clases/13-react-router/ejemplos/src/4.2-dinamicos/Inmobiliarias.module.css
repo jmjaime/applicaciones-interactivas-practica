@@ -1,0 +1,12 @@
+.fila {
+  display: grid;
+  grid-template-columns: 220px 1fr 3rem;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.barra { height: 14px; border-radius: 999px; background: #e8e8ef; overflow: hidden; }
+
+/* El ancho sale del style inline; el color, de una variable que también se pasa inline */
+.relleno { height: 100%; background: var(--color-calificacion); transition: width 0.3s; }

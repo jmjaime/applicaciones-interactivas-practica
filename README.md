@@ -17,6 +17,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 | `clases/10-html-css/` | Fundamentos de la web | Slides (HTML, CSS y JS sobre el DOM) + demos estáticas sobre el listado de propiedades (HTML semántico, cascada, Flexbox/Grid, eventos, `fetch`, estado + render) + ejercicios por bloque con integrador + páginas de referencia |
 | `clases/11-react-intro/` | Introducción a React | Slides (JSX, componentes y props, listas y condicional, eventos y `useState`) + el listado de propiedades de la Clase 10 reconstruido en React paso a paso + ejercicios por bloque sobre el detalle de una propiedad con integrador |
 | `clases/12-react-estado-eventos/` | Estado y formularios | Slides (estado en profundidad, compartir estado, formularios controlados y `FormData`, refs) + demos del comprador sobre el listado de propiedades (snapshot, comparador, listado y panel, pedir visita, hacer consulta, foco en el error) + ejercicios del vendedor por bloque con integrador (Mis propiedades con alta y edición) |
+| `clases/13-react-router/` | React Router y styling | Slides (rutas y `<Link>`, parámetros y layouts, la URL como estado y rutas protegidas; deck aparte de styling con CSS Modules, clases condicionales e inline) + demos del comprador, cada una con su propio router bajo `/<id>/` (rutas, detalle con `:id`, layouts anidados, filtros en la URL, pedir visita y redirigir, panel protegido, CSS global vs. Modules, estilos dinámicos) + ejercicios del panel del vendedor por bloque con integrador (login, rutas protegidas y edición) |
 
 ## Cómo ejecutar
 
@@ -31,6 +32,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 - `clases/10-html-css/`: ver su [README](clases/10-html-css/README.md) — slides en `slides/clase10-slides.html`; sin `npm install`: ejemplos en `ejemplos/` y ejercicios en `ejercicios/` (HTML/CSS se abren con doble click; los de JS se sirven con `npx serve` dentro de la carpeta); páginas de consulta en `referencia/`.
 - `clases/11-react-intro/`: ver su [README](clases/11-react-intro/README.md) — slides en `slides/clase11-slides.html`; ejemplos en `ejemplos/` y ejercicios en `ejercicios/`, dos proyectos Vite (`npm install && npm run dev`, índice en `http://localhost:5173`, cada uno se abre con `?ej=` en la URL); sin tests automáticos, los requisitos se verifican en el navegador y con `npm run build`.
 - `clases/12-react-estado-eventos/`: ver su [README](clases/12-react-estado-eventos/README.md) — slides en `slides/clase12-slides.html`; ejemplos en `ejemplos/` y ejercicios en `ejercicios/`, dos proyectos Vite (`npm install && npm run dev`, índice en `http://localhost:5173`, cada uno se abre con `?ej=` en la URL); sin tests automáticos, los requisitos se verifican en el navegador y con `npm run build`.
+- `clases/13-react-router/`: ver su [README](clases/13-react-router/README.md) — slides en `slides/clase13-router-slides.html` y `slides/clase13-styling-slides.html`; ejemplos en `ejemplos/` y ejercicios en `ejercicios/`, dos proyectos Vite (`npm install && npm run dev`, índice en `http://localhost:5173`, cada uno es una app aparte bajo `/<id>/`); React Router v8 (Node ≥ 22.22); sin tests automáticos, los requisitos se verifican en el navegador y con `npm run build`.
 
 ## Bibliografía
 
@@ -86,4 +88,8 @@ clases/
     slides/                        # Slides de la clase (HTML)
     ejemplos/                      # App Vite: comprador, de snapshot (1.1) a refs (4.1)
     ejercicios/                    # Pantallas del vendedor por bloque + integrador con alta y edición (Vite)
+  13-react-router/
+    slides/                        # Slides de la clase (HTML): React Router y Styling
+    ejemplos/                      # App Vite: comprador, de rutas (1.1) a estilos dinámicos (4.2)
+    ejercicios/                    # Panel del vendedor por bloque + integrador con sesión y edición (Vite)
 ```
