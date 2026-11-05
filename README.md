@@ -18,6 +18,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 | `clases/11-react-intro/` | Introducción a React | Slides (JSX, componentes y props, listas y condicional, eventos y `useState`) + el listado de propiedades de la Clase 10 reconstruido en React paso a paso + ejercicios por bloque sobre el detalle de una propiedad con integrador |
 | `clases/12-react-estado-eventos/` | Estado y formularios | Slides (estado en profundidad, compartir estado, formularios controlados y `FormData`, refs) + demos del comprador sobre el listado de propiedades (snapshot, comparador, listado y panel, pedir visita, hacer consulta, foco en el error) + ejercicios del vendedor por bloque con integrador (Mis propiedades con alta y edición) |
 | `clases/13-react-router/` | React Router y styling | Slides (rutas y `<Link>`, parámetros y layouts, la URL como estado y rutas protegidas; deck aparte de styling con CSS Modules, clases condicionales e inline) + demos del comprador, cada una con su propio router bajo `/<id>/` (rutas, detalle con `:id`, layouts anidados, filtros en la URL, pedir visita y redirigir, panel protegido, CSS global vs. Modules, estilos dinámicos) + ejercicios del panel del vendedor por bloque con integrador (login, rutas protegidas y edición) |
+| `clases/14-react-side-effects/` | Side Effects | Slides (`useEffect` y el primer fetch, dependencias y cleanup, effects que sobran y Form Actions) + demos del comprador contra una mini-API (el bucle del fetch en el render, listado con carga y error, race condition con `AbortController`, debounce, carrusel con timers y listeners, effects que sobran, pedir visita con `useActionState`) + ejercicios del panel del vendedor conectado a la API por bloque con integrador (edición, confirmar visitas y polling) |
 
 ## Cómo ejecutar
 
@@ -33,6 +34,7 @@ Prácticas y ejemplos de la materia **Aplicaciones Interactivas** (UADE), organi
 - `clases/11-react-intro/`: ver su [README](clases/11-react-intro/README.md) — slides en `slides/clase11-slides.html`; ejemplos en `ejemplos/` y ejercicios en `ejercicios/`, dos proyectos Vite (`npm install && npm run dev`, índice en `http://localhost:5173`, cada uno se abre con `?ej=` en la URL); sin tests automáticos, los requisitos se verifican en el navegador y con `npm run build`.
 - `clases/12-react-estado-eventos/`: ver su [README](clases/12-react-estado-eventos/README.md) — slides en `slides/clase12-slides.html`; ejemplos en `ejemplos/` y ejercicios en `ejercicios/`, dos proyectos Vite (`npm install && npm run dev`, índice en `http://localhost:5173`, cada uno se abre con `?ej=` en la URL); sin tests automáticos, los requisitos se verifican en el navegador y con `npm run build`.
 - `clases/13-react-router/`: ver su [README](clases/13-react-router/README.md) — slides en `slides/clase13-router-slides.html` y `slides/clase13-styling-slides.html`; ejemplos en `ejemplos/` y ejercicios en `ejercicios/`, dos proyectos Vite (`npm install && npm run dev`, índice en `http://localhost:5173`, cada uno es una app aparte bajo `/<id>/`); React Router v8 (Node ≥ 22.22); sin tests automáticos, los requisitos se verifican en el navegador y con `npm run build`.
+- `clases/14-react-side-effects/`: ver su [README](clases/14-react-side-effects/README.md) — slides en `slides/clase14-slides.html`; ejemplos en `ejemplos/` y ejercicios en `ejercicios/`, dos proyectos Vite con su propia API Express en memoria (`npm install && npm run dev`; ejemplos en `http://localhost:5173` con la API en `:3001`, ejercicios en `http://localhost:5174` con la API en `:3002`), cada uno es una app aparte bajo `/<id>/`; sin tests automáticos, los requisitos se verifican en el navegador y con `npm run build`.
 
 ## Bibliografía
 
@@ -92,4 +94,8 @@ clases/
     slides/                        # Slides de la clase (HTML): React Router y Styling
     ejemplos/                      # App Vite: comprador, de rutas (1.1) a estilos dinámicos (4.2)
     ejercicios/                    # Panel del vendedor por bloque + integrador con sesión y edición (Vite)
+  14-react-side-effects/
+    slides/                        # Slides de la clase (HTML)
+    ejemplos/                      # App Vite + API: comprador, del bucle (1.1) a useActionState (3.2)
+    ejercicios/                    # Panel del vendedor contra la API por bloque + integrador Panel conectado (Vite + API)
 ```
